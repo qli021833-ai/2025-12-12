@@ -46,188 +46,116 @@
             }
         }
     </script>
-<style type="text/tailwindcss">
-    @layer utilities {
-        .content-auto { content-visibility: auto; }
-        .backdrop-blur-md { backdrop-filter: blur(12px); }
-        .nav-shadow { box-shadow: 0 4px 20px rgba(20,25,40,0.08); }
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
-        /* 优化视频尺寸 */
-        .video-container {
-            aspect-ratio: 4/3; /* 调整为更紧凑的比例（原16/9） */
-            border-radius: 0.75rem;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto { content-visibility: auto; }
+            .backdrop-blur-md { backdrop-filter: blur(12px); }
+            .nav-shadow { box-shadow: 0 4px 20px rgba(20,25,40,0.08); }
+            .card-hover { transition: all 0.3s ease; }
+            .card-hover:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+            /* 优化视频尺寸 */
+            .video-container {
+                aspect-ratio: 4/3; /* 调整为更紧凑的比例（原16/9） */
+                border-radius: 0.75rem;
+                overflow: hidden;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            }
+            /* 图片放大弹窗 */
+            .img-modal {
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,0.8);
+                z-index: 100;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            .img-modal.active {
+                opacity: 1;
+                visibility: visible;
+                animation: scaleIn 0.3s ease-out;
+            }
+            .img-modal-content {
+                max-width: 90%;
+                max-height: 80vh;
+                border-radius: 0.5rem;
+            }
+            /* 滚动容器 */
+            .scroll-container {
+                overflow-x: auto;
+                scroll-behavior: smooth;
+                scrollbar-width: thin;
+                scrollbar-color: #2563eb #f1f5f9;
+            }
+            .scroll-container::-webkit-scrollbar {
+                height: 6px;
+            }
+            .scroll-container::-webkit-scrollbar-track {
+                background: #f1f5f9;
+                border-radius: 10px;
+            }
+            .scroll-container::-webkit-scrollbar-thumb {
+                background-color: #2563eb;
+                border-radius: 10px;
+            }
+            .scroll-indicator {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                background: white/80;
+                backdrop-filter: blur(4px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                cursor: pointer;
+                z-index: 10;
+                transition: all 0.2s ease;
+            }
+            .scroll-indicator:hover {
+                background: white;
+                transform: translateY(-50%) scale(1.1);
+            }
+            .scroll-indicator.left { left: 8px; }
+            .scroll-indicator.right { right: 8px; }
+            /* 常见问题折叠面板 */
+            .faq-item {
+                border: 1px solid #e2e8f0;
+                border-radius: 0.5rem;
+                margin-bottom: 0.75rem;
+                overflow: hidden;
+            }
+            .faq-question {
+                padding: 1rem 1.25rem;
+                background: white;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+                font-weight: 600;
+            }
+            .faq-answer {
+                padding: 0 1.25rem;
+                background: #f8fafc;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease, padding 0.3s ease;
+            }
+            .faq-answer.active {
+                padding: 1.25rem;
+                max-height: 500px;
+            }
         }
-        /* 图片放大弹窗 */
-        .img-modal {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.8);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        .img-modal.active {
-            opacity: 1;
-            visibility: visible;
-            animation: scaleIn 0.3s ease-out;
-        }
-        .img-modal-content {
-            max-width: 90%;
-            max-height: 80vh;
-            border-radius: 0.5rem;
-        }
-        /* 滚动容器 */
-        .scroll-container {
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            scrollbar-width: thin;
-            scrollbar-color: #2563eb #f1f5f9;
-        }
-        .scroll-container::-webkit-scrollbar {
-            height: 6px;
-        }
-        .scroll-container::-webkit-scrollbar-track {
-            background: #f1f5f9;
-            border-radius: 10px;
-        }
-        .scroll-container::-webkit-scrollbar-thumb {
-            background-color: #2563eb;
-            border-radius: 10px;
-        }
-        .scroll-indicator {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: white/80;
-            backdrop-filter: blur(4px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.2s ease;
-        }
-        .scroll-indicator:hover {
-            background: white;
-            transform: translateY(-50%) scale(1.1);
-        }
-        .scroll-indicator.left { left: 8px; }
-        .scroll-indicator.right { right: 8px; }
-        /* 常见问题折叠面板 */
-        .faq-item {
-            border: 1px solid #e2e8f0;
-            border-radius: 0.5rem;
-            margin-bottom: 0.75rem;
-            overflow: hidden;
-        }
-        .faq-question {
-            padding: 1rem 1.25rem;
-            background: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            font-weight: 600;
-        }
-        .faq-answer {
-            padding: 0 1.25rem;
-            background: #f8fafc;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-        .faq-answer.active {
-            padding: 1.25rem;
-            max-height: 500px;
-        }
-    }
-
-    /* 1. 导航链接下划线交互（不影响切换逻辑） */
-    .nav-link, .mobile-nav-link {
-        padding: 4px 0;
-        position: relative;
-    }
-    .nav-link::after, .mobile-nav-link::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: #2563eb;
-        transition: width 0.3s ease;
-    }
-    .nav-link:hover::after, .mobile-nav-link:hover::after {
-        width: 100%;
-    }
-
-    /* 2. 核心修复：提升内容区块显隐优先级（解决全部显示问题） */
-    .content-section {
-        display: none !important; /* 强制隐藏所有区块 */
-    }
-    .content-section.active {
-        display: block !important; /* 仅显示激活的区块 */
-    }
-
-    /* 3. 全局过渡（保留原有逻辑） */
-    * { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-
-    /* 4. 响应式优化（仅适配样式，不影响切换） */
-    /* 公司图片展示区 */
-    #companyImages img {
-        width: 100%;
-        max-width: 280px;
-        height: auto;
-        aspect-ratio: 4/3;
-    }
-    /* 移动端滚动箭头 */
-    @media (max-width: 768px) {
-        .scroll-indicator {
-            width: 30px;
-            height: 30px;
-        }
-        .scroll-indicator.left { left: 4px; }
-        .scroll-indicator.right { right: 4px; }
-        /* 文章/服务卡片单列 */
-        .articles-grid {
-            grid-template-columns: 1fr !important;
-        }
-        .services-grid {
-            grid-template-columns: 1fr !important;
-        }
-        .article-card {
-            width: 100%;
-            max-width: 350px;
-        }
-    }
-    /* 表单适配 */
-    @media (max-width: 640px) {
-        #queryForm input, #queryForm select {
-            font-size: 1rem;
-            padding: 0.75rem;
-        }
-        #queryForm button {
-            font-size: 1rem;
-            padding: 1rem;
-        }
-        .query-buttons button {
-            flex: 1;
-            padding: 0.75rem 0;
-            text-align: center;
-        }
-    }
-</style>
+        * { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+    </style>
 </head>
 <body class="bg-gradient-to-br from-eef3ff to-f9fbff text-dark antialiased">
     <!-- 导航栏（新增“常见问题”） -->
@@ -2951,5 +2879,46 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+
+
+<!-- 🔽 新增：手机 / 导航 section 切换修复脚本 -->
+<script>
+function showSectionByHash() {
+  const hash = location.hash || '#home';
+
+  document.querySelectorAll('.content-section').forEach(sec => {
+    sec.classList.remove('active');
+  });
+
+  const target = document.querySelector(hash);
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+}
+
+// 页面首次加载
+window.addEventListener('load', showSectionByHash);
+
+// hash 变化（点击导航）
+window.addEventListener('hashchange', showSectionByHash);
+
+// 手机菜单点击后关闭
+document.querySelectorAll('.mobile-nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    const menu = document.getElementById('mobileMenu');
+    if (menu) menu.classList.add('hidden');
+  });
+});
+
+// 手机菜单按钮
+const menuBtn = document.getElementById('menuBtn');
+if (menuBtn) {
+  menuBtn.addEventListener('click', () => {
+    document.getElementById('mobileMenu')?.classList.toggle('hidden');
+  });
+}
+
+</script>
 </body>
 </html>
