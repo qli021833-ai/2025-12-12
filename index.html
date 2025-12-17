@@ -159,16 +159,57 @@ height: auto;
         * { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .content-section { display: none; }
         .content-section.active { display: block; }
-    @media (max-width: 768px) {
-    .customer-feedback-grid {
-    grid-template-columns: 1fr !important;
-    }
-    }
-    </style>
+/* 手机端导航适配 */	
+@media (max-width: 768px) {	
+#mobileNavBtn {	
+position: fixed !important;	
+top: 15px !important;	
+right: 15px !important;	
+z-index: 100 !important; /* 确保不被遮挡 */	
+}	
+#mobileNav a {	
+min-height: 44px !important; /* 手机端点击区域≥44px */	
+line-height: 44px !important;	
+font-size: 16px !important;	
+}	
+/* 隐藏桌面端导航（避免重复） */	
+nav .md:flex {	
+display: none !important;	
+}	
+}	
+/* 电脑端隐藏导航按钮和折叠导航 */	
+@media (min-width: 769px) {	
+#mobileNavBtn, #mobileNav {	
+display: none !important;	
+}	
+} 
+  /* 图片放大弹窗基础样式 */		
+.img-modal {		
+display: none;		
+position: fixed;		
+z-index: 100;		
+left: 0;		
+top: 0;		
+width: 100%;		
+height: 100%;		
+overflow: auto;		
+background-color: rgba(0,0,0,0.9);		
+}		
+/* 弹窗图片适配（核心修改） */		
+.img-modal-content {		
+max-width: 90vw !important; /* 手机端占屏幕 90% 宽度，不溢出 */		
+height: auto !important; /* 保持宽高比 */		
+margin: auto;		
+display: block;		
+}
+ </style>
 </head>
 <body class="bg-gradient-to-br from-eef3ff to-f9fbff text-dark antialiased">
     <!-- 导航栏（新增“常见问题”） -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md nav-shadow py-3 px-4 md:px-8">
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md nav-shadow py-3 px-4 md:px-8">
+<button id="mobileNavBtn" class="md:hidden w-12 h-12 flex items-center justify-center text-xl bg-white rounded-lg shadow-md fixed top-4 right-4 z-60">
+☰
+</button>
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <a href="#home" class="flex items-center gap-3">
 <img src="公司logo/logo.jpg" alt="凯德盟Logo" class="h-12 w-auto rounded-lg" loading="lazy" />                <div>
@@ -185,6 +226,7 @@ height: auto;
                 <a href="#faq" class="nav-link font-semibold hover:text-primary">常见问题</a>
                 <a href="#about" class="nav-link font-semibold hover:text-primary">关于我</a>
             </div>
+<!-- 新增手机端折叠导航 --><div id="mobileNav" class="fixed top-20 right-4 bg-white w-64 rounded-lg shadow-lg p-4 hidden z-50"><a href="#home" class="block py-2 px-4 hover:bg-gray-100">首页</a><a href="#brand-record" class="block py-2 px-4 hover:bg-gray-100">品牌备案</a><a href="#trademark-register" class="block py-2 px-4 hover:bg-gray-100">商标注册</a><a href="#customer-feedback" class="block py-2 px-4 hover:bg-gray-100">客户反馈</a><a href="#company-intro" class="block py-2 px-4 hover:bg-gray-100">公司介绍</a><a href="#faq" class="block py-2 px-4 hover:bg-gray-100">常见问题</a></div>
             <!-- 移动端菜单按钮 -->
             <button id="menuBtn" class="md:hidden text-dark text-2xl w-12 h-12 flex items-center justify-center">
                 <i class="fa fa-bars"></i>
@@ -701,20 +743,7 @@ height: auto;
 
         <!-- 常驻分类导航栏（不折叠） -->
         <div class="bg-white shadow-md rounded-lg p-4 mb-8 sticky top-0 z-20 border border-gray-100">
-            <!-- 导航栏上方提示文字 -->
-            <div class="text-center mb-3 text-sm text-gray-600 italic">
-                <i class="fa fa-lightbulb-o text-yellow-500 mr-1"></i>点击下方分类即可查看对应板块的详细文章
-            </div>
-            
-            <div class="flex flex-wrap items-center justify-center gap-3">
-                <button class="nav-tab active px-5 py-2 bg-primary text-white rounded-md hover:bg-accent transition-colors text-sm font-medium" data-target="trademark">商标注册</button>
-                <button class="nav-tab px-5 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors text-sm font-medium" data-target="filing">品牌备案</button>
-                <button class="nav-tab px-5 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors text-sm font-medium" data-target="reject">备案被拒</button>
-                <button class="nav-tab px-5 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors text-sm font-medium" data-target="after-filing">备案后问题</button>
-                <button class="nav-tab px-5 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors text-sm font-medium" data-target="patent">专利/TRO</button>
-                <button class="nav-tab px-5 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors text-sm font-medium" data-target="tools">工具技巧</button>
-                <button class="nav-tab px-5 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors text-sm font-medium" data-target="materials">备案资料</button>
-            </div>
+ <!-- 导航栏上方提示文字 --> <div class="text-center mb-3 text-sm text-gray-600 italic"> <i class="fa fa-lightbulb-o text-yellow-500 mr-1"></i>点击下方分类即可查看对应板块的详细文章 </div> <div class="flex flex-wrap items-center justify-center gap-3"> <button class="nav-tab active px-6 py-3 bg-primary text-white rounded-md hover:bg-accent transition-colors text-sm font-medium min-w-[44px] min-h-[44px]" data-target="trademark">商标注册</button> <button class="nav-tab px-6 py-3 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors text-sm font-medium min-w-[44px] min-h-[44px]" data-target="filing">品牌备案</button> <button class="nav-tab px-6 py-3 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors text-sm font-medium min-w-[44px] min-h-[44px]" data-target="reject">备案被拒</button> <button class="nav-tab px-6 py-3 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors text-sm font-medium min-w-[44px] min-h-[44px]" data-target="after-filing">备案后问题</button> <button class="nav-tab px-6 py-3 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors text-sm font-medium min-w-[44px] min-h-[44px]" data-target="patent">专利/TRO</button> <button class="nav-tab px-6 py-3 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors text-sm font-medium min-w-[44px] min-h-[44px]" data-target="tools">工具技巧</button> <button class="nav-tab px-6 py-3 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors text-sm font-medium min-w-[44px] min-h-[44px]" data-target="materials">备案资料</button> </div>
             
             <!-- 导航栏下方提示文字（可选，二选一即可） -->
             <!-- <div class="text-center mt-3 text-xs text-gray-500">
@@ -1911,23 +1940,22 @@ function copyWechat(wechatId) {
     
     <!-- 分类标签 -->
     <div class="flex flex-wrap justify-center gap-3 mb-6">
-        <button class="case-tab active px-4 py-2 rounded-full bg-primary text-white font-medium transition-all hover:bg-accent shadow-sm" data-tab="all">
+        <button class="case-tab active px-6 py-3 rounded-full bg-primary text-white font-medium transition-all hover:bg-accent shadow-sm min-w-[44px] min-h-[44px]" data-tab="all">
             全部案例
         </button>
-        <button class="case-tab px-4 py-2 rounded-full bg-gray-100 text-dark font-medium transition-all hover:bg-primary/10 shadow-sm" data-tab="record">
+        <button class="case-tab px-6 py-3 rounded-full bg-gray-100 text-dark font-medium transition-all hover:bg-primary/10 shadow-sm min-w-[44px] min-h-[44px]" data-tab="record">
             亚马逊品牌备案
         </button>
-        <button class="case-tab px-4 py-2 rounded-full bg-gray-100 text-dark font-medium transition-all hover:bg-primary/10 shadow-sm" data-tab="trademark">
+        <button class="case-tab px-6 py-3 rounded-full bg-gray-100 text-dark font-medium transition-all hover:bg-primary/10 shadow-sm min-w-[44px] min-h-[44px]" data-tab="trademark">
             美国商标下证
         </button>
-        <button class="case-tab px-4 py-2 rounded-full bg-gray-100 text-dark font-medium transition-all hover:bg-primary/10 shadow-sm" data-tab="tro">
+        <button class="case-tab px-6 py-3 rounded-full bg-gray-100 text-dark font-medium transition-all hover:bg-primary/10 shadow-sm min-w-[44px] min-h-[44px]" data-tab="tro">
             TRO应诉和解
         </button>
-        <button class="case-tab px-4 py-2 rounded-full bg-gray-100 text-dark font-medium transition-all hover:bg-primary/10 shadow-sm" data-tab="patent">
+        <button class="case-tab px-6 py-3 rounded-full bg-gray-100 text-dark font-medium transition-all hover:bg-primary/10 shadow-sm min-w-[44px] min-h-[44px]" data-tab="patent">
             专利申请
         </button>
-        <button class="case-tab px-4 py-2 rounded-full bg-gray-100 text-dark font-medium transition-all hover:bg-primary/10 shadow-sm" data-tab="other">
-            其他案例
+<button class="case-tab px-6 py-3 rounded-full bg-gray-100 text-dark font-medium transition-all hover:bg-primary/10 shadow-sm min-w-[44px] min-h-[44px]" data-tab="other">            其他案例
         </button>
     </div>
 
@@ -2875,6 +2903,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 100);
 });
 </script>
-
+// 手机端导航按钮交互const mobileNavBtn = document.getElementById('mobileNavBtn');const mobileNav = document.getElementById('mobileNav');mobileNavBtn.onclick = function() {mobileNav.classList.toggle('hidden');this.innerHTML = mobileNav.classList.contains('hidden') ? '☰' : '✕';};</script>
 </body>
 </html>
