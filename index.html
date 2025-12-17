@@ -2,15 +2,7 @@
 <html lang="zh-CN">
 <head>
 <style>
-/* 新增：统一盒模型（粘贴到最顶部） */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent; /* 清除手机点击高亮 */
-}
-.link {
-  padding: 10px 16px;
+.link { padding: 12px 16px; min-height: 48px; display: flex; align-items: center;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
@@ -23,8 +15,7 @@
 </style>
 
     <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>凯德盟 - 专业涉外知识产权服务</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">    <title>凯德盟 - 专业涉外知识产权服务</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script>
@@ -53,7 +44,8 @@
             }
         }
     </script>
-    <style type="text/tailwindcss">
+<style type="text/tailwindcss">
+{margin: 0;padding: 0;box-sizing: border-box;}
         @layer utilities {
             .content-auto { content-visibility: auto; }
             .backdrop-blur-md { backdrop-filter: blur(12px); }
@@ -131,7 +123,12 @@
             }
             .scroll-indicator.left { left: 8px; }
             .scroll-indicator.right { right: 8px; }
-            /* 常见问题折叠面板 */
+         
+img, video {	
+max-width: 100%;	
+height: auto;	
+}
+   /* 常见问题折叠面板 */
             .faq-item {
                 border: 1px solid #e2e8f0;
                 border-radius: 0.5rem;
@@ -159,48 +156,14 @@
                 max-height: 500px;
             }
         }
-    /* 新增：移动端适配样式（粘贴到这里） */
-    @media (max-width: 767px) {
-        /* 全局调整：body内边距、字体 */
-        body {
-            padding: 0 !important;
-            font-size: 14px !important;
-        }
-        /* 链接按钮适配：手机端减小内边距 */
-        .link {
-            padding: 8px 12px;
-            font-size: 14px;
-        }
-        /* 视频容器：手机端改为16:9更适配 */
-        .video-container {
-            aspect-ratio: 16/9;
-        }
-        /* 滚动指示器：手机端调小尺寸 */
-        .scroll-indicator {
-            width: 30px;
-            height: 30px;
-        }
-        /* FAQ面板：手机端减小内边距 */
-        .faq-question {
-            padding: 0.75rem 1rem;
-            font-size: 14px;
-        }
-        .faq-answer.active {
-            padding: 1rem;
-        }
-        /* 图片弹窗：手机端最大化显示 */
-        .img-modal-content {
-            max-width: 95%;
-            max-height: 70vh;
-        }
-        /* 解决手机端横向滚动问题 */
-        html, body {
-            overflow-x: hidden;
-        }
-    }
         * { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .content-section { display: none; }
         .content-section.active { display: block; }
+    @media (max-width: 768px) {
+    .customer-feedback-grid {
+    grid-template-columns: 1fr !important;
+    }
+    }
     </style>
 </head>
 <body class="bg-gradient-to-br from-eef3ff to-f9fbff text-dark antialiased">
@@ -208,8 +171,7 @@
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md nav-shadow py-3 px-4 md:px-8">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <a href="#home" class="flex items-center gap-3">
-                <img src="公司logo/logo.jpg" alt="凯德盟Logo" class="h-12 w-auto rounded-lg" />
-                <div>
+<img src="公司logo/logo.jpg" alt="凯德盟Logo" class="h-12 w-auto rounded-lg" loading="lazy" />                <div>
                     <div class="font-bold text-primary text-lg md:text-xl">凯德盟（CADMON）</div>
                     <div class="text-xs text-muted">专业涉外知识产权服务</div>
                 </div>
@@ -224,7 +186,7 @@
                 <a href="#about" class="nav-link font-semibold hover:text-primary">关于我</a>
             </div>
             <!-- 移动端菜单按钮 -->
-            <button id="menuBtn" class="md:hidden text-dark text-xl">
+            <button id="menuBtn" class="md:hidden text-dark text-2xl w-12 h-12 flex items-center justify-center">
                 <i class="fa fa-bars"></i>
             </button>
         </div>
@@ -243,8 +205,7 @@
 
     <!-- 图片放大弹窗（新增） -->
     <div id="imgModal" class="img-modal">
-        <img id="modalImg" class="img-modal-content" src="公司logo/logo.jpg" alt="放大图片">
-    </div>
+ <img id="modalImg" class="img-modal-content" src="公司logo/logo.jpg" alt="放大图片" loading="lazy" />    </div>
 
     <!-- 主内容区 -->
     <main class="pt-24 pb-16">
@@ -293,12 +254,7 @@
                             <div id="companyImages" class="scroll-container pb-2">
                                 <div class="flex gap-3 min-w-max">
                                     <!-- 点击图片触发放大 -->
-                                    <img src="公司介绍/1.jpg" alt="公司介绍1" class="rounded-lg w-64 h-48 object-cover card-hover cursor-zoom" onclick="openImgModal(this.src)" />
-                                    <img src="公司介绍/2.jpg" alt="公司介绍2" class="rounded-lg w-64 h-48 object-cover card-hover cursor-zoom" onclick="openImgModal(this.src)" />
-                                    <img src="公司介绍/3.jpg" alt="公司介绍3" class="rounded-lg w-64 h-48 object-cover card-hover cursor-zoom" onclick="openImgModal(this.src)" />
-                                    <img src="公司介绍/4.jpg" alt="公司介绍4" class="rounded-lg w-64 h-48 object-cover card-hover cursor-zoom" onclick="openImgModal(this.src)" />
-                                    <img src="公司介绍/5.jpg" alt="公司介绍5" class="rounded-lg w-64 h-48 object-cover card-hover cursor-zoom" onclick="openImgModal(this.src)" />
-                                    <img src="公司介绍/6.jpg" alt="公司介绍6" class="rounded-lg w-64 h-48 object-cover card-hover cursor-zoom" onclick="openImgModal(this.src)" />
+                                    <!-- 点击图片触发放大 --> <img src="公司介绍/1.jpg" alt="公司介绍1" class="rounded-lg w-full sm:w-64 h-48 object-cover card-hover cursor-zoom" onclick="openImgModal(this.src)" loading="lazy" /> <img src="公司介绍/2.jpg" alt="公司介绍2" class="rounded-lg w-full sm:w-64 h-48 object-cover card-hover cursor-zoom" onclick="openImgModal(this.src)" loading="lazy" /> <img src="公司介绍/3.jpg" alt="公司介绍3" class="rounded-lg w-full sm:w-64 w-64 h-48 object-cover card-hover cursor-zoom" onclick="openImgModal(this.src)" loading="lazy" /> <img src="公司介绍/4.jpg" alt="公司介绍4" class="rounded-lg w-full sm:w-64 w-64 h-48 object-cover card-hover cursor-zoom" onclick="openImgModal(this.src)" loading="lazy" /> <img src="公司介绍/5.jpg" alt="公司介绍5" class="rounded-lg w-full sm:w-64 w-64 h-48 object-cover card-hover cursor-zoom" onclick="openImgModal(this.src)" loading="lazy" /> <img src="公司介绍/6.jpg" alt="公司介绍6" class="rounded-lg w-full sm:w-64 w-64 h-48 object-cover card-hover cursor-zoom" onclick="openImgModal(this.src)" loading="lazy" />
                                 </div>
                             </div>
                         </div>
@@ -341,10 +297,10 @@
                 <!-- 客户反馈 -->
                 <div class="mb-8">
                     <h3 class="font-bold text-xl mb-6 text-accent text-center">客户真实反馈</h3>
-                    <div class="grid md:grid-cols-2 gap-6">
+                     <div class="grid md:grid-cols-2 gap-6 customer-feedback-grid">
                         <div class="bg-white rounded-xl shadow-md p-5 card-hover">
                             <div class="flex items-center gap-3 mb-3">
-                                <img src="客户头像/1.jpg" alt="客户头像" class="w-12 h-12 rounded-full object-cover" />
+                                <img src="客户头像/1.jpg" alt="客户头像" class="w-12 h-12 rounded-full object-cover" loading="lazy"  />
                                 <div>
                                     <h4 class="font-bold">王先生（跨境电商卖家）</h4>
                                     <div class="flex text-yellow-400">
@@ -358,7 +314,7 @@
                         </div>
                         <div class="bg-white rounded-xl shadow-md p-5 card-hover">
                             <div class="flex items-center gap-3 mb-3">
-                                <img src="客户头像/2.jpg" alt="客户头像" class="w-12 h-12 rounded-full object-cover" />
+                                <img src="客户头像/2.jpg" alt="客户头像" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
                                 <div>
                                     <h4 class="font-bold">李女士（品牌方）</h4>
                                     <div class="flex text-yellow-400">
@@ -372,7 +328,7 @@
                         </div>
                         <div class="bg-white rounded-xl shadow-md p-5 card-hover">
                             <div class="flex items-center gap-3 mb-3">
-                                <img src="客户头像/3.jpg" alt="客户头像" class="w-12 h-12 rounded-full object-cover" />
+                                <img src="客户头像/3.jpg" alt="客户头像" class="w-12 h-12 rounded-full object-cover" loading="lazy"  />
                                 <div>
                                     <h4 class="font-bold">陈总（外贸企业）</h4>
                                     <div class="flex text-yellow-400">
@@ -386,7 +342,7 @@
                         </div>
                         <div class="bg-white rounded-xl shadow-md p-5 card-hover">
                             <div class="flex items-center gap-3 mb-3">
-                                <img src="客户头像/4.jpg" alt="客户头像" class="w-12 h-12 rounded-full object-cover" />
+                                <img src="客户头像/4.jpg" alt="客户头像" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
                                 <div>
                                     <h4 class="font-bold">张先生（tiktok卖家）</h4>
                                     <div class="flex text-yellow-400">
@@ -429,12 +385,7 @@
                 <form id="queryForm" class="space-y-6">
                     <div>
                         <label class="block font-semibold mb-2 text-lg" for="number">商标/专利申请号</label>
-                        <input 
-                            type="text" 
-                            id="number" 
-                            placeholder="例如：9876543（美国）、012345678（欧盟）" 
-                            class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-lg"
-                        >
+<input type="text" id="number" placeholder="例如：9876543（美国）、012345678（欧盟）" class="w-full px-4 py-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-base sm:text-lg" >                        >
                     </div>
                     <div>
                         <label class="block font-semibold mb-2 text-lg" for="country">选择国家/地区</label>
@@ -1769,7 +1720,7 @@
     <div class="animate-slide-up mt-0"> <!-- 去掉多余的margin-top，或设为mt-0 -->
         <div class="relative">
             <!-- 给图片添加top-0，同时调整容器的垂直空间 -->
-            <img src="展示图.png" alt="个人介绍" class="w-full rounded-xl shadow-md card-hover cursor-zoom top-0" onclick="openImgModal(this.src)" />
+            <img src="展示图.png" alt="个人介绍" class="w-full rounded-xl shadow-md card-hover cursor-zoom top-0" onclick="openImgModal(this.src)" loading="lazy"  />
             <!-- 增加经验标识 -->
             <div class="absolute -bottom-4 -right-4 bg-primary text-white rounded-xl p-4 shadow-lg animate-float">
                 <div class="font-bold text-xl">10+</div>
@@ -1914,7 +1865,7 @@
             <span>微信号2：CADMON456</span>
         </div>
         <!-- 可选：二维码（若仍需展示） -->
-        <img src="微信二维码/1.jpg" alt="微信二维码" class="w-36 h-36 mt-2 rounded-lg shadow-lg">
+        <img src="微信二维码/1.jpg" alt="微信二维码" class="w-36 h-36 mt-2 rounded-lg shadow-lg" loading="lazy" >
     </div>
 </div>
 
@@ -1996,7 +1947,7 @@ function copyWechat(wechatId) {
                 <!-- 亚马逊品牌备案案例 (原有2张) -->
                 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="record">
                     <div class="h-48 overflow-hidden">
-                        <img src="images/备案通过/1.jpg" alt="亚马逊品牌备案案例1" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+                        <img src="images/备案通过/1.jpg" alt="亚马逊品牌备案案例1" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
                     </div>
                     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
                         亚马逊品牌备案案例
@@ -2004,7 +1955,7 @@ function copyWechat(wechatId) {
                 </div>
                 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="record">
                     <div class="h-48 overflow-hidden">
-                        <img src="images/备案通过/2.jpg" alt="亚马逊品牌备案案例2" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+                        <img src="images/备案通过/2.jpg" alt="亚马逊品牌备案案例2" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
                     </div>
                     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
                         亚马逊品牌备案案例
@@ -2014,7 +1965,7 @@ function copyWechat(wechatId) {
                 <!-- 美国商标下证案例 (原有2张) -->
                 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="trademark">
                     <div class="h-48 overflow-hidden">
-                        <img src="images/下证/1.jpg" alt="美国商标下证案例1" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+                        <img src="images/下证/1.jpg" alt="美国商标下证案例1" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
                     </div>
                     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
                         美国商标下证案例
@@ -2022,7 +1973,7 @@ function copyWechat(wechatId) {
                 </div>
                 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="trademark">
                     <div class="h-48 overflow-hidden">
-                        <img src="images/下证/2.jpg" alt="美国商标下证案例2" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+                        <img src="images/下证/2.jpg" alt="美国商标下证案例2" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
                     </div>
                     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
                         美国商标下证案例
@@ -2040,7 +1991,7 @@ function copyWechat(wechatId) {
                 </div>
                 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="tro">
                     <div class="h-48 overflow-hidden">
-                        <img src="images/TRO/2.png" alt="TRO应诉和解案例2" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+                        <img src="images/TRO/2.png" alt="TRO应诉和解案例2" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
                     </div>
                     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
                         TRO应诉和解案例
@@ -2050,7 +2001,7 @@ function copyWechat(wechatId) {
                 <!-- 专利申请案例 (原有3张) -->
                 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="patent">
                     <div class="h-48 overflow-hidden">
-                        <img src="images/专利/1.jpg" alt="专利申请案例1" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+                        <img src="images/专利/1.jpg" alt="专利申请案例1" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
                     </div>
                     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
                         专利申请案例
@@ -2058,7 +2009,7 @@ function copyWechat(wechatId) {
                 </div>
                 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="patent">
                     <div class="h-48 overflow-hidden">
-                        <img src="images/专利/2.jpg" alt="专利申请案例2" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+                        <img src="images/专利/2.jpg" alt="专利申请案例2" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
                     </div>
                     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
                         专利申请案例
@@ -2066,7 +2017,7 @@ function copyWechat(wechatId) {
                 </div>
                 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="patent">
                     <div class="h-48 overflow-hidden">
-                        <img src="images/专利/3.jpg" alt="专利申请案例3" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+                        <img src="images/专利/3.jpg" alt="专利申请案例3" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
                     </div>
                     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
                         专利申请案例
@@ -2076,7 +2027,7 @@ function copyWechat(wechatId) {
    <!-- 其他案例 (31张完整版本) -->
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/1.jpg" alt="其他案例1" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/1.jpg" alt="其他案例1" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2084,7 +2035,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/2.jpg" alt="其他案例2" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/2.jpg" alt="其他案例2" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2092,7 +2043,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/3.jpg" alt="其他案例3" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/3.jpg" alt="其他案例3" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2100,7 +2051,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/4.jpg" alt="其他案例4" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/4.jpg" alt="其他案例4" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2108,7 +2059,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/5.jpg" alt="其他案例5" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/5.jpg" alt="其他案例5" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2116,7 +2067,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/6.jpg" alt="其他案例6" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/6.jpg" alt="其他案例6" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2124,7 +2075,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/7.jpg" alt="其他案例7" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/7.jpg" alt="其他案例7" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2132,7 +2083,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/8.jpg" alt="其他案例8" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/8.jpg" alt="其他案例8" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)"  loading="lazy" />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2140,7 +2091,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/9.jpg" alt="其他案例9" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/9.jpg" alt="其他案例9" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2148,7 +2099,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/10.jpg" alt="其他案例10" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/10.jpg" alt="其他案例10" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2156,7 +2107,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/11.jpg" alt="其他案例11" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/11.jpg" alt="其他案例11" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2164,7 +2115,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/12.jpg" alt="其他案例12" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/12.jpg" alt="其他案例12" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2172,7 +2123,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/13.jpg" alt="其他案例13" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/13.jpg" alt="其他案例13" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2180,7 +2131,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/14.jpg" alt="其他案例14" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/14.jpg" alt="其他案例14" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2188,7 +2139,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/15.jpg" alt="其他案例15" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/15.jpg" alt="其他案例15" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2196,7 +2147,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/16.jpg" alt="其他案例16" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/16.jpg" alt="其他案例16" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2204,7 +2155,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/17.jpg" alt="其他案例17" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/17.jpg" alt="其他案例17" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2212,7 +2163,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/18.jpg" alt="其他案例18" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/18.jpg" alt="其他案例18" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2220,7 +2171,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/19.jpg" alt="其他案例19" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/19.jpg" alt="其他案例19" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2228,7 +2179,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/20.jpg" alt="其他案例20" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/20.jpg" alt="其他案例20" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2236,7 +2187,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/21.jpg" alt="其他案例21" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/21.jpg" alt="其他案例21" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2244,7 +2195,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/22.jpg" alt="其他案例22" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/22.jpg" alt="其他案例22" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)"  loading="lazy" />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2252,7 +2203,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/23.jpg" alt="其他案例23" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/23.jpg" alt="其他案例23" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2260,7 +2211,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/24.jpg" alt="其他案例24" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/24.jpg" alt="其他案例24" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2268,7 +2219,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/25.jpg" alt="其他案例25" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/25.jpg" alt="其他案例25" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2276,7 +2227,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/26.jpg" alt="其他案例26" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/26.jpg" alt="其他案例26" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2284,7 +2235,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/27.jpg" alt="其他案例27" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/27.jpg" alt="其他案例27" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2292,7 +2243,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/28.jpg" alt="其他案例28" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/28.jpg" alt="其他案例28" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2300,7 +2251,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/29.jpg" alt="其他案例29" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/29.jpg" alt="其他案例29" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2308,7 +2259,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/30.jpg" alt="其他案例30" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/30.jpg" alt="其他案例30" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2316,7 +2267,7 @@ function copyWechat(wechatId) {
 </div>
 <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
     <div class="h-48 overflow-hidden">
-        <img src="images/其他/31.jpg" alt="其他案例31" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
+        <img src="images/其他/31.jpg" alt="其他案例31" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
     </div>
     <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
         其他成功案例
@@ -2638,8 +2589,8 @@ function fallbackCopy(wechatId) {
                 <div>
                     <h3 class="font-bold text-xl mb-4 border-b border-gray-700 pb-2">微信二维码</h3>
                     <div class="grid grid-cols-2 gap-4">
-                        <img src="微信二维码/1.jpg" alt="微信二维码1" class="w-full rounded-lg cursor-zoom" onclick="openImgModal(this.src)" />
-                        <img src="微信二维码/2.jpg" alt="微信二维码2" class="w-full rounded-lg cursor-zoom" onclick="openImgModal(this.src)" />
+                        <img src="微信二维码/1.jpg" alt="微信二维码1" class="w-full rounded-lg cursor-zoom" onclick="openImgModal(this.src)" loading="lazy"  />
+                        <img src="微信二维码/2.jpg" alt="微信二维码2" class="w-full rounded-lg cursor-zoom" onclick="openImgModal(this.src)" loading="lazy"  />
                     </div>
                 </div>
             </div>
