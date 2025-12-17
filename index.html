@@ -14,151 +14,12 @@
 }
 </style>
 
-    <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">    <title>凯德盟 - 专业涉外知识产权服务</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#2563eb',
-                        accent: '#1d4ed8',
-                        muted: '#6b7280',
-                        light: '#f8fafc',
-                        dark: '#1e293b'
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.6s ease-in-out',
-                        'slide-up': 'slideUp 0.5s ease-out',
-                        'pulse-light': 'pulse 2s infinite',
-                        'scale-in': 'scaleIn 0.3s ease-out'
-                    },
-                    keyframes: {
-                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
-                        slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
-                        scaleIn: { '0%': { transform: 'scale(0.9)', opacity: '0' }, '100%': { transform: 'scale(1)', opacity: '1' } }
-                    }
-                }
-            }
-        }
-    </script>
-<style type="text/tailwindcss">
-{margin: 0;padding: 0;box-sizing: border-box;}
-        @layer utilities {
-            .content-auto { content-visibility: auto; }
-            .backdrop-blur-md { backdrop-filter: blur(12px); }
-            .nav-shadow { box-shadow: 0 4px 20px rgba(20,25,40,0.08); }
-            .card-hover { transition: all 0.3s ease; }
-            .card-hover:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
-            /* 优化视频尺寸 */
-            .video-container {
-                aspect-ratio: 4/3; /* 调整为更紧凑的比例（原16/9） */
-                border-radius: 0.75rem;
-                overflow: hidden;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            }
-            /* 图片放大弹窗 */
-            .img-modal {
-                position: fixed;
-                top: 0; left: 0; right: 0; bottom: 0;
-                background: rgba(0,0,0,0.8);
-                z-index: 100;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-            }
-            .img-modal.active {
-                opacity: 1;
-                visibility: visible;
-                animation: scaleIn 0.3s ease-out;
-            }
-            .img-modal-content {
-                max-width: 90%;
-                max-height: 80vh;
-                border-radius: 0.5rem;
-            }
-            /* 滚动容器 */
-            .scroll-container {
-                overflow-x: auto;
-                scroll-behavior: smooth;
-                scrollbar-width: thin;
-                scrollbar-color: #2563eb #f1f5f9;
-            }
-            .scroll-container::-webkit-scrollbar {
-                height: 6px;
-            }
-            .scroll-container::-webkit-scrollbar-track {
-                background: #f1f5f9;
-                border-radius: 10px;
-            }
-            .scroll-container::-webkit-scrollbar-thumb {
-                background-color: #2563eb;
-                border-radius: 10px;
-            }
-            .scroll-indicator {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 36px;
-                height: 36px;
-                border-radius: 50%;
-                background: white/80;
-                backdrop-filter: blur(4px);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-                cursor: pointer;
-                z-index: 10;
-                transition: all 0.2s ease;
-            }
-            .scroll-indicator:hover {
-                background: white;
-                transform: translateY(-50%) scale(1.1);
-            }
-            .scroll-indicator.left { left: 8px; }
-            .scroll-indicator.right { right: 8px; }
-         
-img, video {	
-max-width: 100%;	
-height: auto;	
-}
-   /* 常见问题折叠面板 */
-            .faq-item {
-                border: 1px solid #e2e8f0;
-                border-radius: 0.5rem;
-                margin-bottom: 0.75rem;
-                overflow: hidden;
-            }
-            .faq-question {
-                padding: 1rem 1.25rem;
-                background: white;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                cursor: pointer;
-                font-weight: 600;
-            }
-            .faq-answer {
-                padding: 0 1.25rem;
-                background: #f8fafc;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease, padding 0.3s ease;
-            }
-            .faq-answer.active {
-                padding: 1.25rem;
-                max-height: 500px;
-            }
-        }
-        * { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .content-section { display: none; }
-        .content-section.active { display: block; }
+<!DOCTYPE html> <html lang="zh-CN"> <head> <meta charset="utf-8"> <!-- 1. viewport放在<head>最顶部，优先级最高 --> <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover"> <title>凯德盟 - 专业涉外知识产权服务</title> 
+<script src="https://cdn.tailwindcss.com"></script> <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet"> <!-- 2. 全局基础样式（放在tailwind之前，避免被覆盖） --> <style> * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); } .link { padding: 12px 16px; min-height: 48px; display: flex; align-items: center; background: #fff; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); transition: 0.2s; } .link:hover { background: #2563eb; color: #fff; } /* 图片/视频全局适配（强制生效） */ img, video { max-width: 100% !important; height: auto !important; } /* 手机端导航核心样式（强制优先级） */ #mobileNavBtn { display: none !important; } @media (max-width: 768px) { #mobileNavBtn { display: flex !important; position: fixed !important; top: 15px !important; right: 15px !important; z-index: 999 !important; } #mobileNav a { min-height: 44px !important; line-height: 44px !important; font-size: 16px !important; } /* 所有按钮强制44px点击区域 */ button, a[href] { min-height: 44px !important; min-width: 44px !important; } /* 容器适配手机宽度 */ .max-w-7xl { width: 95% !important; margin: 0 auto !important; } } @media (min-width: 769px) { #mobileNavBtn, #mobileNav { display: none !important; } } </style> 
+<!-- 3. tailwind配置 --> 
+<script> tailwind.config = { theme: { extend: { colors: { primary: '#2563eb', accent: '#1d4ed8', muted: '#6b7280', light: '#f8fafc', dark: '#1e293b' }, animation: { 'fade-in': 'fadeIn 0.6s ease-in-out', 'slide-up': 'slideUp 0.5s ease-out', 'pulse-light': 'pulse 2s infinite', 'scale-in': 'scaleIn 0.3s ease-out' }, keyframes: { fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } }, slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }, scaleIn: { '0%': { transform: 'scale(0.9)', opacity: '0' }, '100%': { transform: 'scale(1)', opacity: '1' } } } } } } </script>
+ <!-- 4. tailwind工具类样式（只保留必要的，避免冲突） --> 
+<style type="text/tailwindcss"> @layer utilities { .content-auto { content-visibility: auto; } .backdrop-blur-md { backdrop-filter: blur(12px); } .nav-shadow { box-shadow: 0 4px 20px rgba(20,25,40,0.08); } .card-hover { transition: all 0.3s ease; } .card-hover:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); } /* 优化视频尺寸 */ .video-container { aspect-ratio: 4/3; border-radius: 0.75rem; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); } /* 图片放大弹窗（统一样式，避免冲突） */ .img-modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 100; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; } .img-modal.active { opacity: 1; visibility: visible; animation: scaleIn 0.3s ease-out; } .img-modal-content { max-width: 90vw !important; max-height: 80vh; border-radius: 0.5rem; height: auto !important; } /* 滚动容器 */ .scroll-container { overflow-x: auto; scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: #2563eb #f1f5f9; } .scroll-container::-webkit-scrollbar { height: 6px; } .scroll-container::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 10px; } .scroll-container::-webkit-scrollbar-thumb { background-color: #2563eb; border-radius: 10px; } .scroll-indicator { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50%; background: white/80; backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); cursor: pointer; z-index: 10; transition: all 0.2s ease; } .scroll-indicator:hover { background: white; transform: translateY(-50%) scale(1.1); } .scroll-indicator.left { left: 8px; } .scroll-indicator.right { right: 8px; } /* 常见问题折叠面板 */ .faq-item { border: 1px solid #e2e8f0; border-radius: 0.5rem; margin-bottom: 0.75rem; overflow: hidden; } .faq-question { padding: 1rem 1.25rem; background: white; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600; } .faq-answer { padding: 0 1.25rem; background: #f8fafc; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; } .faq-answer.active { padding: 1.25rem; max-height: 500px; } } .content-section { display: none; } .content-section.active { display: block; } </style>
 /* 手机端导航适配 */	
 @media (max-width: 768px) {	
 #mobileNavBtn {	
@@ -202,32 +63,45 @@ height: auto !important; /* 保持宽高比 */
 margin: auto;		
 display: block;		
 }
- </style>
-</head>
 <body class="bg-gradient-to-br from-eef3ff to-f9fbff text-dark antialiased">
     <!-- 导航栏（新增“常见问题”） -->
-<nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md nav-shadow py-3 px-4 md:px-8">
-<button id="mobileNavBtn" class="md:hidden w-12 h-12 flex items-center justify-center text-xl bg-white rounded-lg shadow-md fixed top-4 right-4 z-60">
-☰
-</button>
+<!-- 导航栏（完整适配版） -->
+<body class="bg-gradient-to-br from-eef3ff to-f9fbff text-dark antialiased">
+    <!-- 导航栏（唯一适配版，删除重复的menuBtn/mobileMenu） -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md nav-shadow py-3 px-4 md:px-8">
+        <!-- 手机端导航展开按钮（仅手机显示） -->
+        <button id="mobileNavBtn" class="md:hidden w-12 h-12 flex items-center justify-center text-xl bg-white rounded-lg shadow-md fixed top-4 right-4 z-60">
+            ☰
+        </button>
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <a href="#home" class="flex items-center gap-3">
-<img src="公司logo/logo.jpg" alt="凯德盟Logo" class="h-12 w-auto rounded-lg" loading="lazy" />                <div>
+                <img src="公司logo/logo.jpg" alt="凯德盟Logo" class="h-12 w-auto rounded-lg" loading="lazy" />
+                <div>
                     <div class="font-bold text-primary text-lg md:text-xl">凯德盟（CADMON）</div>
                     <div class="text-xs text-muted">专业涉外知识产权服务</div>
                 </div>
             </a>
-            <!-- 桌面端导航 -->
-            <div class="hidden md:flex items-center gap-6">
-                <a href="#home" class="nav-link font-semibold text-primary border-b-2 border-primary">首页</a>
-                <a href="#query" class="nav-link font-semibold hover:text-primary">全球商标,专利状态</a>
-                <a href="#articles" class="nav-link font-semibold hover:text-primary">个人文章展示</a>
-                <a href="#services" class="nav-link font-semibold hover:text-primary">服务</a>
-                <a href="#faq" class="nav-link font-semibold hover:text-primary">常见问题</a>
-                <a href="#about" class="nav-link font-semibold hover:text-primary">关于我</a>
+            <!-- 桌面端导航（仅电脑显示） -->
+            <div class="hidden md:flex items-center gap-6 text-sm">
+                <a href="#brand-record" class="text-dark hover:text-primary transition-colors">品牌备案</a>
+                <a href="#trademark-register" class="text-dark hover:text-primary transition-colors">商标注册</a>
+                <a href="#customer-feedback" class="text-dark hover:text-primary transition-colors">客户反馈</a>
+                <a href="#company-intro" class="text-dark hover:text-primary transition-colors">公司介绍</a>
+                <a href="#faq" class="text-dark hover:text-primary transition-colors">常见问题</a>
+                <a href="#contact" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-accent transition-colors">立即咨询</a>
             </div>
-<!-- 新增手机端折叠导航 --><div id="mobileNav" class="fixed top-20 right-4 bg-white w-64 rounded-lg shadow-lg p-4 hidden z-50"><a href="#home" class="block py-2 px-4 hover:bg-gray-100">首页</a><a href="#brand-record" class="block py-2 px-4 hover:bg-gray-100">品牌备案</a><a href="#trademark-register" class="block py-2 px-4 hover:bg-gray-100">商标注册</a><a href="#customer-feedback" class="block py-2 px-4 hover:bg-gray-100">客户反馈</a><a href="#company-intro" class="block py-2 px-4 hover:bg-gray-100">公司介绍</a><a href="#faq" class="block py-2 px-4 hover:bg-gray-100">常见问题</a></div>
-            <!-- 移动端菜单按钮 -->
+        </div>
+        <!-- 手机端折叠导航（仅手机显示，默认隐藏） -->
+        <div id="mobileNav" class="fixed top-20 right-4 bg-white w-64 rounded-lg shadow-lg p-4 hidden z-50">
+            <a href="#home" class="block py-2 px-4 hover:bg-gray-100 text-dark">首页</a>
+            <a href="#brand-record" class="block py-2 px-4 hover:bg-gray-100 text-dark">品牌备案</a>
+            <a href="#trademark-register" class="block py-2 px-4 hover:bg-gray-100 text-dark">商标注册</a>
+            <a href="#customer-feedback" class="block py-2 px-4 hover:bg-gray-100 text-dark">客户反馈</a>
+            <a href="#company-intro" class="block py-2 px-4 hover:bg-gray-100 text-dark">公司介绍</a>
+            <a href="#faq" class="block py-2 px-4 hover:bg-gray-100 text-dark">常见问题</a>
+            <a href="#contact" class="block py-2 px-4 bg-primary text-white rounded-lg mt-2 hover:bg-accent text-center">立即咨询</a>
+        </div>
+          <!-- 移动端菜单按钮 -->
             <button id="menuBtn" class="md:hidden text-dark text-2xl w-12 h-12 flex items-center justify-center">
                 <i class="fa fa-bars"></i>
             </button>
@@ -243,7 +117,27 @@ display: block;
                 <a href="#about" class="mobile-nav-link font-semibold hover:text-primary py-2">关于我</a>
             </div>
         </div>
-    </nav>
+</nav>
+<!-- 导航按钮交互JS（必须加，放在nav之后） -->
+    <script>
+        // 手机端导航展开/收起
+        const mobileNavBtn = document.getElementById('mobileNavBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        if (mobileNavBtn && mobileNav) {
+            mobileNavBtn.onclick = function() {
+                mobileNav.classList.toggle('hidden');
+                this.innerHTML = mobileNav.classList.contains('hidden') ? '☰' : '✕';
+            };
+            // 点击导航链接后自动收起
+            const mobileLinks = mobileNav.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.onclick = function() {
+                    mobileNav.classList.add('hidden');
+                    mobileNavBtn.innerHTML = '☰';
+                };
+            });
+        }
+    </script>
 
     <!-- 图片放大弹窗（新增） -->
     <div id="imgModal" class="img-modal">
