@@ -438,6 +438,10 @@ img.card-hover:hover, img[onclick*="openImageModal"]:hover {
 
 /* 手机端专项修复 */
 /* 滚动图片样式 */
+.image-track { }
+#imageTrack {
+    touch-action: pan-y; /* 允许垂直滚动，拦截水平手势给 JS */
+}
 .scroll-img {
     width: 260px;
     height: 160px;
@@ -598,10 +602,10 @@ nav img {
                     <div class="animate-slide-up delay-100">
                         <!-- 公司图片滑动区（支持点击放大） -->
                         <div class="relative mb-3">
-                            <button class="scroll-btn left" onclick="scrollImages(-300)">
+                            <button class="scroll-btn left" onclick="scrollBySlide(-1)">
                                 <i class="fa fa-chevron-left"></i>
                             </button>
-                            <button class="scroll-btn right" onclick="scrollImages(300)">
+                            <button class="scroll-btn right" onclick="scrollBySlide(1)">
                                 <i class="fa fa-chevron-right"></i>
                             </button>
                             <div id="imageTrack" 
@@ -3026,12 +3030,123 @@ function fallbackCopy(wechatId) {
         function scrollImages(distance) {
             const track = document.getElementById('imageTrack');
             if (track) {
-                track.scrollBy({
-                    left: distance,
-                    behavior: 'smooth'
-                });
+                track.scrollBy({ left: distance, behavior: 'smooth' });
             }
         }
+
+        // 全局：按页滚动（n = 1 下一页，-1 上一页）
+        function scrollBySlide(n) {
+            const track = document.getElementById('imageTrack');
+            if (!track) return;
+
+            // 计算项宽（复用逻辑）
+            const first = track.querySelector('.scroll-img') || track.firstElementChild;
+            let slide = track.clientWidth || window.innerWidth;
+            if (first) {
+                const itemRect = first.getBoundingClientRect();
+                const style = window.getComputedStyle(track);
+                let gap = 0;
+                if (style.gap) gap = parseFloat(style.gap) || 0;
+                else {
+                    const next = first.nextElementSibling;
+                    if (next) {
+                        const nextRect = next.getBoundingClientRect();
+                        gap = Math.max(0, nextRect.left - (itemRect.left + itemRect.width));
+                    }
+                }
+                slide = Math.round(itemRect.width + gap);
+            }
+
+            const maxIndex = Math.max(0, Math.floor((track.scrollWidth - track.clientWidth) / slide));
+            const currentIndex = Math.round(track.scrollLeft / slide);
+            let targetIndex = currentIndex + n;
+            if (targetIndex < 0) targetIndex = 0;
+            if (targetIndex > maxIndex) targetIndex = maxIndex;
+            track.scrollTo({ left: targetIndex * slide, behavior: 'smooth' });
+        }
+
+        // ================== Touch / Swipe 支持（移动端） ==================
+        (function() {
+            const track = document.getElementById('imageTrack');
+            if (!track) return;
+
+            const SWIPE_THRESHOLD = 50; // 触发滑动的最小位移（px）
+
+            // 运行时计算单张“项”的宽度（含 gap），以支持响应式布局
+            function getSlideSize() {
+                const first = track.querySelector('.scroll-img') || track.firstElementChild;
+                if (!first) return track.clientWidth || window.innerWidth;
+                const itemRect = first.getBoundingClientRect();
+                const style = window.getComputedStyle(track);
+                let gap = 0;
+                if (style.gap) {
+                    gap = parseFloat(style.gap) || 0;
+                } else {
+                    const next = first.nextElementSibling;
+                    if (next) {
+                        const nextRect = next.getBoundingClientRect();
+                        gap = Math.max(0, nextRect.left - (itemRect.left + itemRect.width));
+                    }
+                }
+                return Math.round(itemRect.width + gap);
+            }
+
+            let touchStartX = 0;
+            let touchStartY = 0;
+
+            // 记录开始点
+            track.addEventListener('touchstart', function(e) {
+                const t = e.touches[0];
+                touchStartX = t.clientX;
+                touchStartY = t.clientY;
+            }, { passive: true });
+
+            // 判断用户是做水平滑动还是垂直滑动；若为水平则阻止页面滚动
+            track.addEventListener('touchmove', function(e) {
+                const t = e.touches[0];
+                const dx = Math.abs(t.clientX - touchStartX);
+                const dy = Math.abs(t.clientY - touchStartY);
+                if (dx > dy) {
+                    if (e.cancelable) e.preventDefault();
+                }
+            }, { passive: false });
+
+            // touch 结束，判定左右滑动并按页滚动（基于运行时项宽）
+            track.addEventListener('touchend', function(e) {
+                const endX = e.changedTouches[0].clientX;
+                const dist = touchStartX - endX;
+                if (Math.abs(dist) < SWIPE_THRESHOLD) return;
+
+                const slide = getSlideSize();
+                const maxIndex = Math.max(0, Math.floor((track.scrollWidth - track.clientWidth) / slide));
+                const currentIndex = Math.round(track.scrollLeft / slide);
+                let targetIndex = currentIndex + (dist > 0 ? 1 : -1);
+                if (targetIndex < 0) targetIndex = 0;
+                if (targetIndex > maxIndex) targetIndex = maxIndex;
+                track.scrollTo({ left: targetIndex * slide, behavior: 'smooth' });
+            });
+
+            // ========== 鼠标拖拽（桌面端体验增强） ==========
+            let isDown = false;
+            let startX = 0;
+            let scrollLeft = 0;
+
+            track.addEventListener('mousedown', function(e) {
+                isDown = true;
+                track.classList.add('dragging');
+                startX = e.pageX - track.offsetLeft;
+                scrollLeft = track.scrollLeft;
+            });
+            track.addEventListener('mouseleave', function() { isDown = false; track.classList.remove('dragging'); });
+            track.addEventListener('mouseup', function() { isDown = false; track.classList.remove('dragging'); });
+            track.addEventListener('mousemove', function(e) {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - track.offsetLeft;
+                const walk = (x - startX) * 1.5;
+                track.scrollLeft = scrollLeft - walk;
+            });
+        })();
 
         // 图片预览
         function viewImage(src) {
