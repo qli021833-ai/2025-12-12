@@ -173,6 +173,98 @@ height: auto;
                 padding: 1.25rem;
                 max-height: 500px;
             }
+            
+            /* ========== 全局色彩和排版美化 ========== */
+            /* 文字两端对齐，适合手机端 */
+            .content-p { text-align: justify; text-justify: inter-ideograph; line-height: 1.8; }
+            
+            /* Swiper 轮播增强样式 */
+            .swiper-slide { 
+                transition: transform 0.5s ease, opacity 0.5s ease; 
+                opacity: 0.6; 
+                transform: scale(0.85);
+            }
+            .swiper-slide-active { 
+                opacity: 1; 
+                transform: scale(1);
+            }
+            
+            /* 分页圆点美化 */
+            .swiper-pagination-bullet {
+                background: rgba(37, 99, 235, 0.3) !important;
+                width: 8px !important;
+                height: 8px !important;
+            }
+            .swiper-pagination-bullet-active {
+                width: 24px !important;
+                border-radius: 4px !important;
+                background: #2563eb !important;
+            }
+            
+            /* 导航按钮美化 */
+            .swiper-button-next, .swiper-button-prev {
+                background: rgba(255, 255, 255, 0.95) !important;
+                width: 40px !important;
+                height: 40px !important;
+                border-radius: 50% !important;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+                transition: all 0.3s ease !important;
+            }
+            .swiper-button-next:hover, .swiper-button-prev:hover {
+                background: rgba(255, 255, 255, 1) !important;
+                box-shadow: 0 6px 16px rgba(0,0,0,0.2) !important;
+                transform: scale(1.1);
+            }
+            .swiper-button-next:after, .swiper-button-prev:after {
+                font-size: 16px !important;
+                font-weight: bold !important;
+                color: #2563eb !important;
+            }
+            
+            /* 公司介绍样式优化 */
+            .company-section {
+                background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            }
+            
+            .company-intro-card {
+                border-left: 8px solid #2563eb;
+                transition: all 0.3s ease;
+            }
+            .company-intro-card:hover {
+                box-shadow: 0 12px 24px rgba(37, 99, 235, 0.15);
+            }
+            
+            /* 标题装饰 */
+            .title-with-label {
+                position: relative;
+                display: inline-block;
+            }
+            .title-label {
+                color: #2563eb;
+                font-size: 0.75rem;
+                font-weight: 600;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                margin-bottom: 0.5rem;
+                display: block;
+            }
+            
+            /* 页脚美化 */
+            .footer-section {
+                text-align: center;
+            }
+            .footer-highlight {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                margin: 0 0.75rem;
+            }
+            
+            /* 手机端呼吸空间 */
+            @media (max-width: 768px) {
+                section { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+                .max-w-6xl, .max-w-7xl { padding-left: 0 !important; padding-right: 0 !important; }
+            }
         }
         * { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .content-section { display: none; }
@@ -637,67 +729,92 @@ nav img {
                 </div>
 
 
-                <!-- 公司介绍 -->
-                <div class="grid md:grid-cols-2 gap-8 mb-8">
-                    <div class="animate-slide-up space-y-4">
-                        <p class="text-lg leading-relaxed">
-                            凯德盟是专业从事涉外知识产权的大型涉外公司，深耕行业15年，服务客户近60000+，注册资金1188万，服务过奥康、公牛、美的、香飘飘等著名企业，下证率高达97%。
-                        </p>
-                        <div class="bg-blue-50 rounded-lg p-4">
-                            <h3 class="font-bold text-2xl mb-4 text-gray-800 border-l-4 border-primary pl-3">公司起源</h3>
-                            <p class="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
-                                凯德盟总部起源于英国，大陆总部2010年成立于深圳，专注国际商标注册、专利版权申请、商标买卖转让、国际IP诉讼等，致力于为中国企业提供全球知识产权战略布局。
-                            </p>
-                            <h3 class="font-bold text-2xl mb-4 text-gray-800 border-l-4 border-primary pl-3">实力雄厚</h3>
-                            <p class="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
-                                线下分点超12家，服务团队近300人，覆盖一二线重要城市，是国际商标注册行业的代表典范。
-                            </p>
-                        </div>
-                    </div>
-                    <div class="animate-slide-up delay-100">
-                        <!-- 公司图片滑动区（Swiper 轮播） -->
-                        <p class="text-center text-gray-400 text-xs mb-4">
-                            <i class="fa fa-arrows-h"></i> 左右滑动或点击箭头查看更多
-                        </p>
-                        
-                        <div class="swiper mySwiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="公司介绍/1.jpg" alt="公司介绍1" class="rounded-xl shadow-sm w-full h-48 object-cover cursor-pointer" onclick="viewImage(this.src)" loading="lazy" />
+                <!-- 公司介绍 - 响应式布局升级 -->
+                <section class="py-12 px-6 bg-slate-50 -mx-4 md:-mx-8 company-section">
+                    <div class="max-w-6xl mx-auto">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <!-- 左侧文字区 -->
+                            <div class="animate-slide-up space-y-6">
+                                <div>
+                                    <span class="title-label">ABOUT US</span>
+                                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">公司起源</h2>
                                 </div>
-                                <div class="swiper-slide">
-                                    <img src="公司介绍/2.jpg" alt="公司介绍2" class="rounded-xl shadow-sm w-full h-48 object-cover cursor-pointer" onclick="viewImage(this.src)" loading="lazy" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="公司介绍/3.jpg" alt="公司介绍3" class="rounded-xl shadow-sm w-full h-48 object-cover cursor-pointer" onclick="viewImage(this.src)" loading="lazy" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="公司介绍/4.jpg" alt="公司介绍4" class="rounded-xl shadow-sm w-full h-48 object-cover cursor-pointer" onclick="viewImage(this.src)" loading="lazy" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="公司介绍/5.jpg" alt="公司介绍5" class="rounded-xl shadow-sm w-full h-48 object-cover cursor-pointer" onclick="viewImage(this.src)" loading="lazy" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="公司介绍/6.jpg" alt="公司介绍6" class="rounded-xl shadow-sm w-full h-48 object-cover cursor-pointer" onclick="viewImage(this.src)" loading="lazy" />
+                                <p class="content-p text-gray-600 text-base md:text-lg">
+                                    凯德盟总部起源于英国，大陆总部2010年成立于深圳，专注<span class="text-primary font-medium">国际商标注册、专利版权申请</span>、商标买卖转让、国际IP诉讼等，致力于为中国企业提供全球知识产权战略布局。
+                                </p>
+                                <p class="content-p text-gray-600 text-base md:text-lg">
+                                    线下分点超12家，服务团队近300人，覆盖一二线重要城市，是国际商标注册行业的<span class="text-primary font-medium">代表典范</span>。
+                                </p>
+                                <div class="grid grid-cols-2 gap-6 pt-6 border-t border-gray-300">
+                                    <div class="text-center">
+                                        <div class="text-3xl font-extrabold text-primary">12+</div>
+                                        <div class="text-xs text-gray-500 mt-2 font-medium">线下分点</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-3xl font-extrabold text-primary">300+</div>
+                                        <div class="text-xs text-gray-500 mt-2 font-medium">服务团队</div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="swiper-pagination"></div>
-                            <div class="swiper-button-next text-primary"></div>
-                            <div class="swiper-button-prev text-primary"></div>
-                        </div>
-                        
-                        <div class="bg-blue-50 rounded-lg p-4 mt-4">
-                            <h4 class="font-bold mb-2 text-lg">核心优势</h4>
-                            <ul class="list-disc list-inside text-base space-y-2">
-                                <li>97%高下证率，10多年行业经验</li>
-                                <li>48小时快速申报，全球一级代理</li>
-                                <li>ISO质量管理体系，全程跟进提醒</li>
-                                <li>全程保密，支持上门考察后付款</li>
-                                <li>专业专利画图团队，通过率更高</li>
-                            </ul>
+                            
+                            <!-- 右侧轮播图区 -->
+                            <div class="animate-slide-up delay-100">
+                                <p class="text-center text-gray-400 text-xs mb-4 font-medium">
+                                    <i class="fa fa-hand-pointer-o mr-2"></i>左右滑动或点击箭头查看公司风采
+                                </p>
+                                
+                                <div class="swiper mySwiper rounded-2xl overflow-hidden shadow-2xl">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <img src="公司介绍/1.jpg" alt="公司介绍1" class="w-full h-64 object-cover" onclick="viewImage(this.src)" loading="lazy" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="公司介绍/2.jpg" alt="公司介绍2" class="w-full h-64 object-cover" onclick="viewImage(this.src)" loading="lazy" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="公司介绍/3.jpg" alt="公司介绍3" class="w-full h-64 object-cover" onclick="viewImage(this.src)" loading="lazy" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="公司介绍/4.jpg" alt="公司介绍4" class="w-full h-64 object-cover" onclick="viewImage(this.src)" loading="lazy" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="公司介绍/5.jpg" alt="公司介绍5" class="w-full h-64 object-cover" onclick="viewImage(this.src)" loading="lazy" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="公司介绍/6.jpg" alt="公司介绍6" class="w-full h-64 object-cover" onclick="viewImage(this.src)" loading="lazy" />
+                                        </div>
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                </div>
+                                
+                                <!-- 核心优势卡片 -->
+                                <div class="bg-white rounded-xl shadow-lg p-6 mt-6 company-intro-card">
+                                    <h4 class="font-bold text-lg mb-4 text-gray-800">核心优势</h4>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start gap-3 text-gray-600">
+                                            <i class="fa fa-check text-primary mt-1 flex-shrink-0"></i>
+                                            <span>97%高下证率，10多年行业经验</span>
+                                        </li>
+                                        <li class="flex items-start gap-3 text-gray-600">
+                                            <i class="fa fa-check text-primary mt-1 flex-shrink-0"></i>
+                                            <span>48小时快速申报，全球一级代理</span>
+                                        </li>
+                                        <li class="flex items-start gap-3 text-gray-600">
+                                            <i class="fa fa-check text-primary mt-1 flex-shrink-0"></i>
+                                            <span>ISO质量管理体系，全程跟进提醒</span>
+                                        </li>
+                                        <li class="flex items-start gap-3 text-gray-600">
+                                            <i class="fa fa-check text-primary mt-1 flex-shrink-0"></i>
+                                            <span>全程保密，支持上门考察后付款</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
                 <!-- 视频模块（调整尺寸：由16/9改为4/3，更紧凑） -->
 <div class="mb-8">
@@ -2699,12 +2816,22 @@ function copyWechat(wechatId) {
         document.addEventListener('DOMContentLoaded', function() {
             try {
                 const swiper = new Swiper(".mySwiper", {
-                    slidesPerView: "auto",      // 自动识别宽度
-                    spaceBetween: 15,           // 图片间距
-                    centeredSlides: false,      // 不居中，靠左开始
-                    grabCursor: true,           // 鼠标悬停显示抓取手势
-                    touchAngle: 45,             // 关键：只有水平滑动角度小于45度才触发，防止影响页面上下滚动
-                    resistanceRatio: 0.5,       // 边缘阻尼感
+                    loop: true,
+                    speed: 800,
+                    autoplay: { delay: 4000 },
+                    effect: 'coverflow',        // 使用 3D 覆盖流效果
+                    coverflowEffect: {
+                        rotate: 0,
+                        stretch: 0,
+                        depth: 120,
+                        modifier: 2.5,
+                        slideShadows: true,
+                    },
+                    centeredSlides: true,
+                    grabCursor: true,
+                    // 关键：防止误触上下滑动
+                    touchMoveStopPropagation: true,
+                    touchAngle: 45,
                     
                     // 导航箭头
                     navigation: {
@@ -2715,12 +2842,21 @@ function copyWechat(wechatId) {
                     pagination: {
                         el: ".swiper-pagination",
                         clickable: true,
+                        dynamicBullets: true,
                     },
                     // 响应式配置
                     breakpoints: {
+                        320: {
+                            slidesPerView: 1.2,
+                            spaceBetween: 10
+                        },
                         768: {
-                            slidesPerView: 3,
+                            slidesPerView: 1.5,
                             spaceBetween: 20
+                        },
+                        1024: {
+                            slidesPerView: 1.8,
+                            spaceBetween: 30
                         }
                     }
                 });
@@ -2995,70 +3131,87 @@ function fallbackCopy(wechatId) {
 }
 </script>
 
-    <!-- 页脚 -->
-    <footer class="bg-dark text-white py-10">
-        <div class="max-w-7xl mx-auto px-4 md:px-8">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <h3 class="font-bold text-xl mb-4 border-b border-gray-700 pb-2">服务</h3>
-                    <ul class="space-y-2 text-gray-300 text-sm leading-relaxed">
-                        <li>全球商标业务：申请、转让、地址变更、五年宣誓、续展、异议、无效宣告、商标买卖等</li>
-                        <li>全球专利/版权业务：申请、不侵权报告、转让、换律师、投诉等</li>
-                        <li>美国 TRO 业务：发起、应诉、和解等</li>
-                        <li>公司注册业务：香港、英国等地区公司注册</li>
+    <!-- 页脚 - 居中美化设计 -->
+    <footer class="bg-gradient-to-b from-gray-900 to-black text-gray-300 py-16 px-6 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto">
+            <!-- 页脚顶部关键信息 -->
+            <div class="flex flex-col md:flex-row justify-center gap-6 mb-12 text-center md:text-center">
+                <span class="footer-highlight">
+                    <i class="fa fa-shield text-primary text-lg"></i>
+                    <span class="text-sm font-medium">全程保密</span>
+                </span>
+                <span class="footer-highlight hidden md:inline-flex text-gray-600">•</span>
+                <span class="footer-highlight">
+                    <i class="fa fa-check-circle text-primary text-lg"></i>
+                    <span class="text-sm font-medium">安全保障</span>
+                </span>
+                <span class="footer-highlight hidden md:inline-flex text-gray-600">•</span>
+                <span class="footer-highlight">
+                    <i class="fa fa-star text-primary text-lg"></i>
+                    <span class="text-sm font-medium">15年老品牌</span>
+                </span>
+            </div>
+            
+            <!-- 页脚内容网格 -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div class="text-center md:text-left">
+                    <h3 class="font-bold text-lg mb-4 text-white border-b border-gray-700 pb-2 inline-block md:block">核心业务</h3>
+                    <ul class="space-y-2 text-sm text-gray-400 leading-relaxed">
+                        <li>全球商标业务</li>
+                        <li>专利/版权申请</li>
+                        <li>国际IP诉讼</li>
+                        <li>公司注册业务</li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="font-bold text-xl mb-4 border-b border-gray-700 pb-2">联系方式</h3>
-                    <ul class="space-y-3 text-gray-300">
-                        <li class="flex items-center gap-2">
-                            <i class="fa fa-weixin text-xl"></i>
-                            <span>CADMON2023 或 CADMON456</span>
+                <div class="text-center md:text-left">
+                    <h3 class="font-bold text-lg mb-4 text-white border-b border-gray-700 pb-2 inline-block md:block">联系方式</h3>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-center justify-center md:justify-start gap-2">
+                            <i class="fa fa-weixin text-primary"></i>
+                            <span>CADMON2023</span>
                         </li>
-                        <li class="flex items-center gap-2">
-                            <i class="fa fa-qq text-xl"></i>
+                        <li class="flex items-center justify-center md:justify-start gap-2">
+                            <i class="fa fa-qq text-primary"></i>
                             <span>3450292745</span>
                         </li>
-                        <li class="flex items-center gap-2">
-                            <i class="fa fa-envelope text-xl"></i>
-                            <span>qli021833@gmail.com</span>
+                        <li class="flex items-center justify-center md:justify-start gap-2">
+                            <i class="fa fa-envelope text-primary"></i>
+                            <span class="text-xs">qli021833@gmail.com</span>
                         </li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="font-bold text-xl mb-4 border-b border-gray-700 pb-2">社交平台</h3>
-                    <ul class="space-y-3 text-gray-300">
-                        <li class="flex items-center gap-2">
-                            <i class="fa fa-weixin text-xl"></i>
-                            <span>公众号：如何不上班也有钱</span>
+                <div class="text-center md:text-left">
+                    <h3 class="font-bold text-lg mb-4 text-white border-b border-gray-700 pb-2 inline-block md:block">社交平台</h3>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-center justify-center md:justify-start gap-2">
+                            <i class="fa fa-weixin text-primary"></i>
+                            <span>公众号</span>
                         </li>
-                        <li class="flex items-center gap-2">
-                            <i class="fa fa-globe text-xl"></i>
-                            <span>知无不言：商标专利版权yuki</span>
+                        <li class="flex items-center justify-center md:justify-start gap-2">
+                            <i class="fa fa-book text-primary"></i>
+                            <span>小红书</span>
                         </li>
-                        <li class="flex items-center gap-2">
-                            <i class="fa fa-book text-xl"></i>
-                            <span>小红书：CADMON2023 / CADMON456</span>
+                        <li class="flex items-center justify-center md:justify-start gap-2">
+                            <i class="fa fa-globe text-primary"></i>
+                            <span>知无不言</span>
                         </li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="font-bold text-xl mb-4 border-b border-gray-700 pb-2">微信二维码</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-items-center">
+                <div class="text-center">
+                    <h3 class="font-bold text-lg mb-4 text-white">快速咨询</h3>
+                    <div class="space-y-3">
                         <div class="flex flex-col items-center">
-                            <img src="微信二维码/1.jpg" alt="微信二维码1" class="w-32 h-32 md:w-40 md:h-40 rounded-lg cursor-zoom object-contain shadow-lg" onclick="openImgModal(this.src)" loading="lazy" />
-                            <p class="mt-2 text-xs text-gray-500">扫码咨询</p>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <img src="微信二维码/2.jpg" alt="微信二维码2" class="w-32 h-32 md:w-40 md:h-40 rounded-lg cursor-zoom object-contain shadow-lg" onclick="openImgModal(this.src)" loading="lazy" />
-                            <p class="mt-2 text-xs text-gray-500">扫码咨询</p>
+                            <img src="微信二维码/1.jpg" alt="咨询二维码" class="w-24 h-24 rounded-lg shadow-lg object-contain" onclick="openImgModal(this.src)" loading="lazy" />
+                            <p class="mt-2 text-xs text-gray-500">微信扫码</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-700 pt-6 text-center text-gray-400 text-sm">
-                <p>© 2025 黎艳青- 专业涉外知识产权服务 </p>
-                <p class="mt-2">15年老品牌 · 全程保密 · 安全保障</p>
+            
+            <!-- 页脚底部 -->
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-sm font-medium">© 2025 黎艳青 - 专业涉外知识产权服务</p>
+                <p class="text-xs text-gray-500 mt-2">版权所有 · 侵权必究</p>
             </div>
         </div>
     </footer>
@@ -3097,15 +3250,19 @@ function fallbackCopy(wechatId) {
 
         const backToTopBtn = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
-            backToTopBtn.classList.toggle('opacity-100', window.scrollY > 300);
-            backToTopBtn.classList.toggle('invisible', window.scrollY <= 300);
+            if (backToTopBtn) {
+                backToTopBtn.classList.toggle('opacity-100', window.scrollY > 300);
+                backToTopBtn.classList.toggle('invisible', window.scrollY <= 300);
+            }
         });
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
 
         document.addEventListener('click', (e) => {
-            if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+            if (menuBtn && !menuBtn.contains(e.target) && mobileMenu && !mobileMenu.contains(e.target)) {
                 mobileMenu.classList.add('hidden');
                 menuBtn.innerHTML = '<i class="fa fa-bars"></i>';
             }
