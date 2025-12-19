@@ -18,6 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">    <title>凯德盟 - 专业涉外知识产权服务</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script>
         tailwind.config = {
             theme: {
@@ -450,6 +451,57 @@ img.card-hover:hover, img[onclick*="openImageModal"]:hover {
     flex-shrink: 0;
 }
 
+/* 隐藏滚动条但保留滑动功能 */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* 优化文字换行与对齐 */
+p { word-break: break-word; text-align: justify; }
+
+/* 修复手机端文字排版 */
+.company-intro p {
+    text-align: justify;
+    line-height: 1.8;
+    word-break: break-all;
+}
+
+/* Swiper 容器样式优化 */
+.swiper {
+    width: 100%;
+    padding-bottom: 30px !important; /* 为分页器留空间 */
+}
+.swiper-slide {
+    width: 85%; /* 手机端露出下一张图的一角，引导滑动 */
+}
+@media (min-width: 768px) {
+    .swiper-slide { width: 300px; }
+}
+
+/* 强制显示箭头并美化 */
+.swiper-button-next, .swiper-button-prev {
+    background: rgba(255, 255, 255, 0.9);
+    width: 35px !important;
+    height: 35px !important;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 14px !important;
+    font-weight: bold;
+    color: #2563eb !important;
+}
+
+/* 分页圆点样式 */
+.swiper-pagination-bullet {
+    background: rgba(37, 99, 235, 0.5);
+}
+.swiper-pagination-bullet-active {
+    background: #2563eb;
+}
+
+/* 确保图片轨道不会拉伸页面 */
+#imageTrack { display: flex; scroll-behavior: smooth; }
+
 .scroll-btn {
     position: absolute;
     top: 50%;
@@ -475,6 +527,11 @@ img.card-hover:hover, img[onclick*="openImageModal"]:hover {
 
 .scroll-btn.left { left: 8px; }
 .scroll-btn.right { right: 8px; }
+
+@media (max-width: 768px) {
+    .scroll-btn.left { left: -10px; }
+    .scroll-btn.right { right: -10px; }
+}
 
 /* 最终锁定 LOGO 高度，防止被 max-width 撑大 */
 .logo-fix {
@@ -587,39 +644,48 @@ nav img {
                             凯德盟是专业从事涉外知识产权的大型涉外公司，深耕行业15年，服务客户近60000+，注册资金1188万，服务过奥康、公牛、美的、香飘飘等著名企业，下证率高达97%。
                         </p>
                         <div class="bg-blue-50 rounded-lg p-4">
-                            <h3 class="font-bold text-xl mb-3 text-accent">公司起源</h3>
-                            <p class="leading-relaxed">
+                            <h3 class="font-bold text-2xl mb-4 text-gray-800 border-l-4 border-primary pl-3">公司起源</h3>
+                            <p class="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
                                 凯德盟总部起源于英国，大陆总部2010年成立于深圳，专注国际商标注册、专利版权申请、商标买卖转让、国际IP诉讼等，致力于为中国企业提供全球知识产权战略布局。
                             </p>
-                        </div>
-                        <div class="bg-blue-50 rounded-lg p-4">
-                            <h3 class="font-bold text-xl mb-3 text-accent">实力雄厚</h3>
-                            <p class="leading-relaxed">
+                            <h3 class="font-bold text-2xl mb-4 text-gray-800 border-l-4 border-primary pl-3">实力雄厚</h3>
+                            <p class="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
                                 线下分点超12家，服务团队近300人，覆盖一二线重要城市，是国际商标注册行业的代表典范。
                             </p>
                         </div>
                     </div>
                     <div class="animate-slide-up delay-100">
-                        <!-- 公司图片滑动区（支持点击放大） -->
-                        <div class="relative mb-3">
-                            <button class="scroll-btn left" onclick="scrollBySlide(-1)">
-                                <i class="fa fa-chevron-left"></i>
-                            </button>
-                            <button class="scroll-btn right" onclick="scrollBySlide(1)">
-                                <i class="fa fa-chevron-right"></i>
-                            </button>
-                            <div id="imageTrack" 
-                                 class="flex gap-3 overflow-x-auto scroll-smooth pb-2"
-                                 style="-webkit-overflow-scrolling: touch;">
-                                <img src="公司介绍/1.jpg" alt="公司介绍1" class="scroll-img" onclick="viewImage(this.src)" loading="lazy" />
-                                <img src="公司介绍/2.jpg" alt="公司介绍2" class="scroll-img" onclick="viewImage(this.src)" loading="lazy" />
-                                <img src="公司介绍/3.jpg" alt="公司介绍3" class="scroll-img" onclick="viewImage(this.src)" loading="lazy" />
-                                <img src="公司介绍/4.jpg" alt="公司介绍4" class="scroll-img" onclick="viewImage(this.src)" loading="lazy" />
-                                <img src="公司介绍/5.jpg" alt="公司介绍5" class="scroll-img" onclick="viewImage(this.src)" loading="lazy" />
-                                <img src="公司介绍/6.jpg" alt="公司介绍6" class="scroll-img" onclick="viewImage(this.src)" loading="lazy" />
+                        <!-- 公司图片滑动区（Swiper 轮播） -->
+                        <p class="text-center text-gray-400 text-xs mb-4">
+                            <i class="fa fa-arrows-h"></i> 左右滑动或点击箭头查看更多
+                        </p>
+                        
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="公司介绍/1.jpg" alt="公司介绍1" class="rounded-xl shadow-sm w-full h-48 object-cover cursor-pointer" onclick="viewImage(this.src)" loading="lazy" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="公司介绍/2.jpg" alt="公司介绍2" class="rounded-xl shadow-sm w-full h-48 object-cover cursor-pointer" onclick="viewImage(this.src)" loading="lazy" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="公司介绍/3.jpg" alt="公司介绍3" class="rounded-xl shadow-sm w-full h-48 object-cover cursor-pointer" onclick="viewImage(this.src)" loading="lazy" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="公司介绍/4.jpg" alt="公司介绍4" class="rounded-xl shadow-sm w-full h-48 object-cover cursor-pointer" onclick="viewImage(this.src)" loading="lazy" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="公司介绍/5.jpg" alt="公司介绍5" class="rounded-xl shadow-sm w-full h-48 object-cover cursor-pointer" onclick="viewImage(this.src)" loading="lazy" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="公司介绍/6.jpg" alt="公司介绍6" class="rounded-xl shadow-sm w-full h-48 object-cover cursor-pointer" onclick="viewImage(this.src)" loading="lazy" />
+                                </div>
                             </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-next text-primary"></div>
+                            <div class="swiper-button-prev text-primary"></div>
                         </div>
-                        <p class="text-sm text-muted mt-2 text-center animate-pulse-light">→ 滑动或点击箭头查看更多公司介绍图片 ←</p>
+                        
                         <div class="bg-blue-50 rounded-lg p-4 mt-4">
                             <h4 class="font-bold mb-2 text-lg">核心优势</h4>
                             <ul class="list-disc list-inside text-base space-y-2">
@@ -2626,6 +2692,43 @@ function copyWechat(wechatId) {
 </div>
 </div>
 
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // 初始化 Swiper，用于公司图片滑动区
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                const swiper = new Swiper(".mySwiper", {
+                    slidesPerView: "auto",      // 自动识别宽度
+                    spaceBetween: 15,           // 图片间距
+                    centeredSlides: false,      // 不居中，靠左开始
+                    grabCursor: true,           // 鼠标悬停显示抓取手势
+                    touchAngle: 45,             // 关键：只有水平滑动角度小于45度才触发，防止影响页面上下滚动
+                    resistanceRatio: 0.5,       // 边缘阻尼感
+                    
+                    // 导航箭头
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    // 分页圆点
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    // 响应式配置
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 3,
+                            spaceBetween: 20
+                        }
+                    }
+                });
+            } catch (e) {
+                console.error('Swiper init failed:', e);
+            }
+        });
+    </script>
     <!-- 提示文字 -->
     <p class="text-sm text-muted mt-4 text-center animate-pulse-light">
         <i class="fa fa-info-circle text-primary mr-1"></i> 
@@ -3065,88 +3168,8 @@ function fallbackCopy(wechatId) {
             track.scrollTo({ left: targetIndex * slide, behavior: 'smooth' });
         }
 
-        // ================== Touch / Swipe 支持（移动端） ==================
-        (function() {
-            const track = document.getElementById('imageTrack');
-            if (!track) return;
-
-            const SWIPE_THRESHOLD = 50; // 触发滑动的最小位移（px）
-
-            // 运行时计算单张“项”的宽度（含 gap），以支持响应式布局
-            function getSlideSize() {
-                const first = track.querySelector('.scroll-img') || track.firstElementChild;
-                if (!first) return track.clientWidth || window.innerWidth;
-                const itemRect = first.getBoundingClientRect();
-                const style = window.getComputedStyle(track);
-                let gap = 0;
-                if (style.gap) {
-                    gap = parseFloat(style.gap) || 0;
-                } else {
-                    const next = first.nextElementSibling;
-                    if (next) {
-                        const nextRect = next.getBoundingClientRect();
-                        gap = Math.max(0, nextRect.left - (itemRect.left + itemRect.width));
-                    }
-                }
-                return Math.round(itemRect.width + gap);
-            }
-
-            let touchStartX = 0;
-            let touchStartY = 0;
-
-            // 记录开始点
-            track.addEventListener('touchstart', function(e) {
-                const t = e.touches[0];
-                touchStartX = t.clientX;
-                touchStartY = t.clientY;
-            }, { passive: true });
-
-            // 判断用户是做水平滑动还是垂直滑动；若为水平则阻止页面滚动
-            track.addEventListener('touchmove', function(e) {
-                const t = e.touches[0];
-                const dx = Math.abs(t.clientX - touchStartX);
-                const dy = Math.abs(t.clientY - touchStartY);
-                if (dx > dy) {
-                    if (e.cancelable) e.preventDefault();
-                }
-            }, { passive: false });
-
-            // touch 结束，判定左右滑动并按页滚动（基于运行时项宽）
-            track.addEventListener('touchend', function(e) {
-                const endX = e.changedTouches[0].clientX;
-                const dist = touchStartX - endX;
-                if (Math.abs(dist) < SWIPE_THRESHOLD) return;
-
-                const slide = getSlideSize();
-                const maxIndex = Math.max(0, Math.floor((track.scrollWidth - track.clientWidth) / slide));
-                const currentIndex = Math.round(track.scrollLeft / slide);
-                let targetIndex = currentIndex + (dist > 0 ? 1 : -1);
-                if (targetIndex < 0) targetIndex = 0;
-                if (targetIndex > maxIndex) targetIndex = maxIndex;
-                track.scrollTo({ left: targetIndex * slide, behavior: 'smooth' });
-            });
-
-            // ========== 鼠标拖拽（桌面端体验增强） ==========
-            let isDown = false;
-            let startX = 0;
-            let scrollLeft = 0;
-
-            track.addEventListener('mousedown', function(e) {
-                isDown = true;
-                track.classList.add('dragging');
-                startX = e.pageX - track.offsetLeft;
-                scrollLeft = track.scrollLeft;
-            });
-            track.addEventListener('mouseleave', function() { isDown = false; track.classList.remove('dragging'); });
-            track.addEventListener('mouseup', function() { isDown = false; track.classList.remove('dragging'); });
-            track.addEventListener('mousemove', function(e) {
-                if (!isDown) return;
-                e.preventDefault();
-                const x = e.pageX - track.offsetLeft;
-                const walk = (x - startX) * 1.5;
-                track.scrollLeft = scrollLeft - walk;
-            });
-        })();
+            // 使用 Swiper.js 代替自定义触摸/拖拽逻辑（初始化在页面底部）
+        // 保留旧函数以兼容，但实际控制会交给 Swiper 实例
 
         // 图片预览
         function viewImage(src) {
