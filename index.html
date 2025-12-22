@@ -1002,204 +1002,100 @@ nav img {
             </div>
         </div>
 
-        <!-- 2. 按持有人/品牌名查询（独立容器，无嵌套，搜索框正常显示） -->
-<div id="queryByBrand" class="hidden">
+        <div id="queryByBrand" class="hidden space-y-12 animate-fade-in">
+    
+    <div class="text-center space-y-2">
+        <p class="text-gray-500">点击下方地区图标，直接跳转至官方系统进行检索</p>
+        <div class="h-1 w-20 bg-blue-500 mx-auto rounded-full"></div>
+    </div>
 
-  <p class="text-center text-muted mb-8">
-    点击国家或地区，进入对应官方系统查询（商标 / 专利）
-  </p>
+    <section>
+        <div class="flex items-center gap-4 mb-6">
+            <div class="bg-indigo-600 text-white p-3 rounded-2xl shadow-lg">
+                <i class="fa fa-trademark text-xl"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-800">全球商标查询</h2>
+        </div>
 
-  <!-- ================= 商标查询 ================= -->
-<div class="flex justify-center my-10">
-  <div class="bg-gradient-to-r from-indigo-500 to-blue-500 
-              text-white font-bold text-lg px-10 py-4 
-              rounded-xl shadow-lg">
-    ®️ 商标查询
-  </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            
+            <div class="md:col-span-2 lg:col-span-3 bg-indigo-50 p-4 rounded-2xl border border-indigo-100">
+                <h3 class="text-sm font-bold text-indigo-600 mb-3 uppercase tracking-wider">全球/国际组织</h3>
+                <a href="https://branddb.wipo.int/" target="_blank" class="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group">
+                    <span class="text-2xl">🌐</span>
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 group-hover:text-indigo-600">WIPO 世界知识产权组织</div>
+                        <div class="text-xs text-gray-500">支持商标名、持有人、律师全维度查询</div>
+                    </div>
+                    <i class="fa fa-external-link text-gray-300 group-hover:text-indigo-400"></i>
+                </a>
+            </div>
+
+            <div class="space-y-3">
+                <h3 class="text-xs font-bold text-gray-400 uppercase ml-2">美洲地区</h3>
+                <a href="https://tmsearch.uspto.gov/" target="_blank" class="block p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition-all text-sm font-medium">🇺🇸 美国 · 商标名/持有人</a>
+                <a href="https://ised-isde.canada.ca/cipo/trademark-search/srch" target="_blank" class="block p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition-all text-sm font-medium">🇨🇦 加拿大 · 品牌名查询</a>
+                <a href="https://marcia.impi.gob.mx/marcas/search/quick" target="_blank" class="block p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition-all text-sm font-medium">🇲🇽 墨西哥 · 商标检索</a>
+            </div>
+
+            <div class="space-y-3">
+                <h3 class="text-xs font-bold text-gray-400 uppercase ml-2">欧洲地区</h3>
+                <div class="grid grid-cols-1 gap-2">
+                    <a href="https://euipo.europa.eu/eSearch/" target="_blank" class="p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 transition-all text-sm font-medium flex items-center gap-2">🇪🇺 欧盟官方查询</a>
+                    <a href="https://trademarks.ipo.gov.uk/ipo-tmtext" target="_blank" class="p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 transition-all text-sm font-medium flex items-center gap-2">🇬🇧 英国商标检索</a>
+                    <a href="https://depatisnet.dpma.de/" target="_blank" class="p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 transition-all text-sm font-medium flex items-center gap-2">🇩🇪 德国官方系统</a>
+                    <a href="https://data.inpi.fr/" target="_blank" class="p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 transition-all text-sm font-medium flex items-center gap-2">🇫🇷 法国商标数据</a>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <h3 class="text-xs font-bold text-gray-400 uppercase ml-2">亚洲 / 大洋洲</h3>
+                <div class="grid grid-cols-1 gap-2">
+                    <a href="https://sbj.cnipa.gov.cn/sbj/sbcx/" target="_blank" class="p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 transition-all text-sm font-medium">🇨🇳 中国商标网</a>
+                    <a href="https://www.j-platpat.inpit.go.jp/" target="_blank" class="p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 transition-all text-sm font-medium">🇯🇵 日本 J-PlatPat</a>
+                    <a href="https://search.ipaustralia.gov.au/" target="_blank" class="p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 transition-all text-sm font-medium">🇦🇺 澳大利亚检索</a>
+                    <a href="https://digitalhub.ipos.gov.sg/" target="_blank" class="p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 transition-all text-sm font-medium">🇸🇬 新加坡 IPOS</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="flex items-center gap-4 mb-6">
+            <div class="bg-emerald-600 text-white p-3 rounded-2xl shadow-lg">
+                <i class="fa fa-file-text text-xl"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-800">专利 / 外观设计查询</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-emerald-50 p-5 rounded-2xl border border-emerald-100 space-y-4">
+                <h3 class="text-emerald-700 font-bold flex items-center gap-2"><i class="fa fa-globe"></i> 国际组织</h3>
+                <a href="https://patentscope2.wipo.int/" target="_blank" class="block p-3 bg-white rounded-xl shadow-sm hover:bg-emerald-500 hover:text-white transition-colors text-sm font-bold text-center">WIPO · 全球发明专利</a>
+                <a href="https://designdb.wipo.int/" target="_blank" class="block p-3 bg-white rounded-xl shadow-sm hover:bg-emerald-500 hover:text-white transition-colors text-sm font-bold text-center">WIPO · 全球外观设计</a>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-3">
+                <h3 class="text-gray-700 font-bold flex items-center gap-2">🇺🇸 美国专区</h3>
+                <a href="https://patentcenter.uspto.gov/" target="_blank" class="flex justify-between items-center p-3 bg-gray-50 rounded-lg hover:bg-emerald-50 transition-all group">
+                    <span class="text-sm">发明专利查询</span>
+                    <i class="fa fa-angle-right text-gray-300 group-hover:text-emerald-500"></i>
+                </a>
+                <a href="https://www.uspto.gov/patents/search/patent-public-search" target="_blank" class="flex justify-between items-center p-3 bg-gray-50 rounded-lg hover:bg-emerald-50 transition-all group">
+                    <span class="text-sm">外观设计查询</span>
+                    <i class="fa fa-angle-right text-gray-300 group-hover:text-emerald-500"></i>
+                </a>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-3">
+                <h3 class="text-gray-700 font-bold flex items-center gap-2">🇪🇺 欧洲及其他</h3>
+                <a href="https://register.epo.org/" target="_blank" class="block text-sm p-3 border-b border-gray-50 hover:text-emerald-600 transition-colors">🇪🇺 欧盟发明专利 (EPO)</a>
+                <a href="https://euipo.europa.eu/eSearch/" target="_blank" class="block text-sm p-3 border-b border-gray-50 hover:text-emerald-600 transition-colors">🇪🇺 欧盟外观查询</a>
+                <a href="https://cpquery.cponline.cnipa.gov.cn/" target="_blank" class="block text-sm p-3 hover:text-emerald-600 transition-colors">🇨🇳 中国外观设计查询</a>
+            </div>
+        </div>
+    </section>
 </div>
-
-
-  <details open class="mb-6 bg-blue-50 rounded-xl p-4">
-    <summary class="text-lg font-semibold cursor-pointer">
-      🌍 全球 / 国际组织
-    </summary>
-    <div class="mt-4 space-y-2">
-      <a href="https://branddb.wipo.int/"
-         target="_blank" class="block link">
-        🌐 WIPO · 商标名、持有者、律师等查询
-      </a>
-    </div>
-  </details>
-
-  <details class="mb-6 bg-blue-50 rounded-xl p-4">
-    <summary class="text-lg font-semibold cursor-pointer">
-      🌎 美洲
-    </summary>
-    <div class="mt-4 space-y-2">
-      <a href="https://tmsearch.uspto.gov/search/search-information"
-         target="_blank" class="block link">
-        🇺🇸 美国 · 商标名、持有者、律师等查询
-      </a>
-    <a href="https://assignment.uspto.gov/trademark/index.html#/trademark/search"
-       target="_blank" class="block link">🇺🇸 美国 · 商标转让查询</a>
-
-      <a href="https://ised-isde.canada.ca/cipo/trademark-search/srch"
-         target="_blank" class="block link">
-        🇨🇦 加拿大 · 商标名查询
-      </a>
-      <a href="https://marcia.impi.gob.mx/marcas/search/quick"
-         target="_blank" class="block link">
-        🇨🇲🇽 墨西哥 · 商标品牌名
-      </a>
-    </div>
-  </details>
-
-  <details class="mb-10 bg-blue-50 rounded-xl p-4">
-    <summary class="text-lg font-semibold cursor-pointer">
-      🌍 欧洲 
-    </summary>
-    <div class="mt-4 space-y-2">
-      <a href="https://euipo.europa.eu/eSearch/"
-         target="_blank" class="block link">
-        🇪🇺 欧盟 · 商标名查询
-      </a>
-    <a href="https://trademarks.ipo.gov.uk/ipo-tmtext"
-       target="_blank" class="block link">
-🇬🇧 英国 · 商标（品牌名)
-      </a>
-  <a href="https://depatisnet.dpma.de/DepatisNet/depatisnet"
-       target="_blank" class="block link">🇩🇪 德国 · 商标名查询</a>
-
-    <a href="https://data.inpi.fr/recherche_avancee/marques"
-       target="_blank" class="block link">🇫🇷 法国 · 商标</a>
-
-    <a href="https://consultas2.oepm.es/LocalizadorWeb/busquedaDenominacion"
-       target="_blank" class="block link">🇪🇸 西班牙 · 商标名查询</a>
-
-    <a href="https://tc.prv.se/VarumarkesDbWeb/searchMain.jsp"
-       target="_blank" class="block link">🇸🇪 瑞典 · 商标名查询</a>
-
-    <a href="https://ewyszukiwarka.pue.uprp.gov.pl/search/simple-search?lng=pl"
-       target="_blank" class="block link">🇵🇱 波兰 · 商标名查询</a>
-
-    <a href="https://www.uibm.gov.it/bancadati/"
-       target="_blank" class="block link">🇮🇹 意大利 · 商标名查询</a>
-
-    <a href="https://www.boip.int/en/trademarks-register?app=%2F"
-       target="_blank" class="block link">🇧🇪 比荷卢 · 商标名查询</a>
-    </div>
-  </details>
-
- <details class="mb-10 bg-blue-50 rounded-xl p-4">
-    <summary class="text-lg font-semibold cursor-pointer">
-      🌎 亚洲 / 大洋洲
-    </summary>
-    <div class="mt-4 space-y-2">
-    <a href="https://sbj.cnipa.gov.cn/sbj/sbcx/"
-       target="_blank" class="block link">🇨🇳 中国 · 商标名、持有者查询</a>
-
-
-    <a href="https://www.j-platpat.inpit.go.jp/t0100"
-       target="_blank" class="block link">🇯🇵 日本 · 商标名 / 持有者查询</a>
-
-    <a href="https://search.ipaustralia.gov.au/trademarks/search/quick"
-       target="_blank" class="block link">🇦🇺 澳大利亚 · 商标名查询</a>
-
-    <a href="https://search.ipthailand.go.th/"
-       target="_blank" class="block link">🇹🇭 泰国 · 商标名查询</a>
-
-    <a href="https://www.ipophil.gov.ph/"
-       target="_blank" class="block link">🇵🇭 菲律宾 · 商标名查询</a>
-
-    <a href="https://www.dsedt.gov.mo/zh_MO/web/public/Pg_ES_AE_QE_TRADEMARK"
-       target="_blank" class="block link">🇲🇴 澳门 · 商标名查询</a>
-
-    <a href="https://www.dgip.go.id/"
-       target="_blank" class="block link">🇮🇩 印度尼西亚 · 商标名查询</a>
-
-    <a href="https://iponlineext.myipo.gov.my/SPHI/Extra/IP/TM/Qbe.aspx"
-       target="_blank" class="block link">🇲🇾 马来西亚 · 商标名查询</a>
-
-    <a href="https://digitalhub.ipos.gov.sg/FAMN/eservice/IP4SG/MN_BasicSearch"
-       target="_blank" class="block link">🇸🇬 新加坡 · 商标名查询</a>
-    </div>
-  </details>
-
- 
-
-
-
-
-  <!-- ================= 专利 / 外观 ================= -->
-<div class="flex justify-center my-10">
-  <div class="bg-gradient-to-r from-emerald-500 to-teal-500 
-              text-white font-bold text-lg px-10 py-4 
-              rounded-xl shadow-lg">
-    📄 专利 / 外观设计
-  </div>
-</div>
-
-  <details open class="mb-6 bg-blue-50 rounded-xl p-4">
-    <summary class="text-lg font-semibold cursor-pointer">
-      🌍 全球 / 国际组织
-    </summary>
-    <div class="mt-4 space-y-2">
-      <a href="https://patentscope2.wipo.int/search/en/search.jsf"
-         target="_blank" class="block link">
-        🌐 WIPO · 发明专利
-      </a>
-      <a href="https://designdb.wipo.int/"
-         target="_blank" class="block link">
-        🌐 WIPO · 外观设计
-      </a>
-    </div>
-  </details>
-
-  <details class="mb-6 bg-blue-50 rounded-xl p-4">
-    <summary class="text-lg font-semibold cursor-pointer">
-      🌎 美洲
-    </summary>
-    <div class="mt-4 space-y-2">
-      <a href="https://patentcenter.uspto.gov/search"
-         target="_blank" class="block link">
-        🇺🇸 美国 · 发明专利查询
-      </a>
-      <a href="https://www.uspto.gov/patents/search/patent-public-search"
-         target="_blank" class="block link">
-        🇺🇸 美国 · 外观设计查询
-      </a>
-    <a href="https://data.uspto.gov/patent-file-wrapper/search"
-       target="_blank" class="block link">🇺🇸 美国 · 专利证书下载</a>
-
-    <a href="https://brevets-patents.ic.gc.ca/opic-cipo/cpd/eng/search/basic.html"
-       target="_blank" class="block link">🇨🇦 加拿大 · 外观设计关键词查询</a>
-    </div>
-  </details>
-
-<details class="mb-6 bg-blue-50 rounded-xl p-4">
-  <summary class="text-lg font-semibold cursor-pointer">
-    🌎 欧洲
-  </summary>
-  <div class="mt-4 space-y-2">
-    <a href="https://euipo.europa.eu/eSearch/" target="_blank" class="block link">🇪🇺 欧盟 · 外观查询</a>
-    <a href="https://register.epo.org/" target="_blank" class="block link">🇪🇺 欧盟 · 发明专利查询（EPO）</a>
-    <a href="https://www.registered-design.service.gov.uk/find/" target="_blank" class="block link">🇬🇧 英国 · 外观设计查询</a>
-    <a href="https://register.dpma.de/DPMAregister/" target="_blank" class="block link">🇩🇪 德国 · 外观设计查询</a>
-  </div> <!-- 仅保留内容区的闭合标签 -->
-</details>
-
- <details class="mb-6 bg-blue-50 rounded-xl p-4">
-    <summary class="text-lg font-semibold cursor-pointer">
-      🌎 亚洲 / 大洋洲
-    </summary>
-   <a href="https://cpquery.cponline.cnipa.gov.cn/chinesepatent/index"
-       target="_blank" class="block link">🇨🇳 中国 · 外观设计查询</a>
-
-     <a href="https://ipsearch.ipaustralia.gov.au/patents"
-       target="_blank" class="block link">🇦🇺 澳大利亚 · 发明 / 外观查询</a>
-
-    </div>
-  </details>
 
 </div>
 
@@ -2280,671 +2176,228 @@ nav img {
         </section>
 
 <!-- 整合后的了解我区块 -->
-<section id="about" class="content-section max-w-7xl mx-auto px-4 md:px-8 mb-16 animate-fade-in">
-    <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
-        <!-- 标题统一 -->
-<h2 class="text-2xl md:text-3xl font-bold text-primary mb-8 text-center animate-zoom-in">
-    关于我 - Yuki 
-</h2>
-
-        
-        <!-- 个人信息与简介（左侧头像+右侧核心信息） -->
-<div class="grid md:grid-cols-2 gap-8 items-start mb-10"> <!-- 把items-center改成items-start，让内容顶部对齐 -->
-    <!-- 左侧头像区域 -->
-    <div class="animate-slide-up mt-0"> <!-- 去掉多余的margin-top，或设为mt-0 -->
-        <div class="relative">
-            <!-- 给图片添加top-0，同时调整容器的垂直空间 -->
-            <img src="展示图.png" alt="个人介绍" class="w-full rounded-xl shadow-md card-hover cursor-zoom top-0" onclick="openImgModal(this.src)" loading="lazy"  />
-            <!-- 增加经验标识 -->
-            <div class="absolute -bottom-4 -right-4 bg-primary text-white rounded-xl p-4 shadow-lg animate-float">
-                <div class="font-bold text-xl">10+</div>
-                <div class="text-sm">行业经验</div>
-            </div>
-        </div>
-    </div>
-            
-<!-- 右侧个人简介与核心优势 -->
-<div class="animate-slide-up delay-100 space-y-6">
-    <!-- 个人简介整合 -->
-    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-100">
-        <div class="flex items-center gap-3 mb-3">
-            <!-- 替换为微信头像：用img标签，控制宽高为w-14 h-14（和原容器一致），圆角覆盖 -->
-            <div class="w-14 h-14 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center animate-float">
-                <img src="头像.jpg" alt="微信头像" class="w-full h-full object-cover">
-            </div>
-            <h3 class="font-bold text-xl text-accent">凯德盟资深知识产权顾问</h3>
-        </div>
-        <p class="leading-relaxed mb-3">
-            深耕涉外知识产权行业10+年，专注亚马逊品牌备案、全球商标/专利申请、TRO应诉等领域，
-            累计服务跨境电商客户超10000+，擅长解决各类知识产权疑难问题，尤其精通美国/欧盟/英国等主流国家商标专利业务。
-        </p>
-        <!-- 个人成就列表 -->
-        <ul class="list-disc list-inside text-base space-y-1 ml-2 mb-3">
-            <li>📚 累计帮助2000+企业完成全球知识产权布局</li>
-            <li>🏆 擅长解决各类商标疑难问题，下证率98%</li>
-            <li>💡 提供1对1专属咨询，免费商标查询分析</li>
-            <li>📞 随时为您解答知识产权相关疑问</li>
-        </ul>
+<section id="about" class="content-section max-w-7xl mx-auto px-4 md:px-8 mb-24 animate-fade-in">
+    <div class="text-center mb-12">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full mb-3 tracking-widest">EXPERTS INTRODUCTION</span>
+        <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-4">关于我 - 资深顾问 Yuki</h2>
+        <div class="w-24 h-1.5 bg-primary mx-auto rounded-full shadow-sm"></div>
     </div>
 
-
-                <!-- 视频模块（调整尺寸：由16/9改为4/3，更紧凑） -->
-<div class="mb-8">
-    <h3 class="font-bold text-xl mb-4 text-accent text-center">案例视频展示</h3>
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-        <!-- 视频区域 -->
-        <div class="video-container card-hover relative rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl">
-            <video controls class="w-full aspect-video object-cover">
-                <source src="video/case.mp4" type="video/mp4">
-                您的浏览器不支持视频播放
-            </video>
-        </div>
-        <!-- 右侧案例文字区域 -->
-        <div class="case-text">
-            <h4 class="font-bold text-lg mb-3">个人案例展示</h4>
-            <p class="text-muted leading-relaxed">六年多亚马逊品牌备案实操经验
-六年以上涉外知识产权从业经历
-商标审核意见专家
-多平台优质内容作者</p>
-
+    <div class="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-gray-100 mb-16">
+        <div class="grid lg:grid-cols-12 gap-0">
+            <div class="lg:col-span-5 bg-slate-50 p-6 md:p-10 border-r border-gray-100">
+                <div class="relative group mb-8">
+                    <img src="展示图.png" alt="个人介绍" class="w-full rounded-3xl shadow-lg transition-transform duration-500 group-hover:scale-[1.02] cursor-zoom-in" onclick="openImageModal(this.src)">
+                    <div class="absolute -bottom-4 -right-4 bg-primary text-white p-5 rounded-3xl shadow-xl animate-bounce-slow">
+                        <span class="block text-3xl font-black text-center">10+</span>
+                        <span class="text-[10px] opacity-90 uppercase tracking-widest font-bold">Years Experience</span>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <h4 class="font-bold text-gray-800 flex items-center gap-2 mb-4">
+                        <span class="w-1.5 h-6 bg-primary rounded-full"></span> 核心优势 ✨
+                    </h4>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3 text-sm text-gray-600 bg-white p-4 rounded-2xl shadow-sm border border-blue-50">
+                            <i class="fa fa-check-circle text-green-500 text-lg"></i>
+                            <span class="font-medium">10年+实操经验，精通各国知产法规</span>
+                        </div>
+                        <div class="flex items-start gap-3 text-sm text-gray-600 bg-white p-4 rounded-2xl shadow-sm border border-blue-50">
+                            <i class="fa fa-check-circle text-green-500 text-lg"></i>
+                            <span class="font-medium">一对一专属服务，拒绝模板化回复</span>
+                        </div>
+                        <div class="flex items-start gap-3 text-sm text-gray-600 bg-white p-4 rounded-2xl shadow-sm border border-blue-50">
+                            <i class="fa fa-check-circle text-green-500 text-lg"></i>
+                            <span class="font-medium">专注TRO应诉、品牌备案等疑难杂症</span>
                         </div>
                     </div>
                 </div>
-
-
-                
-                <!-- 核心优势（保留详细列表） -->
-                <div class="bg-blue-50 rounded-lg p-6">
-                    <h3 class="font-bold text-xl mb-4 text-accent">核心优势 ✨</h3>
-                    <ul class="space-y-3 text-lg">
-                        <li class="flex items-start gap-3">
-                            <i class="fa fa-check-circle text-green-500 mt-1"></i>
-                            <span>10年+实操经验，熟悉各平台规则和各国知识产权法规</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa fa-check-circle text-green-500 mt-1"></i>
-                            <span>一对一专属服务，全程跟进，拒绝模板化回复</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa fa-check-circle text-green-500 mt-1"></i>
-                            <span>擅长解决备案失败、TRO应诉、商标驳回等疑难问题</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa fa-check-circle text-green-500 mt-1"></i>
-                            <span>知无不言/小红书等平台资深分享者，内容干货满满</span>
-                        </li>
-                    </ul>
-                </div>
             </div>
-        </div>
-        
-        <!-- 专业领域与服务理念 -->
-        <div class="bg-blue-50 rounded-xl p-6 mb-10">
-            <h3 class="font-bold text-xl mb-6 text-accent">我的专业领域与理念</h3>
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- 专业领域 -->
+
+            <div class="lg:col-span-7 p-8 md:p-12 flex flex-col justify-between bg-white">
                 <div>
-                    <h4 class="font-bold text-lg mb-3">专业领域</h4>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="flex items-start gap-3">
-                            <div class="mt-1 text-primary"><i class="fa fa-check-circle"></i></div>
-                            <div>亚马逊全球站点品牌备案</div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="mt-1 text-primary"><i class="fa fa-check-circle"></i></div>
-                            <div>国际商标注册与布局</div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="mt-1 text-primary"><i class="fa fa-check-circle"></i></div>
-                            <div>专利申请与侵权分析</div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="mt-1 text-primary"><i class="fa fa-check-circle"></i></div>
-                            <div>知识产权纠纷应对</div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="mt-1 text-primary"><i class="fa fa-check-circle"></i></div>
-                            <div>TRO应诉与和解谈判</div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="mt-1 text-primary"><i class="fa fa-check-circle"></i></div>
-                            <div>全球公司注册服务</div>
+                    <div class="flex items-center gap-5 mb-8">
+                        <img src="头像.jpg" class="w-20 h-20 rounded-2xl border-4 border-slate-50 shadow-md object-cover">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800">凯德盟资深知识产权顾问</h3>
+                            <p class="text-primary font-bold text-sm tracking-wide mt-1">Amazon品牌备案专家 / TRO应诉高级顾问</p>
                         </div>
                     </div>
-                </div>
-                
-<!-- 服务理念 -->
-<div>
-    <h4 class="font-bold text-lg mb-3">服务理念</h4>
-    <p class="text-lg leading-relaxed">
-        知识产权是企业出海的重要保障，我始终坚持"专业、诚信、高效"的服务理念，
-        致力于为每一位客户提供量身定制的知识产权解决方案，帮助中国企业在全球市场
-        建立和保护自己的品牌价值。
-    </p>
-    <!-- 快捷联系方式 -->
-    <div class="flex flex-col items-center gap-4 mt-4">
-        <span class="font-bold text-white bg-green-500 py-2 px-4 rounded-lg">微信沟通</span>
-        <!-- 第一个微信号 -->
-        <div 
-            class="w-fit px-4 py-2 bg-gray-100 rounded-lg border border-gray-200 cursor-pointer transition-all hover:bg-gray-200"
-            onclick="copyWechat('CADMON2023')"
-        >
-            <span>微信号1：CADMON2023</span>
-        </div>
-        <!-- 第二个微信号 -->
-        <div 
-            class="w-fit px-4 py-2 bg-gray-100 rounded-lg border border-gray-200 cursor-pointer transition-all hover:bg-gray-200"
-            onclick="copyWechat('CADMON456')"
-        >
-            <span>微信号2：CADMON456</span>
-        </div>
-        <!-- 可选：二维码（若仍需展示） -->
-        <img src="微信二维码/1.jpg" alt="微信二维码" class="w-36 h-36 mt-2 rounded-lg shadow-lg" loading="lazy" >
-    </div>
-</div>
 
-<!-- JavaScript复制函数 + 提示功能 -->
+                    <div class="prose prose-blue mb-8">
+                        <div class="bg-blue-50/50 p-6 rounded-3xl border-l-8 border-primary relative">
+                            <i class="fa fa-quote-left absolute top-4 left-4 text-primary/10 text-4xl"></i>
+                            <p class="text-gray-700 leading-relaxed italic text-lg relative z-10">
+                                “累计服务跨境电商客户超过 10,000+，我坚信每一位卖家的品牌梦想都值得被专业守护。在凯德盟，我不只提供注册服务，更提供全方位的品牌护航方案。”
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-900 rounded-[2rem] overflow-hidden shadow-2xl relative group mb-8">
+                        <div class="absolute top-4 left-4 z-20 bg-black/40 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20">
+                            <span class="text-white text-xs font-bold flex items-center gap-2">
+                                <i class="fa fa-play-circle text-primary"></i> 个人案例实操演示
+                            </span>
+                        </div>
+                        <video controls class="w-full aspect-[4/3] object-cover">
+                            <source src="video/case.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-3xl p-6 border border-gray-100">
+                    <h4 class="font-bold text-lg mb-4 text-accent flex items-center gap-2">
+                        <i class="fa fa-star text-yellow-500"></i> 专业领域与理念
+                    </h4>
+                    <div class="grid grid-cols-2 gap-3 mb-6 text-sm font-medium text-gray-600">
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-primary"></i> 亚马逊品牌备案</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-primary"></i> 国际商标注册</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-primary"></i> 专利申请分析</div>
+                        <div class="flex items-center gap-2"><i class="fa fa-check text-primary"></i> TRO应诉和解</div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <button onclick="copyWechat('CADMON2023')" class="flex-1 bg-green-500 text-white py-3 rounded-xl font-bold hover:bg-green-600 transition-all shadow-lg shadow-green-100">复制微信号1</button>
+                        <button onclick="copyWechat('CADMON456')" class="flex-1 bg-primary text-white py-3 rounded-xl font-bold hover:bg-accent transition-all shadow-lg shadow-blue-100">复制微信号2</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-20">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-6">
+            <h3 class="text-2xl font-black text-gray-900">个人成功案例库 <span class="text-primary text-sm ml-2">Total 31+</span></h3>
+            <div class="flex flex-wrap justify-center gap-2 bg-gray-100 p-1.5 rounded-2xl">
+                <button class="case-tab active px-5 py-2 rounded-xl text-sm font-bold transition-all" data-tab="all" onclick="switchTab(this, 'all')">全部</button>
+                <button class="case-tab px-5 py-2 rounded-xl text-sm font-bold transition-all" data-tab="record" onclick="switchTab(this, 'record')">品牌备案</button>
+                <button class="case-tab px-5 py-2 rounded-xl text-sm font-bold transition-all" data-tab="trademark" onclick="switchTab(this, 'trademark')">商标下证</button>
+                <button class="case-tab px-5 py-2 rounded-xl text-sm font-bold transition-all" data-tab="tro" onclick="switchTab(this, 'tro')">TRO应诉</button>
+                <button class="case-tab px-5 py-2 rounded-xl text-sm font-bold transition-all" data-tab="patent" onclick="switchTab(this, 'patent')">专利申请</button>
+                <button class="case-tab px-5 py-2 rounded-xl text-sm font-bold transition-all" data-tab="other" onclick="switchTab(this, 'other')">其他</button>
+            </div>
+        </div>
+
+        <div class="relative group">
+            <div id="personalCaseImages" class="scroll-container overflow-x-auto pb-8 snap-x">
+                <div class="flex gap-6 min-w-max px-2">
+                    <div class="case-item w-72 bg-white rounded-2xl shadow-md overflow-hidden snap-start border border-gray-50" data-cat="record">
+                        <div class="h-52 overflow-hidden">
+                            <img src="images/备案通过/1.jpg" class="w-full h-full object-cover cursor-zoom-in hover:scale-110 transition-transform duration-500" onclick="openImgModal(this.src)">
+                        </div>
+                        <div class="p-4 text-center font-bold text-gray-700 text-sm">亚马逊品牌备案案例</div>
+                    </div>
+                    
+                    <div class="case-item w-72 bg-white rounded-2xl shadow-md overflow-hidden snap-start border border-gray-50" data-cat="other">
+                        <div class="h-52 overflow-hidden">
+                            <img src="images/其他/1.jpg" class="w-full h-full object-cover cursor-zoom-in hover:scale-110 transition-transform duration-500" onclick="openImgModal(this.src)">
+                        </div>
+                        <div class="p-4 text-center font-bold text-gray-700 text-sm">其他成功案例</div>
+                    </div>
+                    
+                    <div class="case-item w-72 bg-white rounded-2xl shadow-md overflow-hidden snap-start border border-gray-50" data-cat="other">
+                        <div class="h-52 overflow-hidden">
+                            <img src="images/其他/31.jpg" class="w-full h-full object-cover cursor-zoom-in hover:scale-110 transition-transform duration-500" onclick="openImgModal(this.src)">
+                        </div>
+                        <div class="p-4 text-center font-bold text-gray-700 text-sm">其他成功案例</div>
+                    </div>
+                </div>
+            </div>
+            
+            <button onclick="document.getElementById('personalCaseImages').scrollBy({left: -320, behavior: 'smooth'})" class="absolute left-[-20px] top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 transition-opacity hidden md:flex">
+                <i class="fa fa-chevron-left"></i>
+            </button>
+            <button onclick="document.getElementById('personalCaseImages').scrollBy({left: 320, behavior: 'smooth'})" class="absolute right-[-20px] top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 transition-opacity hidden md:flex">
+                <i class="fa fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="mt-16 bg-gradient-to-br from-primary to-accent rounded-[3rem] p-8 md:p-12 text-white shadow-2xl relative overflow-hidden">
+        <div class="relative z-10 grid md:grid-cols-3 gap-8 items-center">
+            <div class="text-center md:text-left">
+                <h3 class="text-3xl font-black mb-2">随时联系我</h3>
+                <p class="opacity-80">专业、诚信、高效，为您品牌出海护航</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <img src="微信二维码/1.jpg" class="w-32 h-32 rounded-2xl border-4 border-white/20 shadow-lg mb-4">
+                <p class="text-sm font-bold">扫码添加官方微信</p>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl flex items-center gap-4">
+                    <i class="fa fa-qq text-2xl"></i>
+                    <div>
+                        <p class="text-xs opacity-60 uppercase">QQ咨询</p>
+                        <p class="font-bold">3450292745</p>
+                    </div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl flex items-center gap-4">
+                    <i class="fa fa-envelope text-2xl"></i>
+                    <div>
+                        <p class="text-xs opacity-60 uppercase">Email</p>
+                        <p class="font-bold text-sm">qli021833@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute top-[-50px] right-[-50px] w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+    </div>
+</section>
+
+<style>
+/* 分类标签激活样式 */
+.case-tab.active {
+    background-color: #2563eb; /* 你的 primary 颜色 */
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+.case-tab:not(.active) {
+    color: #64748b;
+}
+.case-tab:hover:not(.active) {
+    background-color: #e2e8f0;
+}
+/* 隐藏滚动条但保留滚动功能 */
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+.scroll-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+</style>
+
 <script>
-function copyWechat(wechatId) {
-    // 使用剪贴板API复制内容
-    navigator.clipboard.writeText(wechatId)
-        .then(() => {
-            // 复制成功提示（可自定义样式）
-            const tip = document.createElement('div');
-            tip.style.position = 'fixed';
-            tip.style.top = '50%';
-            tip.style.left = '50%';
-            tip.style.transform = 'translate(-50%, -50%)';
-            tip.style.padding = '10px 20px';
-            tip.style.backgroundColor = 'rgba(0,0,0,0.7)';
-            tip.style.color = 'white';
-            tip.style.borderRadius = '5px';
-            tip.style.zIndex = '9999';
-            tip.textContent = `已复制微信号：${wechatId}`;
-            document.body.appendChild(tip);
-            // 2秒后移除提示
-            setTimeout(() => {
-                document.body.removeChild(tip);
-            }, 2000);
-        })
-        .catch(err => {
-            console.error('复制失败：', err);
-            alert('复制失败，请手动复制微信号：' + wechatId);
-        });
+// 案例分类过滤逻辑
+function switchTab(btn, category) {
+    // 1. 更新按钮样式
+    document.querySelectorAll('.case-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+
+    // 2. 过滤图片展示
+    const items = document.querySelectorAll('.case-item');
+    items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-cat') === category) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
+// 复制微信函数（增强版）
+function copyWechat(id) {
+    navigator.clipboard.writeText(id).then(() => {
+        const toast = document.createElement('div');
+        toast.className = 'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/80 text-white px-6 py-3 rounded-full z-[9999] animate-fade-in';
+        toast.innerHTML = `<i class="fa fa-check-circle text-green-400 mr-2"></i> 已复制微信号: ${id}`;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 2000);
+    }).catch(() => {
+        alert('复制失败，请手动输入: ' + id);
+    });
 }
 </script>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-   <!-- 新增：个人成功案例图（放在“了解我”页面） -->
-<div class="mt-12">
-    <h3 class="font-bold text-xl mb-8 text-accent text-center">个人成功案例展示</h3>
-    
-    <!-- 分类标签 -->
-    <div class="flex flex-wrap justify-center gap-3 mb-6">
-        <button class="case-tab active px-6 py-3 rounded-full bg-primary text-white font-medium transition-all hover:bg-accent shadow-sm min-w-[44px] min-h-[44px]" data-tab="all">
-            全部案例
-        </button>
-        <button class="case-tab px-6 py-3 rounded-full bg-gray-100 text-dark font-medium transition-all hover:bg-primary/10 shadow-sm min-w-[44px] min-h-[44px]" data-tab="record">
-            亚马逊品牌备案
-        </button>
-        <button class="case-tab px-6 py-3 rounded-full bg-gray-100 text-dark font-medium transition-all hover:bg-primary/10 shadow-sm min-w-[44px] min-h-[44px]" data-tab="trademark">
-            美国商标下证
-        </button>
-        <button class="case-tab px-6 py-3 rounded-full bg-gray-100 text-dark font-medium transition-all hover:bg-primary/10 shadow-sm min-w-[44px] min-h-[44px]" data-tab="tro">
-            TRO应诉和解
-        </button>
-        <button class="case-tab px-6 py-3 rounded-full bg-gray-100 text-dark font-medium transition-all hover:bg-primary/10 shadow-sm min-w-[44px] min-h-[44px]" data-tab="patent">
-            专利申请
-        </button>
-<button class="case-tab px-6 py-3 rounded-full bg-gray-100 text-dark font-medium transition-all hover:bg-primary/10 shadow-sm min-w-[44px] min-h-[44px]" data-tab="other">            其他案例
-        </button>
-    </div>
-
-    <!-- 案例展示容器 -->
-    <div class="relative">
-        <!-- 左右滑动箭头 -->
-        <div class="scroll-indicator left opacity-50 pointer-events-none" onclick="scrollContainer('personalCaseImages', -400)">
-            <i class="fa fa-chevron-left text-primary text-xl"></i>
-        </div>
-        <div class="scroll-indicator right" onclick="scrollContainer('personalCaseImages', 400)">
-            <i class="fa fa-chevron-right text-primary text-xl"></i>
-        </div>
-
-        <!-- 案例图片网格 -->
-        <div id="personalCaseImages" class="scroll-container pb-4 px-2">
-            <div class="flex gap-5 min-w-max py-2">
-                <!-- 亚马逊品牌备案案例 (原有2张) -->
-                <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="record">
-                    <div class="h-48 overflow-hidden">
-                        <img src="images/备案通过/1.jpg" alt="亚马逊品牌备案案例1" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-                    </div>
-                    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-                        亚马逊品牌备案案例
-                    </div>
-                </div>
-                <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="record">
-                    <div class="h-48 overflow-hidden">
-                        <img src="images/备案通过/2.jpg" alt="亚马逊品牌备案案例2" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-                    </div>
-                    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-                        亚马逊品牌备案案例
-                    </div>
-                </div>
-
-                <!-- 美国商标下证案例 (原有2张) -->
-                <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="trademark">
-                    <div class="h-48 overflow-hidden">
-                        <img src="images/下证/1.jpg" alt="美国商标下证案例1" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-                    </div>
-                    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-                        美国商标下证案例
-                    </div>
-                </div>
-                <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="trademark">
-                    <div class="h-48 overflow-hidden">
-                        <img src="images/下证/2.jpg" alt="美国商标下证案例2" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-                    </div>
-                    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-                        美国商标下证案例
-                    </div>
-                </div>
-
-                <!-- TRO应诉和解案例 (原有2张) -->
-                <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="tro">
-                    <div class="h-48 overflow-hidden">
-                        <img src="images/TRO/1.png" alt="TRO应诉和解案例1" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" />
-                    </div>
-                    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-                        TRO应诉和解案例
-                    </div>
-                </div>
-                <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="tro">
-                    <div class="h-48 overflow-hidden">
-                        <img src="images/TRO/2.png" alt="TRO应诉和解案例2" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-                    </div>
-                    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-                        TRO应诉和解案例
-                    </div>
-                </div>
-
-                <!-- 专利申请案例 (原有3张) -->
-                <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="patent">
-                    <div class="h-48 overflow-hidden">
-                        <img src="images/专利/1.jpg" alt="专利申请案例1" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-                    </div>
-                    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-                        专利申请案例
-                    </div>
-                </div>
-                <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="patent">
-                    <div class="h-48 overflow-hidden">
-                        <img src="images/专利/2.jpg" alt="专利申请案例2" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-                    </div>
-                    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-                        专利申请案例
-                    </div>
-                </div>
-                <div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="patent">
-                    <div class="h-48 overflow-hidden">
-                        <img src="images/专利/3.jpg" alt="专利申请案例3" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-                    </div>
-                    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-                        专利申请案例
-                    </div>
-                </div>
-
-   <!-- 其他案例 (31张完整版本) -->
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/1.jpg" alt="其他案例1" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/2.jpg" alt="其他案例2" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/3.jpg" alt="其他案例3" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/4.jpg" alt="其他案例4" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/5.jpg" alt="其他案例5" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/6.jpg" alt="其他案例6" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/7.jpg" alt="其他案例7" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/8.jpg" alt="其他案例8" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)"  loading="lazy" />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/9.jpg" alt="其他案例9" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/10.jpg" alt="其他案例10" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/11.jpg" alt="其他案例11" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/12.jpg" alt="其他案例12" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/13.jpg" alt="其他案例13" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/14.jpg" alt="其他案例14" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/15.jpg" alt="其他案例15" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/16.jpg" alt="其他案例16" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/17.jpg" alt="其他案例17" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/18.jpg" alt="其他案例18" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/19.jpg" alt="其他案例19" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/20.jpg" alt="其他案例20" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/21.jpg" alt="其他案例21" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/22.jpg" alt="其他案例22" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)"  loading="lazy" />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/23.jpg" alt="其他案例23" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/24.jpg" alt="其他案例24" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/25.jpg" alt="其他案例25" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/26.jpg" alt="其他案例26" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/27.jpg" alt="其他案例27" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/28.jpg" alt="其他案例28" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/29.jpg" alt="其他案例29" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/30.jpg" alt="其他案例30" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-<div class="case-item rounded-xl overflow-hidden shadow-md w-64 bg-white card-hover" data-category="other">
-    <div class="h-48 overflow-hidden">
-        <img src="images/其他/31.jpg" alt="其他案例31" class="w-full h-full object-cover cursor-zoom transition-transform hover:scale-105" onclick="openImgModal(this.src)" loading="lazy"  />
-    </div>
-    <div class="p-3 text-center font-medium text-gray-800 border-t border-gray-100">
-        其他成功案例
-    </div>
-</div>
-</div>
-</div>
-</div>
-
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        // 初始化 Swiper，用于公司图片滑动区
-        document.addEventListener('DOMContentLoaded', function() {
-            try {
-                const swiper = new Swiper(".mySwiper", {
-                    loop: true,
-                    speed: 800,
-                    autoplay: { delay: 4000 },
-                    effect: 'coverflow',        // 使用 3D 覆盖流效果
-                    coverflowEffect: {
-                        rotate: 0,
-                        stretch: 0,
-                        depth: 120,
-                        modifier: 2.5,
-                        slideShadows: true,
-                    },
-                    centeredSlides: true,
-                    grabCursor: true,
-                    // 关键：防止误触上下滑动
-                    touchMoveStopPropagation: true,
-                    touchAngle: 45,
-                    
-                    // 导航箭头
-                    navigation: {
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
-                    },
-                    // 分页圆点
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
-                        dynamicBullets: true,
-                    },
-                    // 响应式配置
-                    breakpoints: {
-                        320: {
-                            slidesPerView: 1.2,
-                            spaceBetween: 10
-                        },
-                        768: {
-                            slidesPerView: 1.5,
-                            spaceBetween: 20
-                        },
-                        1024: {
-                            slidesPerView: 1.8,
-                            spaceBetween: 30
-                        }
-                    }
-                });
-            } catch (e) {
-                console.error('Swiper init failed:', e);
-            }
-        });
-    </script>
-    <!-- 提示文字 -->
-    <p class="text-sm text-muted mt-4 text-center animate-pulse-light">
-        <i class="fa fa-info-circle text-primary mr-1"></i> 
-        → 点击分类或滑动/点击箭头查看更多个人成功案例 ←
-    </p>
-
-    <!-- 案例数量统计 -->
-    <div class="mt-6 flex justify-center gap-8 text-sm text-gray-600">
-        <div><span class="font-bold text-primary">8</span> 个品牌备案案例</div>
-        <div><span class="font-bold text-primary">12</span> 个商标下证案例</div>
-        <div><span class="font-bold text-primary">6</span> 个TRO应诉案例</div>
-        <div><span class="font-bold text-primary">9</span> 个专利申请案例</div>
-        <div><span class="font-bold text-primary">31</span> 个其他成功案例</div>
-    </div>
-</div>
-
-<!-- 联系方式区域保持不变 -->
-<div class="bg-blue-50 rounded-xl p-8 mt-8">
-    <h3 class="font-bold text-2xl mb-6 text-center">联系方式</h3>
-    <div class="grid md:grid-cols-3 gap-6 text-center">
-        <div class="bg-white p-6 rounded-lg shadow-sm card-hover">
-            <i class="fa fa-weixin text-4xl text-green-500 mb-4"></i>
-            <p class="font-bold text-lg">微信</p>
-            <p class="text-muted text-lg mt-2">CADMON2023 / CADMON456</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-sm card-hover">
-            <i class="fa fa-qq text-4xl text-blue-500 mb-4"></i>
-            <p class="font-bold text-lg">QQ</p>
-            <p class="text-muted text-lg mt-2">3450292745</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-sm card-hover">
-            <i class="fa fa-envelope text-4xl text-red-500 mb-4"></i>
-            <p class="font-bold text-lg">邮箱</p>
-            <p class="text-muted text-lg mt-2">qli021833@gmail.com</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- 6. 新增：常见问题解答区块 -->
         <section id="faq" class="content-section max-w-7xl mx-auto px-4 md:px-8 mb-16 animate-fade-in">
