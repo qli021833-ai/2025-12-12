@@ -1002,100 +1002,204 @@ nav img {
             </div>
         </div>
 
-        <div id="queryByBrand" class="hidden space-y-12 animate-fade-in">
-    
-    <div class="text-center space-y-2">
-        <p class="text-gray-500">点击下方地区图标，直接跳转至官方系统进行检索</p>
-        <div class="h-1 w-20 bg-blue-500 mx-auto rounded-full"></div>
-    </div>
+        <!-- 2. 按持有人/品牌名查询（独立容器，无嵌套，搜索框正常显示） -->
+<div id="queryByBrand" class="hidden">
 
-    <section>
-        <div class="flex items-center gap-4 mb-6">
-            <div class="bg-indigo-600 text-white p-3 rounded-2xl shadow-lg">
-                <i class="fa fa-trademark text-xl"></i>
-            </div>
-            <h2 class="text-2xl font-bold text-gray-800">全球商标查询</h2>
-        </div>
+  <p class="text-center text-muted mb-8">
+    点击国家或地区，进入对应官方系统查询（商标 / 专利）
+  </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            
-            <div class="md:col-span-2 lg:col-span-3 bg-indigo-50 p-4 rounded-2xl border border-indigo-100">
-                <h3 class="text-sm font-bold text-indigo-600 mb-3 uppercase tracking-wider">全球/国际组织</h3>
-                <a href="https://branddb.wipo.int/" target="_blank" class="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group">
-                    <span class="text-2xl">🌐</span>
-                    <div class="flex-1">
-                        <div class="font-bold text-gray-800 group-hover:text-indigo-600">WIPO 世界知识产权组织</div>
-                        <div class="text-xs text-gray-500">支持商标名、持有人、律师全维度查询</div>
-                    </div>
-                    <i class="fa fa-external-link text-gray-300 group-hover:text-indigo-400"></i>
-                </a>
-            </div>
-
-            <div class="space-y-3">
-                <h3 class="text-xs font-bold text-gray-400 uppercase ml-2">美洲地区</h3>
-                <a href="https://tmsearch.uspto.gov/" target="_blank" class="block p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition-all text-sm font-medium">🇺🇸 美国 · 商标名/持有人</a>
-                <a href="https://ised-isde.canada.ca/cipo/trademark-search/srch" target="_blank" class="block p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition-all text-sm font-medium">🇨🇦 加拿大 · 品牌名查询</a>
-                <a href="https://marcia.impi.gob.mx/marcas/search/quick" target="_blank" class="block p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition-all text-sm font-medium">🇲🇽 墨西哥 · 商标检索</a>
-            </div>
-
-            <div class="space-y-3">
-                <h3 class="text-xs font-bold text-gray-400 uppercase ml-2">欧洲地区</h3>
-                <div class="grid grid-cols-1 gap-2">
-                    <a href="https://euipo.europa.eu/eSearch/" target="_blank" class="p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 transition-all text-sm font-medium flex items-center gap-2">🇪🇺 欧盟官方查询</a>
-                    <a href="https://trademarks.ipo.gov.uk/ipo-tmtext" target="_blank" class="p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 transition-all text-sm font-medium flex items-center gap-2">🇬🇧 英国商标检索</a>
-                    <a href="https://depatisnet.dpma.de/" target="_blank" class="p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 transition-all text-sm font-medium flex items-center gap-2">🇩🇪 德国官方系统</a>
-                    <a href="https://data.inpi.fr/" target="_blank" class="p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 transition-all text-sm font-medium flex items-center gap-2">🇫🇷 法国商标数据</a>
-                </div>
-            </div>
-
-            <div class="space-y-3">
-                <h3 class="text-xs font-bold text-gray-400 uppercase ml-2">亚洲 / 大洋洲</h3>
-                <div class="grid grid-cols-1 gap-2">
-                    <a href="https://sbj.cnipa.gov.cn/sbj/sbcx/" target="_blank" class="p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 transition-all text-sm font-medium">🇨🇳 中国商标网</a>
-                    <a href="https://www.j-platpat.inpit.go.jp/" target="_blank" class="p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 transition-all text-sm font-medium">🇯🇵 日本 J-PlatPat</a>
-                    <a href="https://search.ipaustralia.gov.au/" target="_blank" class="p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 transition-all text-sm font-medium">🇦🇺 澳大利亚检索</a>
-                    <a href="https://digitalhub.ipos.gov.sg/" target="_blank" class="p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-500 transition-all text-sm font-medium">🇸🇬 新加坡 IPOS</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="flex items-center gap-4 mb-6">
-            <div class="bg-emerald-600 text-white p-3 rounded-2xl shadow-lg">
-                <i class="fa fa-file-text text-xl"></i>
-            </div>
-            <h2 class="text-2xl font-bold text-gray-800">专利 / 外观设计查询</h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-emerald-50 p-5 rounded-2xl border border-emerald-100 space-y-4">
-                <h3 class="text-emerald-700 font-bold flex items-center gap-2"><i class="fa fa-globe"></i> 国际组织</h3>
-                <a href="https://patentscope2.wipo.int/" target="_blank" class="block p-3 bg-white rounded-xl shadow-sm hover:bg-emerald-500 hover:text-white transition-colors text-sm font-bold text-center">WIPO · 全球发明专利</a>
-                <a href="https://designdb.wipo.int/" target="_blank" class="block p-3 bg-white rounded-xl shadow-sm hover:bg-emerald-500 hover:text-white transition-colors text-sm font-bold text-center">WIPO · 全球外观设计</a>
-            </div>
-
-            <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-3">
-                <h3 class="text-gray-700 font-bold flex items-center gap-2">🇺🇸 美国专区</h3>
-                <a href="https://patentcenter.uspto.gov/" target="_blank" class="flex justify-between items-center p-3 bg-gray-50 rounded-lg hover:bg-emerald-50 transition-all group">
-                    <span class="text-sm">发明专利查询</span>
-                    <i class="fa fa-angle-right text-gray-300 group-hover:text-emerald-500"></i>
-                </a>
-                <a href="https://www.uspto.gov/patents/search/patent-public-search" target="_blank" class="flex justify-between items-center p-3 bg-gray-50 rounded-lg hover:bg-emerald-50 transition-all group">
-                    <span class="text-sm">外观设计查询</span>
-                    <i class="fa fa-angle-right text-gray-300 group-hover:text-emerald-500"></i>
-                </a>
-            </div>
-
-            <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-3">
-                <h3 class="text-gray-700 font-bold flex items-center gap-2">🇪🇺 欧洲及其他</h3>
-                <a href="https://register.epo.org/" target="_blank" class="block text-sm p-3 border-b border-gray-50 hover:text-emerald-600 transition-colors">🇪🇺 欧盟发明专利 (EPO)</a>
-                <a href="https://euipo.europa.eu/eSearch/" target="_blank" class="block text-sm p-3 border-b border-gray-50 hover:text-emerald-600 transition-colors">🇪🇺 欧盟外观查询</a>
-                <a href="https://cpquery.cponline.cnipa.gov.cn/" target="_blank" class="block text-sm p-3 hover:text-emerald-600 transition-colors">🇨🇳 中国外观设计查询</a>
-            </div>
-        </div>
-    </section>
+  <!-- ================= 商标查询 ================= -->
+<div class="flex justify-center my-10">
+  <div class="bg-gradient-to-r from-indigo-500 to-blue-500 
+              text-white font-bold text-lg px-10 py-4 
+              rounded-xl shadow-lg">
+    ®️ 商标查询
+  </div>
 </div>
+
+
+  <details open class="mb-6 bg-blue-50 rounded-xl p-4">
+    <summary class="text-lg font-semibold cursor-pointer">
+      🌍 全球 / 国际组织
+    </summary>
+    <div class="mt-4 space-y-2">
+      <a href="https://branddb.wipo.int/"
+         target="_blank" class="block link">
+        🌐 WIPO · 商标名、持有者、律师等查询
+      </a>
+    </div>
+  </details>
+
+  <details class="mb-6 bg-blue-50 rounded-xl p-4">
+    <summary class="text-lg font-semibold cursor-pointer">
+      🌎 美洲
+    </summary>
+    <div class="mt-4 space-y-2">
+      <a href="https://tmsearch.uspto.gov/search/search-information"
+         target="_blank" class="block link">
+        🇺🇸 美国 · 商标名、持有者、律师等查询
+      </a>
+    <a href="https://assignment.uspto.gov/trademark/index.html#/trademark/search"
+       target="_blank" class="block link">🇺🇸 美国 · 商标转让查询</a>
+
+      <a href="https://ised-isde.canada.ca/cipo/trademark-search/srch"
+         target="_blank" class="block link">
+        🇨🇦 加拿大 · 商标名查询
+      </a>
+      <a href="https://marcia.impi.gob.mx/marcas/search/quick"
+         target="_blank" class="block link">
+        🇨🇲🇽 墨西哥 · 商标品牌名
+      </a>
+    </div>
+  </details>
+
+  <details class="mb-10 bg-blue-50 rounded-xl p-4">
+    <summary class="text-lg font-semibold cursor-pointer">
+      🌍 欧洲 
+    </summary>
+    <div class="mt-4 space-y-2">
+      <a href="https://euipo.europa.eu/eSearch/"
+         target="_blank" class="block link">
+        🇪🇺 欧盟 · 商标名查询
+      </a>
+    <a href="https://trademarks.ipo.gov.uk/ipo-tmtext"
+       target="_blank" class="block link">
+🇬🇧 英国 · 商标（品牌名)
+      </a>
+  <a href="https://depatisnet.dpma.de/DepatisNet/depatisnet"
+       target="_blank" class="block link">🇩🇪 德国 · 商标名查询</a>
+
+    <a href="https://data.inpi.fr/recherche_avancee/marques"
+       target="_blank" class="block link">🇫🇷 法国 · 商标</a>
+
+    <a href="https://consultas2.oepm.es/LocalizadorWeb/busquedaDenominacion"
+       target="_blank" class="block link">🇪🇸 西班牙 · 商标名查询</a>
+
+    <a href="https://tc.prv.se/VarumarkesDbWeb/searchMain.jsp"
+       target="_blank" class="block link">🇸🇪 瑞典 · 商标名查询</a>
+
+    <a href="https://ewyszukiwarka.pue.uprp.gov.pl/search/simple-search?lng=pl"
+       target="_blank" class="block link">🇵🇱 波兰 · 商标名查询</a>
+
+    <a href="https://www.uibm.gov.it/bancadati/"
+       target="_blank" class="block link">🇮🇹 意大利 · 商标名查询</a>
+
+    <a href="https://www.boip.int/en/trademarks-register?app=%2F"
+       target="_blank" class="block link">🇧🇪 比荷卢 · 商标名查询</a>
+    </div>
+  </details>
+
+ <details class="mb-10 bg-blue-50 rounded-xl p-4">
+    <summary class="text-lg font-semibold cursor-pointer">
+      🌎 亚洲 / 大洋洲
+    </summary>
+    <div class="mt-4 space-y-2">
+    <a href="https://sbj.cnipa.gov.cn/sbj/sbcx/"
+       target="_blank" class="block link">🇨🇳 中国 · 商标名、持有者查询</a>
+
+
+    <a href="https://www.j-platpat.inpit.go.jp/t0100"
+       target="_blank" class="block link">🇯🇵 日本 · 商标名 / 持有者查询</a>
+
+    <a href="https://search.ipaustralia.gov.au/trademarks/search/quick"
+       target="_blank" class="block link">🇦🇺 澳大利亚 · 商标名查询</a>
+
+    <a href="https://search.ipthailand.go.th/"
+       target="_blank" class="block link">🇹🇭 泰国 · 商标名查询</a>
+
+    <a href="https://www.ipophil.gov.ph/"
+       target="_blank" class="block link">🇵🇭 菲律宾 · 商标名查询</a>
+
+    <a href="https://www.dsedt.gov.mo/zh_MO/web/public/Pg_ES_AE_QE_TRADEMARK"
+       target="_blank" class="block link">🇲🇴 澳门 · 商标名查询</a>
+
+    <a href="https://www.dgip.go.id/"
+       target="_blank" class="block link">🇮🇩 印度尼西亚 · 商标名查询</a>
+
+    <a href="https://iponlineext.myipo.gov.my/SPHI/Extra/IP/TM/Qbe.aspx"
+       target="_blank" class="block link">🇲🇾 马来西亚 · 商标名查询</a>
+
+    <a href="https://digitalhub.ipos.gov.sg/FAMN/eservice/IP4SG/MN_BasicSearch"
+       target="_blank" class="block link">🇸🇬 新加坡 · 商标名查询</a>
+    </div>
+  </details>
+
+ 
+
+
+
+
+  <!-- ================= 专利 / 外观 ================= -->
+<div class="flex justify-center my-10">
+  <div class="bg-gradient-to-r from-emerald-500 to-teal-500 
+              text-white font-bold text-lg px-10 py-4 
+              rounded-xl shadow-lg">
+    📄 专利 / 外观设计
+  </div>
+</div>
+
+  <details open class="mb-6 bg-blue-50 rounded-xl p-4">
+    <summary class="text-lg font-semibold cursor-pointer">
+      🌍 全球 / 国际组织
+    </summary>
+    <div class="mt-4 space-y-2">
+      <a href="https://patentscope2.wipo.int/search/en/search.jsf"
+         target="_blank" class="block link">
+        🌐 WIPO · 发明专利
+      </a>
+      <a href="https://designdb.wipo.int/"
+         target="_blank" class="block link">
+        🌐 WIPO · 外观设计
+      </a>
+    </div>
+  </details>
+
+  <details class="mb-6 bg-blue-50 rounded-xl p-4">
+    <summary class="text-lg font-semibold cursor-pointer">
+      🌎 美洲
+    </summary>
+    <div class="mt-4 space-y-2">
+      <a href="https://patentcenter.uspto.gov/search"
+         target="_blank" class="block link">
+        🇺🇸 美国 · 发明专利查询
+      </a>
+      <a href="https://www.uspto.gov/patents/search/patent-public-search"
+         target="_blank" class="block link">
+        🇺🇸 美国 · 外观设计查询
+      </a>
+    <a href="https://data.uspto.gov/patent-file-wrapper/search"
+       target="_blank" class="block link">🇺🇸 美国 · 专利证书下载</a>
+
+    <a href="https://brevets-patents.ic.gc.ca/opic-cipo/cpd/eng/search/basic.html"
+       target="_blank" class="block link">🇨🇦 加拿大 · 外观设计关键词查询</a>
+    </div>
+  </details>
+
+<details class="mb-6 bg-blue-50 rounded-xl p-4">
+  <summary class="text-lg font-semibold cursor-pointer">
+    🌎 欧洲
+  </summary>
+  <div class="mt-4 space-y-2">
+    <a href="https://euipo.europa.eu/eSearch/" target="_blank" class="block link">🇪🇺 欧盟 · 外观查询</a>
+    <a href="https://register.epo.org/" target="_blank" class="block link">🇪🇺 欧盟 · 发明专利查询（EPO）</a>
+    <a href="https://www.registered-design.service.gov.uk/find/" target="_blank" class="block link">🇬🇧 英国 · 外观设计查询</a>
+    <a href="https://register.dpma.de/DPMAregister/" target="_blank" class="block link">🇩🇪 德国 · 外观设计查询</a>
+  </div> <!-- 仅保留内容区的闭合标签 -->
+</details>
+
+ <details class="mb-6 bg-blue-50 rounded-xl p-4">
+    <summary class="text-lg font-semibold cursor-pointer">
+      🌎 亚洲 / 大洋洲
+    </summary>
+   <a href="https://cpquery.cponline.cnipa.gov.cn/chinesepatent/index"
+       target="_blank" class="block link">🇨🇳 中国 · 外观设计查询</a>
+
+     <a href="https://ipsearch.ipaustralia.gov.au/patents"
+       target="_blank" class="block link">🇦🇺 澳大利亚 · 发明 / 外观查询</a>
+
+    </div>
+  </details>
 
 </div>
 
