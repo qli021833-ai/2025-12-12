@@ -6,6 +6,7 @@
     padding: 12px 16px; 
     min-height: 48px; 
     display: flex; 
+    
     align-items: center;
     background: #fff;
     border-radius: 8px;
@@ -728,6 +729,41 @@ nav img {
     }
 }
 }
+@media (max-width: 768px) {
+    /* 强行上调“查询流程指引”标题 */
+    .mt-8.border-t.pt-8 {
+        margin-top: 1rem !important;
+        padding-top: 1rem !important;
+    }
+    
+    /* 缩小标题上下的外边距，让文字上移 */
+    .mb-20 { margin-bottom: 1.5rem !important; }
+    .mb-12 { margin-bottom: 1rem !important; }
+    .mb-10 { margin-bottom: 0.75rem !important; }
+
+    /* 缩小 01 02 03 卡片的内边距 */
+    #guide-section .bg-white.p-8, 
+    .grid.md\:grid-cols-3 .bg-white.p-8 {
+        padding: 1.25rem !important; /* 从 32px 缩减到 20px */
+    }
+
+    /* 缩小常见问题底板的内边距 */
+    .bg-gray-50.rounded-\[40px\].p-8 {
+        padding: 1.5rem 1rem !important; /* 缩小内边距 */
+        border-radius: 20px !important;  /* 缩小圆角，更适合手机 */
+    }
+
+    /* 调整常见问题 Q 和 A 之间的间距 */
+    .bg-white.p-6.rounded-2xl {
+        padding: 1rem !important;
+        margin-bottom: 0.5rem;
+    }
+
+    /* 缩小文字大小，防止行高撑大空间 */
+    h3.text-2xl { font-size: 1.25rem !important; }
+    h4.text-lg { font-size: 1rem !important; margin-bottom: 0.25rem !important; }
+    p.text-sm { font-size: 0.75rem !important; line-height: 1.4 !important; }
+}
  </style>
 </head>
 <body class="bg-gradient-to-br from-eef3ff to-f9fbff text-dark antialiased">
@@ -747,7 +783,16 @@ nav img {
             <!-- 桌面端导航 -->
             <div class="hidden md:flex items-center gap-6">
                 <a href="#home" class="nav-link font-semibold text-primary border-b-2 border-primary">首页</a>
-                <a href="#query" class="nav-link font-semibold hover:text-primary">全球商标,专利状态</a>
+            <div class="relative group">
+    <a href="#query" class="nav-link font-semibold hover:text-primary flex items-center gap-1">
+        全球商标,专利状态 <i class="fa fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
+    </a>
+    <div class="absolute top-full left-0 w-48 bg-white shadow-xl rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform origin-top scale-95 group-hover:scale-100 border border-gray-100">
+        <a href="#query" onclick="navigateTo('query')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-primary">商标与外观查询</a>
+        <a href="#us-category" onclick="navigateTo('query')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-primary">美国分类查询</a>
+        <a href="https://tsdr.uspto.gov/" target="_blank" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-primary">美国宣誓查询 <i class="fa fa-external-link text-xs ml-1"></i></a>
+    </div>
+</div>
                 <a href="#articles" class="nav-link font-semibold hover:text-primary">个人文章展示</a>
                 <a href="#services" class="nav-link font-semibold hover:text-primary">服务</a>
                 <a href="#faq" class="nav-link font-semibold hover:text-primary">常见问题</a>
@@ -863,6 +908,9 @@ nav img {
                 <img src="公司介绍/1.jpg" alt="办公环境" class="w-72 h-48 object-cover rounded-xl shadow-md hover:scale-105 transition-transform cursor-pointer" onclick="viewImage(this.src)">
                 <img src="公司介绍/2.jpg" alt="团队风采" class="w-72 h-48 object-cover rounded-xl shadow-md hover:scale-105 transition-transform cursor-pointer" onclick="viewImage(this.src)">
                 <img src="公司介绍/3.jpg" alt="资质墙" class="w-72 h-48 object-cover rounded-xl shadow-md hover:scale-105 transition-transform cursor-pointer" onclick="viewImage(this.src)">
+                <img src="公司介绍/4.jpg" alt="会议场景" class="w-72 h-48 object-cover rounded-xl shadow-md hover:scale-105 transition-transform cursor-pointer" onclick="viewImage(this.src)">
+                <img src="公司介绍/5.jpg" alt="客户接待" class="w-72 h-48 object-cover rounded-xl shadow-md hover:scale-105 transition-transform cursor-pointer" onclick="viewImage(this.src)">
+            <img src="公司介绍/6.jpg" alt="证书" class="w-72 h-48 object-cover rounded-xl shadow-md hover:scale-105 transition-transform cursor-pointer" onclick="viewImage(this.src)">
             </div>
             <p class="text-center text-xs text-gray-400 mt-3 italic">点击图片可放大查看详情</p>
         </div>
@@ -1042,9 +1090,49 @@ nav img {
 
         <!-- 2. 全球商标专利查询区块 -->
 <!-- 全球商标/专利状态查询 完整修复代码 -->
-<section id="query" class="content-section max-w-7xl mx-auto px-4 md:px-8 mb-16 animate-fade-in">
-    <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
-        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">全球商标/专利状态查询</h2>
+<section id="query" class="content-section max-w-7xl mx-auto px-4 py-12">
+    <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-800">全球知识产权在线查询</h2>
+        <p class="text-gray-500 mt-2">提供实时、准确的全球商标与专利数据支持</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4 text-xl">
+                <i class="fa fa-search"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">全球商标查询</h3>
+            <p class="text-gray-500 text-sm mb-4">覆盖美、欧、日、英等100+国家商标状态</p>
+            <a href="https://www.wipo.int/branddb/en/" target="_blank" class="text-primary font-bold text-sm flex items-center">立即前往 <i class="fa fa-arrow-right ml-1"></i></a>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mb-4 text-xl">
+                <i class="fa fa-image"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">外观专利查询</h3>
+            <p class="text-gray-500 text-sm mb-4">实时检索全球外观设计专利及法律状态</p>
+            <a href="https://designdb.wipo.int/designdb/en/index.jsp" target="_blank" class="text-primary font-bold text-sm flex items-center">立即前往 <i class="fa fa-arrow-right ml-1"></i></a>
+        </div>
+
+        <div id="us-category" class="bg-white p-6 rounded-2xl border border-blue-200 shadow-sm hover:shadow-md transition-all ring-2 ring-blue-50">
+            <div class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center mb-4 text-xl">
+                <i class="fa fa-list-ul"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">美国分类查询</h3>
+            <p class="text-gray-500 text-sm mb-4">USPTO 官方商品与服务分类快速检索</p>
+            <button onclick="window.open('https://idm-tmng.uspto.gov/id-master-list-public.html')" class="text-primary font-bold text-sm flex items-center">在线查询 <i class="fa fa-arrow-right ml-1"></i></button>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+            <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-4 text-xl">
+                <i class="fa fa-gavel"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">美国宣誓查询</h3>
+            <p class="text-gray-500 text-sm mb-4">TSDR 系统查询商标维持、宣誓等关键状态</p>
+            <a href="https://tsdr.uspto.gov/" target="_blank" class="text-primary font-bold text-sm flex items-center">立即前往 <i class="fa fa-arrow-right ml-1"></i></a>
+        </div>
+    </div>
         
         <!-- 查询方式切换按钮 -->
         <div class="flex justify-center mb-6 gap-4">
@@ -1285,95 +1373,91 @@ nav img {
     </div>
 </section>
 </div>
-<div class="mt-8 border-t border-gray-100 pt-8">
+<div class="mt-6 border-t border-gray-100 pt-6">
     
-    <div class="mb-20">
-        <div class="text-center mb-12">
-            <h3 class="text-2xl font-black text-gray-800 mb-2">查询流程指引</h3>
-            <div class="h-1 w-12 bg-blue-600 mx-auto rounded-full"></div>
+    <div class="mb-8">
+        <div class="text-center mb-6">
+            <span class="text-[10px] text-blue-500 font-bold tracking-widest uppercase">Quick Guide</span>
+            <h3 class="text-xl font-black text-gray-800 mt-1">查询流程指引</h3>
+            <div class="h-1 w-8 bg-gradient-to-r from-blue-600 to-indigo-400 mx-auto rounded-full mt-2"></div>
         </div>
         
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="relative group">
-                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm group-hover:shadow-md transition-all group-hover:-translate-y-1">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center font-black text-xl mb-6">01</div>
-                    <h4 class="font-bold text-gray-800 mb-3 text-lg">输入号码或品牌</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">
-                        准确输入商标/专利申请号。如果是品牌名，建议先尝试 WIPO 全球数据库进行初步筛查。
-                    </p>
-                </div>
-                <div class="hidden md:block absolute top-1/2 -right-4 translate-y-[-50%] text-gray-200">
-                    <i class="fa fa-chevron-right"></i>
+        <div class="grid md:grid-cols-3 gap-4">
+            <div class="group relative">
+                <div class="bg-white p-4 rounded-2xl border-l-4 border-l-blue-500 border-y border-r border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-9 h-9 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center font-black text-sm group-hover:scale-110 transition-transform">01</div>
+                        <h4 class="font-bold text-gray-800 text-base">输入号码或品牌</h4>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">准确输入商标/专利号。建议先尝试 <span class="text-blue-600 font-medium">WIPO 全球数据库</span>初步筛查。</p>
                 </div>
             </div>
 
-            <div class="relative group">
-                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm group-hover:shadow-md transition-all group-hover:-translate-y-1">
-                    <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center font-black text-xl mb-6">02</div>
-                    <h4 class="font-bold text-gray-800 mb-3 text-lg">精准选择地区</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">
-                        不同国家的系统互不联网，请确保下拉框中的“目标国家”与您申请的地区完全一致。
-                    </p>
-                </div>
-                <div class="hidden md:block absolute top-1/2 -right-4 translate-y-[-50%] text-gray-200">
-                    <i class="fa fa-chevron-right"></i>
+            <div class="group relative">
+                <div class="bg-white p-4 rounded-2xl border-l-4 border-l-indigo-500 border-y border-r border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-9 h-9 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center font-black text-sm group-hover:scale-110 transition-transform">02</div>
+                        <h4 class="font-bold text-gray-800 text-base">精准选择地区</h4>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">系统互不联网，请确保下拉框中“目标国家”与<span class="text-indigo-600 font-medium">申请地区</span>一致。</p>
                 </div>
             </div>
 
-            <div class="group">
-                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm group-hover:shadow-md transition-all group-hover:-translate-y-1">
-                    <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center font-black text-xl mb-6">03</div>
-                    <h4 class="font-bold text-gray-800 mb-3 text-lg">实时获取详情</h4>
-                    <p class="text-gray-500 text-sm leading-relaxed">
-                        点击查询后，系统将直接带您进入官方详情页，查看审查进度、法律文书及到期时间。
-                    </p>
+            <div class="group relative">
+                <div class="bg-white p-4 rounded-2xl border-l-4 border-l-emerald-500 border-y border-r border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-9 h-9 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center font-black text-sm group-hover:scale-110 transition-transform">03</div>
+                        <h4 class="font-bold text-gray-800 text-base">实时获取详情</h4>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">点击查询后将进入<span class="text-emerald-600 font-medium">官方详情页</span>，实时同步最新审查进度及文书。</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="bg-gray-50 rounded-[40px] p-8 md:p-12">
-        <div class="flex items-center gap-4 mb-10">
-            <div class="w-10 h-10 bg-white rounded-xl shadow-sm flex items-center justify-center text-blue-600">
-                <i class="fa fa-question-circle text-xl"></i>
+    <div class="bg-gradient-to-b from-gray-50 to-white rounded-[32px] border border-gray-100 p-5 md:p-6 shadow-inner">
+        <div class="flex items-center gap-3 mb-5">
+            <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center text-blue-600 shadow-sm ring-1 ring-gray-100">
+                <i class="fa fa-lightbulb-o text-lg"></i>
             </div>
-            <h3 class="text-2xl font-black text-gray-800">查询常见问题</h3>
+            <div>
+                <h3 class="text-lg font-black text-gray-800">查询常见问题</h3>
+                <p class="text-[10px] text-gray-400 font-medium uppercase tracking-tighter">Frequently Asked Questions</p>
+            </div>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-white p-6 rounded-2xl shadow-sm">
-                <h4 class="font-bold text-gray-800 mb-3 flex items-start gap-2">
-                    <span class="text-blue-500 font-black">Q:</span>
-                    查询显示“无结果”？
-                </h4>
-                <p class="text-gray-500 text-sm leading-relaxed">
-                    可能有三个原因：号码输入错误（多了空格或符号）；申请提交不足1周（官方数据库尚未收录）；或者选错了国家。
-                </p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="bg-white/60 backdrop-blur-sm p-4 rounded-2xl border border-white shadow-sm hover:border-blue-100 transition-colors">
+                <div class="flex items-start gap-2 mb-2">
+                    <span class="flex-shrink-0 w-5 h-5 bg-blue-500 text-white text-[10px] flex items-center justify-center rounded-full font-bold">Q</span>
+                    <h4 class="font-bold text-gray-800 text-sm leading-tight">查询显示“无结果”？</h4>
+                </div>
+                <p class="text-gray-500 text-xs leading-relaxed pl-7">号码错误、提交不足1周或国家选择有误。请检查是否存在空格。</p>
             </div>
 
-            <div class="bg-white p-6 rounded-2xl shadow-sm">
-                <h4 class="font-bold text-gray-800 mb-3 flex items-start gap-2">
-                    <span class="text-blue-500 font-black">Q:</span>
-                    美国商标状态怎么看？
-                </h4>
-                <p class="text-gray-500 text-sm leading-relaxed">
-                    进入详情页后，重点查看“Status”项。
-                    <a href="https://www.wearesellers.com/question/90704" target="_blank" class="text-blue-600 hover:underline inline-flex items-center gap-1 font-medium">
-                        图文教程 <i class="fa fa-external-link text-xs"></i>
+            <div class="bg-white/60 backdrop-blur-sm p-4 rounded-2xl border border-white shadow-sm hover:border-blue-100 transition-colors">
+                <div class="flex items-start gap-2 mb-2">
+                    <span class="flex-shrink-0 w-5 h-5 bg-blue-500 text-white text-[10px] flex items-center justify-center rounded-full font-bold">Q</span>
+                    <h4 class="font-bold text-gray-800 text-sm leading-tight">美国商标状态怎么看？</h4>
+                </div>
+                <p class="text-gray-500 text-xs leading-relaxed pl-7">
+                    重点查看 <span class="font-semibold text-gray-700">Status</span> 项。
+                    <a href="https://www.wearesellers.com/question/90704" target="_blank" class="text-blue-600 font-bold hover:text-blue-700 underline underline-offset-2 ml-1">
+                        查看图文教程 <i class="fa fa-angle-right"></i>
                     </a>
                 </p>
             </div>
 
-            <div class="bg-white p-6 rounded-2xl shadow-sm border-2 border-blue-100">
-                <h4 class="font-bold text-gray-800 mb-3 flex items-start gap-2">
-                    <span class="text-blue-500 font-black">Q:</span>
-                    需要人工协助？
-                </h4>
-                <p class="text-gray-500 text-sm leading-relaxed mb-4">
-                    如果您无法查到复杂的官函回复状态，可以联系专业顾问。
-                </p>
-                <div class="flex items-center gap-2 text-xs font-bold py-2 px-3 bg-blue-50 text-blue-700 rounded-lg inline-block">
-                    <i class="fa fa-wechat"></i> 微信：CADMON2023
+            <div class="bg-blue-600 p-4 rounded-2xl shadow-lg shadow-blue-200 relative overflow-hidden group">
+                <div class="absolute -right-4 -top-4 w-16 h-16 bg-white/10 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+                
+                <div class="flex items-start gap-2 mb-2 relative z-10">
+                    <span class="flex-shrink-0 w-5 h-5 bg-white text-blue-600 text-[10px] flex items-center justify-center rounded-full font-bold">Q</span>
+                    <h4 class="font-bold text-white text-sm leading-tight">需要人工协助？</h4>
+                </div>
+                <p class="text-blue-50 text-xs leading-relaxed pl-7 mb-3 relative z-10">无法查到复杂的官函回复状态？可随时联系专业顾问协助。</p>
+                <div class="ml-7 relative z-10 flex items-center gap-2">
+                    <span class="bg-white/20 text-white text-[11px] px-2 py-1 rounded-md backdrop-blur-md font-mono border border-white/20">微信: CADMON2023</span>
                 </div>
             </div>
         </div>
@@ -1549,7 +1633,9 @@ nav img {
 
     <!-- 大类1：备案步骤 -->
     <h2 class="text-xl font-bold mb-4 text-gray-800 border-b border-gray-200 pb-2 mt-6">📄 备案步骤</h2>
-
+<div class="bg-blue-50 text-blue-700 px-3 py-2 rounded-lg text-sm mb-4 flex items-center">
+    <i class="fa fa-download mr-2"></i> 提示：点击下方资源块即可快速下载相关文档。
+</div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
 
         <div class="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer"
@@ -1593,7 +1679,9 @@ nav img {
 
     <!-- 大类2：备案资料模板下载 -->
     <h2 class="text-xl font-bold mb-4 text-gray-800 border-b border-gray-200 pb-2">📁 备案资料模板下载</h2>
-
+<div class="bg-blue-50 text-blue-700 px-3 py-2 rounded-lg text-sm mb-4 flex items-center">
+    <i class="fa fa-download mr-2"></i> 提示：点击下方资源块即可快速下载相关文档。
+</div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
         <div class="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer"
@@ -2569,67 +2657,63 @@ nav img {
         </div>
     </div>
 </div>
-<div class="mb-12">
-    <div class="flex items-center gap-3 mb-8">
-        <div class="w-1 h-8 bg-primary rounded-full"></div>
-        <h3 class="font-bold text-2xl text-gray-800">联系咨询 <span class="text-primary text-lg">/ Contact</span></h3>
+<div class="mb-8" id="contact-section">
+    <div class="flex items-center gap-2 mb-5">
+        <div class="w-1 h-6 bg-blue-600 rounded-full"></div>
+        <h3 class="font-bold text-xl text-gray-800">联系咨询 <span class="text-gray-400 text-sm font-normal ml-1">/ Contact</span></h3>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-8 items-stretch">
-        <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 text-white flex flex-col justify-center relative overflow-hidden">
-            <i class="fa fa-quote-left absolute top-6 left-6 text-white/10 text-6xl"></i>
+    <div class="grid md:grid-cols-2 gap-4 items-stretch">
+        <div class="bg-slate-900 rounded-2xl p-5 text-white flex flex-col justify-center relative overflow-hidden group">
+            <i class="fa fa-quote-left absolute top-4 left-4 text-white/5 text-5xl"></i>
+            <div class="absolute -right-8 -bottom-8 w-24 h-24 bg-blue-600/10 rounded-full blur-2xl"></div>
             
-            <h4 class="text-xl font-bold mb-4 relative z-10">服务理念</h4>
-            <p class="text-gray-300 leading-relaxed text-lg italic relative z-10">
-                "知识产权是企业出海的重要保障。我始终坚持 <span class="text-primary font-bold text-white">专业、诚信、高效</span> 的原则，为每一位客户量身定制解决方案，助推中国品牌走向全球。"
+            <h4 class="text-base font-bold mb-2 relative z-10 flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></span>
+                服务理念
+            </h4>
+            <p class="text-gray-300 leading-snug text-sm italic relative z-10">
+                “知识产权是企业出海的重要保障。我始终坚持 <span class="text-blue-400 font-bold">专业、诚信、高效</span> 的原则，为每一位客户量身定制解决方案。”
             </p>
             
-            <div class="mt-6 flex items-center gap-4 relative z-10">
+            <div class="mt-4 flex items-center gap-3 relative z-10 opacity-60">
                 <div class="h-[1px] flex-1 bg-white/20"></div>
-                <span class="text-sm text-gray-400">诚信经营 · 深度咨询</span>
+                <span class="text-[10px] uppercase tracking-widest">Sincere · Efficient</span>
                 <div class="h-[1px] flex-1 bg-white/20"></div>
             </div>
         </div>
 
-        <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl flex flex-col items-center">
-            <div class="flex flex-col sm:flex-row items-center gap-8 w-full">
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex flex-col items-center">
+            <div class="flex items-center gap-5 w-full">
                 <div class="shrink-0 text-center">
-                    <div class="relative p-2 bg-gray-50 rounded-2xl border border-gray-100 shadow-inner group">
-                        <img src="微信二维码/1.jpg" alt="微信二维码" class="w-32 h-32 rounded-xl object-cover">
-                        <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
-                            <i class="fa fa-qrcode text-primary text-2xl"></i>
+                    <div class="relative p-1.5 bg-gray-50 rounded-xl border border-gray-100 shadow-inner group">
+                        <img src="微信二维码/1.jpg" alt="微信二维码" class="w-20 h-20 md:w-24 md:h-24 rounded-lg object-cover">
+                        <div class="absolute inset-0 bg-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+                            <i class="fa fa-qrcode text-blue-600 text-xl"></i>
                         </div>
                     </div>
-                    <p class="text-xs text-gray-400 mt-2">长按或扫码识别</p>
+                    <p class="text-[10px] text-gray-400 mt-1.5">扫码咨询</p>
                 </div>
 
-                <div class="flex-1 w-full space-y-4">
-                    <h5 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">点击下方复制微信号</h5>
+                <div class="flex-1 space-y-2">
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-tight mb-1">点击复制微信号</p>
                     
-                    <div 
-                        onclick="copyWechat('CADMON2023')" 
-                        class="group cursor-pointer bg-green-50/50 hover:bg-green-50 border-2 border-dashed border-green-200 hover:border-green-400 p-4 rounded-2xl transition-all active:scale-95"
-                    >
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <i class="fa fa-wechat text-green-500 text-xl"></i>
-                                <span class="font-mono font-bold text-gray-700 text-lg">CADMON2023</span>
-                            </div>
-                            <span class="text-[10px] bg-green-500 text-white px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">点击复制</span>
+                    <div onclick="copyWechat('CADMON2023')" 
+                         class="group cursor-pointer bg-blue-50/30 hover:bg-blue-50 border border-blue-100 rounded-xl p-2.5 transition-all active:scale-95 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <i class="fa fa-wechat text-green-500 text-base"></i>
+                            <span class="font-mono font-bold text-gray-700 text-sm">CADMON2023</span>
                         </div>
+                        <i class="fa fa-copy text-gray-300 text-xs group-hover:text-blue-500"></i>
                     </div>
 
-                    <div 
-                        onclick="copyWechat('CADMON456')" 
-                        class="group cursor-pointer bg-blue-50/50 hover:bg-blue-50 border-2 border-dashed border-blue-200 hover:border-blue-400 p-4 rounded-2xl transition-all active:scale-95"
-                    >
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <i class="fa fa-wechat text-blue-500 text-xl"></i>
-                                <span class="font-mono font-bold text-gray-700 text-lg">CADMON456</span>
-                            </div>
-                            <span class="text-[10px] bg-blue-500 text-white px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">点击复制</span>
+                    <div onclick="copyWechat('CADMON456')" 
+                         class="group cursor-pointer bg-blue-50/30 hover:bg-blue-50 border border-blue-100 rounded-xl p-2.5 transition-all active:scale-95 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <i class="fa fa-wechat text-blue-500 text-base"></i>
+                            <span class="font-mono font-bold text-gray-700 text-sm">CADMON456</span>
                         </div>
+                        <i class="fa fa-copy text-gray-300 text-xs group-hover:text-blue-500"></i>
                     </div>
                 </div>
             </div>
@@ -2641,17 +2725,16 @@ nav img {
 function copyWechat(id) {
     navigator.clipboard.writeText(id).then(() => {
         const tip = document.createElement('div');
-        tip.className = 'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/80 text-white px-8 py-4 rounded-2xl z-[9999] shadow-2xl flex flex-col items-center gap-2 animate-in fade-in zoom-in duration-200';
+        tip.className = 'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-900/90 backdrop-blur-md text-white px-6 py-3 rounded-2xl z-[9999] shadow-2xl flex flex-col items-center gap-1 animate-in fade-in zoom-in duration-200';
         tip.innerHTML = `
-            <i class="fa fa-check-circle text-green-400 text-3xl"></i>
-            <p class="font-bold">微信号已复制</p>
-            <p class="text-xs text-gray-300">${id}</p>
+            <i class="fa fa-check-circle text-blue-400 text-2xl"></i>
+            <p class="font-bold text-sm">已复制: ${id}</p>
         `;
         document.body.appendChild(tip);
         setTimeout(() => {
             tip.classList.add('animate-out', 'fade-out', 'zoom-out');
             setTimeout(() => tip.remove(), 200);
-        }, 1500);
+        }, 1200);
     });
 }
 </script>
@@ -3028,11 +3111,11 @@ function copyWechat(id) {
                 <div class="space-y-3">
                     <div class="flex items-center gap-3 text-xs opacity-90">
                         <i class="fa fa-clock-o text-blue-300"></i>
-                        <span>服务时间：周一至周五 9:00 - 18:00</span>
+                        <span>服务时间：周一至周五 9:00 - 18:30</span>
                     </div>
                     <div class="flex items-center gap-3 text-xs opacity-90">
                         <i class="fa fa-globe text-blue-300"></i>
-                        <span>支持全球主要跨境电商站点</span>
+                        <span>支持全球知识产权</span>
                     </div>
                 </div>
             </div>
@@ -3080,18 +3163,17 @@ function copyWechat(id) {
         </div>
     </div>
 
-    <footer class="pb-10 text-center text-gray-400 text-xs">
-        <div class="border-t border-gray-100 pt-8">
-            <p>© 2025 品牌出海合规助手. All Rights Reserved.</p>
-        </div>
-    </footer>
-    </section>
+</section>
 
 
         <!-- 6. 新增：常见问题解答区块 -->
         <section id="faq" class="content-section max-w-7xl mx-auto px-4 md:px-8 mb-16 animate-fade-in">
             <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
                 <h2 class="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">常见问题解答</h2>
+                <p class="text-sm text-gray-500 flex items-center justify-center">
+            <i class="fa fa-info-circle mr-1 text-primary"></i> 
+            温馨提示：点击右侧 <i class="fa fa-plus-square-o mx-1 text-primary"></i> 符号即可打开答案，再次点击即可折叠。
+        </p>
                 
                 <div class="max-w-3xl mx-auto">
                     <!-- 问题1 -->
@@ -3314,25 +3396,18 @@ function fallbackCopy(wechatId) {
 }
 </script>
 <footer class="bg-dark text-white py-10 text-[12px]">
-    <div class="max-w-7xl mx-auto px-4 md:px-8">
-        <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 mb-10 pb-6 border-b border-gray-800 text-sm">
-            <a href="javascript:void(0)" onclick="navigateTo('home')" class="hover:text-blue-400">首页</a>
-            <a href="javascript:void(0)" onclick="navigateTo('query')" class="hover:text-blue-400">全球商标,专利状态</a>
-            <a href="javascript:void(0)" onclick="navigateTo('articles')" class="hover:text-blue-400">个人文章展示服务</a>
-            <a href="javascript:void(0)" onclick="navigateTo('services')" class="hover:text-blue-400">服务</a> <a href="javascript:void(0)" onclick="navigateTo('faq')" class="hover:text-blue-400">常见问题</a>
-            <a href="javascript:void(0)" onclick="navigateTo('about')" class="hover:text-blue-400">关于我</a>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-10 items-start text-center md:text-left">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col items-center"> <div class="grid grid-cols-1 md:grid-cols-4 gap-10 items-start w-full justify-items-center md:justify-items-start">
+            
             <div class="flex flex-col items-center md:items-start">
-                <h3 class="font-bold text-base mb-3 border-b border-gray-700 pb-1 text-blue-400 w-24 md:w-full">服务</h3>
-                <ul class="space-y-2 text-gray-400 text-[11px] leading-relaxed">
+                <h3 class="font-bold text-base mb-3 border-b border-gray-700 pb-1 text-blue-400 w-24 md:w-full text-center md:text-left">服务</h3>
+                <ul class="space-y-2 text-gray-400 text-[11px] leading-relaxed text-center md:text-left">
                     <li>全球商标：申请、转让、续展、异议、买卖等</li>
                     <li>全球专利/版权：申请、不侵权报告、投诉等</li>
                     <li>美国 TRO：发起、应诉、和解等</li>
                     <li>公司注册：香港、英国等地区</li>
                 </ul>
             </div>
+
 
             <div class="flex flex-col items-center md:items-start">
                 <h3 class="font-bold text-base mb-3 border-b border-gray-700 pb-1 text-blue-400 w-24 md:w-full">联系方式</h3>
@@ -3384,6 +3459,21 @@ function fallbackCopy(wechatId) {
         </div>
     </div>
 </footer>
+
+<script>
+function copyWechat(id) {
+    navigator.clipboard.writeText(id).then(() => {
+        const tip = document.createElement('div');
+        tip.className = 'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-900/90 backdrop-blur-md text-white px-6 py-3 rounded-2xl z-[9999] shadow-2xl flex flex-col items-center gap-1 animate-in fade-in zoom-in duration-200';
+        tip.innerHTML = `<i class="fa fa-check-circle text-blue-400 text-2xl"></i><p class="font-bold text-sm">已复制微信: ${id}</p>`;
+        document.body.appendChild(tip);
+        setTimeout(() => {
+            tip.classList.add('animate-out', 'fade-out', 'zoom-out');
+            setTimeout(() => tip.remove(), 200);
+        }, 1200);
+    });
+}
+</script>
 
     <!-- 回到顶部按钮 -->
     <button id="backToTop" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-accent transition-colors opacity-0 invisible z-40">
