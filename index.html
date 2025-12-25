@@ -1362,39 +1362,43 @@ nav img {
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        
-        <div class="md:col-span-2 lg:col-span-3">
-            <div class="bg-gradient-to-r from-indigo-600 to-blue-700 rounded-3xl p-1 shadow-lg">
-                <a href="https://branddb.wipo.int/" target="_blank" class="flex flex-col md:flex-row items-center gap-6 p-6 bg-white rounded-[22px] hover:bg-indigo-50 transition-all group">
-                    <div class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center text-3xl shadow-inner">🌐</div>
-                    <div class="flex-1 text-center md:text-left">
-                        <div class="flex items-center justify-center md:justify-start gap-2 mb-1">
-                            <span class="font-black text-xl text-gray-800 group-hover:text-indigo-600 transition-colors">WIPO 全球品牌数据库</span>
-                            <span class="text-xs bg-indigo-600 text-white px-2 py-0.5 rounded-md">推荐</span>
-                        </div>
-                        <p class="text-gray-500 text-sm">世界知识产权组织官方平台，支持一键查询全球 190+ 国家商标数据</p>
-                    </div>
-                    <div class="px-6 py-3 bg-indigo-600 text-white rounded-xl font-bold group-hover:scale-105 transition-transform">
-                        立即访问 <i class="fa fa-external-link ml-1"></i>
-                    </div>
-                </a>
+<div class="md:col-span-2 lg:col-span-3">
+    <div class="bg-gradient-to-r from-indigo-600 to-blue-700 rounded-2xl p-0.5 shadow-md">
+        <a href="javascript:void(0)" onclick="secureJump('WIPO_BRAND')" class="flex items-center gap-4 p-4 bg-white rounded-[14px] hover:bg-indigo-50 transition-all group">
+            <div class="w-12 h-12 md:w-14 md:h-14 bg-indigo-100 rounded-xl flex-shrink-0 flex items-center justify-center text-2xl shadow-inner">🌐</div>
+            
+            <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 mb-0.5">
+                    <span class="font-bold text-lg text-gray-800 group-hover:text-indigo-600 transition-colors truncate">WIPO 全球品牌数据库</span>
+                    <span class="text-[10px] bg-indigo-600 text-white px-1.5 py-0.5 rounded shadow-sm flex-shrink-0">推荐</span>
+                </div>
+                <p class="text-gray-500 text-xs md:text-sm line-clamp-1">支持一键查询全球 190+ 国家商标数据</p>
             </div>
-        </div>
+
+            <div class="hidden md:flex px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-bold group-hover:bg-indigo-700 transition-all items-center gap-1">
+                立即访问 <i class="fa fa-external-link text-[10px]"></i>
+            </div>
+            <div class="md:hidden text-gray-300">
+                <i class="fa fa-angle-right text-xl"></i>
+            </div>
+        </a>
+    </div>
+</div>
 
         <div class="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm hover:shadow-md transition-shadow">
             <h3 class="text-gray-400 text-xs font-black uppercase tracking-widest mb-4 flex items-center gap-2">
                 <span class="w-2 h-2 bg-blue-500 rounded-full"></span> 美洲地区
             </h3>
             <div class="space-y-3">
-                <a href="https://tmsearch.uspto.gov/" target="_blank" class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl hover:bg-blue-50 group transition-all">
+                <a href="javascript:void(0);" onclick="secureJump('US_TM')" class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl hover:bg-blue-50 group transition-all">
                     <span class="font-bold text-gray-700 group-hover:text-blue-600">🇺🇸 美国 USPTO</span>
                     <i class="fa fa-angle-right text-gray-300 group-hover:translate-x-1 transition-transform"></i>
                 </a>
-                <a href="https://ised-isde.canada.ca/cipo/trademark-search/srch" target="_blank" class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl hover:bg-blue-50 group transition-all">
+                <a href="javascript:void(0);" onclick="secureJump('CA_TM')" class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl hover:bg-blue-50 group transition-all">
                     <span class="font-bold text-gray-700 group-hover:text-blue-600">🇨🇦 加拿大 CIPO</span>
                     <i class="fa fa-angle-right text-gray-300"></i>
                 </a>
-                <a href="https://marcia.impi.gob.mx/marcas/search/quick" target="_blank" class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl hover:bg-blue-50 group transition-all">
+                <a href="javascript:void(0);" onclick="secureJump('MX_TM')" class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl hover:bg-blue-50 group transition-all">
                     <span class="font-bold text-gray-700 group-hover:text-blue-600">🇲🇽 墨西哥 IMPI</span>
                     <i class="fa fa-angle-right text-gray-300"></i>
                 </a>
@@ -1406,17 +1410,17 @@ nav img {
                 <span class="w-2 h-2 bg-indigo-500 rounded-full"></span> 欧洲地区
             </h3>
             <div class="space-y-3">
-                <a href="https://euipo.europa.eu/eSearch/" target="_blank" class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl hover:bg-indigo-50 group transition-all">
+                <a href="javascript:void(0);" onclick="secureJump('EU_TM')" class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl hover:bg-indigo-50 group transition-all">
                     <span class="font-bold text-gray-700 group-hover:text-indigo-600">🇪🇺 欧盟 EUIPO</span>
                     <i class="fa fa-angle-right text-gray-300 group-hover:translate-x-1 transition-transform"></i>
                 </a>
-                <a href="https://trademarks.ipo.gov.uk/ipo-tmtext" target="_blank" class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl hover:bg-indigo-50 group transition-all">
+                <a href="javascript:void(0);" onclick="secureJump('UK_TM')" class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl hover:bg-indigo-50 group transition-all">
                     <span class="font-bold text-gray-700 group-hover:text-indigo-600">🇬🇧 英国 UKIPO</span>
                     <i class="fa fa-angle-right text-gray-300"></i>
                 </a>
                 <div class="grid grid-cols-2 gap-3">
-                    <a href="https://depatisnet.dpma.de/" target="_blank" class="p-3 bg-gray-50 rounded-xl text-center text-sm font-bold text-gray-600 hover:text-indigo-600 transition-colors border border-transparent hover:border-indigo-100">🇩🇪 德国</a>
-                    <a href="https://data.inpi.fr/" target="_blank" class="p-3 bg-gray-50 rounded-xl text-center text-sm font-bold text-gray-600 hover:text-indigo-600 transition-colors border border-transparent hover:border-indigo-100">🇫🇷 法国</a>
+                    <a href="javascript:void(0);" onclick="secureJump('DE_TM')" class="p-3 bg-gray-50 rounded-xl text-center text-sm font-bold text-gray-600 hover:text-indigo-600 transition-colors border border-transparent hover:border-indigo-100">🇩🇪 德国</a>
+                    <a href="javascript:void(0);" onclick="secureJump('FR_TM')" class="p-3 bg-gray-50 rounded-xl text-center text-sm font-bold text-gray-600 hover:text-indigo-600 transition-colors border border-transparent hover:border-indigo-100">🇫🇷 法国</a>
                 </div>
             </div>
         </div>
@@ -1426,100 +1430,95 @@ nav img {
                 <span class="w-2 h-2 bg-emerald-500 rounded-full"></span> 亚澳地区
             </h3>
             <div class="space-y-3">
-                <a href="https://sbj.cnipa.gov.cn/sbj/sbcx/" target="_blank" class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl hover:bg-emerald-50 group transition-all">
+                <a href="javascript:void(0);" onclick="secureJump('CN_TM')" class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl hover:bg-emerald-50 group transition-all">
                     <span class="font-bold text-gray-700 group-hover:text-emerald-600">🇨🇳 中国商标网</span>
                     <i class="fa fa-angle-right text-gray-300 group-hover:translate-x-1 transition-transform"></i>
                 </a>
-                <a href="https://www.j-platpat.inpit.go.jp/" target="_blank" class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl hover:bg-emerald-50 group transition-all">
+                <a href="javascript:void(0);" onclick="secureJump('JP_TM')" class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl hover:bg-emerald-50 group transition-all">
                     <span class="font-bold text-gray-700 group-hover:text-emerald-600">🇯🇵 日本 J-PlatPat</span>
                     <i class="fa fa-angle-right text-gray-300"></i>
                 </a>
                 <div class="grid grid-cols-2 gap-3">
-                    <a href="https://search.ipaustralia.gov.au/" target="_blank" class="p-3 bg-gray-50 rounded-xl text-center text-sm font-bold text-gray-600 hover:text-emerald-600 transition-colors border border-transparent hover:border-emerald-100">🇦🇺 澳大利亚</a>
-                    <a href="https://digitalhub.ipos.gov.sg/" target="_blank" class="p-3 bg-gray-50 rounded-xl text-center text-sm font-bold text-gray-600 hover:text-emerald-600 transition-colors border border-transparent hover:border-emerald-100">🇸🇬 新加坡</a>
+                    <a href="javascript:void(0);" onclick="secureJump('AU_TM')" class="p-3 bg-gray-50 rounded-xl text-center text-sm font-bold text-gray-600 hover:text-emerald-600 transition-colors border border-transparent hover:border-emerald-100">🇦🇺 澳大利亚</a>
+                    <a href="javascript:void(0);" onclick="secureJump('SG_TM')" class="p-3 bg-gray-50 rounded-xl text-center text-sm font-bold text-gray-600 hover:text-emerald-600 transition-colors border border-transparent hover:border-emerald-100">🇸🇬 新加坡</a>
                 </div>
             </div>
         </div>
     </div>
 
     <section class="mt-16 pt-12 border-t border-gray-100">
-    <div class="flex items-center justify-between mb-8">
-        <div class="flex items-center gap-4">
-            <div class="bg-emerald-600 text-white w-12 h-12 rounded-2xl shadow-lg flex items-center justify-center">
-                <i class="fa fa-file-text text-xl"></i>
-            </div>
-            <div>
-                <h2 class="text-2xl font-black text-gray-800">专利 / 外观设计查询</h2>
-                <p class="text-xs text-gray-400 uppercase tracking-widest mt-1">Patent & Design Search</p>
+        <div class="flex items-center justify-between mb-8">
+            <div class="flex items-center gap-4">
+                <div class="bg-emerald-600 text-white w-12 h-12 rounded-2xl shadow-lg flex items-center justify-center">
+                    <i class="fa fa-file-text text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-black text-gray-800">专利 / 外观设计查询</h2>
+                    <p class="text-xs text-gray-400 uppercase tracking-widest mt-1">Patent & Design Search</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        
-        <div class="bg-emerald-50 rounded-3xl p-6 border border-emerald-100 relative overflow-hidden group">
-            <div class="relative z-10">
-                <h3 class="text-emerald-800 font-bold mb-4 flex items-center gap-2">
-                    <i class="fa fa-globe"></i> 国际组织 (WIPO)
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-emerald-50 rounded-3xl p-6 border border-emerald-100 relative overflow-hidden group">
+                <div class="relative z-10">
+                    <h3 class="text-emerald-800 font-bold mb-4 flex items-center gap-2">
+                        <i class="fa fa-globe"></i> 国际组织 (WIPO)
+                    </h3>
+                    <div class="space-y-3">
+                        <a href="javascript:void(0);" onclick="secureJump('WIPO_PATENT')" class="flex items-center justify-between p-4 bg-white rounded-2xl shadow-sm hover:bg-emerald-600 hover:text-white transition-all group/item">
+                            <span class="font-bold text-sm">PATENTSCOPE 全球发明</span>
+                            <i class="fa fa-external-link opacity-0 group-hover/item:opacity-100 transition-opacity"></i>
+                        </a>
+                        <a href="javascript:void(0);" onclick="secureJump('WIPO_DESIGN')" class="flex items-center justify-between p-4 bg-white rounded-2xl shadow-sm hover:bg-emerald-600 hover:text-white transition-all group/item">
+                            <span class="font-bold text-sm">Global Design 全球外观</span>
+                            <i class="fa fa-external-link opacity-0 group-hover/item:opacity-100 transition-opacity"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all">
+                <h3 class="text-gray-800 font-bold mb-4 flex items-center gap-2">
+                    <span class="text-xl">🇺🇸</span> 美国专利专区
                 </h3>
                 <div class="space-y-3">
-                    <a href="https://patentscope2.wipo.int/" target="_blank" class="flex items-center justify-between p-4 bg-white rounded-2xl shadow-sm hover:bg-emerald-600 hover:text-white transition-all group/item">
-                        <span class="font-bold text-sm">PATENTSCOPE 全球发明</span>
-                        <i class="fa fa-external-link opacity-0 group-hover/item:opacity-100 transition-opacity"></i>
+                    <a href="javascript:void(0);" onclick="secureJump('US_PAT')" class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl group hover:bg-emerald-50 transition-all">
+                        <div>
+                            <div class="font-bold text-gray-700 group-hover:text-emerald-600 transition-colors">Patent Center</div>
+                            <div class="text-[10px] text-gray-400">发明/实用新型检索</div>
+                        </div>
                     </a>
-                    <a href="https://designdb.wipo.int/" target="_blank" class="flex items-center justify-between p-4 bg-white rounded-2xl shadow-sm hover:bg-emerald-600 hover:text-white transition-all group/item">
-                        <span class="font-bold text-sm">Global Design 全球外观</span>
-                        <i class="fa fa-external-link opacity-0 group-hover/item:opacity-100 transition-opacity"></i>
+                    <a href="javascript:void(0);" onclick="secureJump('US_DESIGN')" class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl group hover:bg-emerald-50 transition-all">
+                        <div>
+                            <div class="font-bold text-gray-700 group-hover:text-emerald-600 transition-colors">Design Search</div>
+                            <div class="text-[10px] text-gray-400">外观设计专项检索</div>
+                        </div>
                     </a>
                 </div>
             </div>
-            <i class="fa fa-shield absolute -right-4 -bottom-4 text-emerald-100 text-8xl rotate-12 group-hover:rotate-0 transition-transform duration-500"></i>
-        </div>
 
-        <div class="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all">
-            <h3 class="text-gray-800 font-bold mb-4 flex items-center gap-2">
-                <span class="text-xl">🇺🇸</span> 美国专利专区
-            </h3>
-            <div class="space-y-3">
-                <a href="https://patentcenter.uspto.gov/" target="_blank" class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl group hover:bg-emerald-50 transition-all">
-                    <div>
-                        <div class="font-bold text-gray-700 group-hover:text-emerald-600 transition-colors">Patent Center</div>
-                        <div class="text-[10px] text-gray-400">发明/实用新型检索</div>
-                    </div>
-                    <i class="fa fa-chevron-right text-gray-300 group-hover:text-emerald-500"></i>
-                </a>
-                <a href="https://www.uspto.gov/patents/search/patent-public-search" target="_blank" class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl group hover:bg-emerald-50 transition-all">
-                    <div>
-                        <div class="font-bold text-gray-700 group-hover:text-emerald-600 transition-colors">Design Search</div>
-                        <div class="text-[10px] text-gray-400">外观设计专项检索</div>
-                    </div>
-                    <i class="fa fa-chevron-right text-gray-300 group-hover:text-emerald-500"></i>
-                </a>
+            <div class="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all">
+                <h3 class="text-gray-800 font-bold mb-4 flex items-center gap-2">
+                    <span class="text-xl">🇪🇺</span> 欧洲 / <span class="text-xl">🇨🇳</span> 中国
+                </h3>
+                <div class="space-y-2">
+                    <a href="javascript:void(0);" onclick="secureJump('EPO_PAT')" class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-all group">
+                        <span class="w-8 h-8 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center text-xs font-bold">EPO</span>
+                        <span class="text-sm font-medium text-gray-600">欧洲发明专利查询</span>
+                    </a>
+                    <a href="javascript:void(0);" onclick="secureJump('EU_TM')" class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-all group">
+                        <span class="w-8 h-8 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center text-xs font-bold">EU</span>
+                        <span class="text-sm font-medium text-gray-600">欧盟外观设计查询</span>
+                    </a>
+                    <a href="javascript:void(0);" onclick="secureJump('CN_PAT')" class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-all group">
+                        <span class="w-8 h-8 bg-red-50 text-red-600 rounded-lg flex items-center justify-center text-xs font-bold">CN</span>
+                        <span class="text-sm font-medium text-gray-600">中国专利电子查询系统</span>
+                    </a>
+                </div>
             </div>
         </div>
-
-        <div class="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all">
-            <h3 class="text-gray-800 font-bold mb-4 flex items-center gap-2">
-                <span class="text-xl">🇪🇺</span> 欧洲 / <span class="text-xl">🇨🇳</span> 中国
-            </h3>
-            <div class="space-y-2">
-                <a href="https://register.epo.org/" target="_blank" class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-all border-b border-gray-50 group">
-                    <span class="w-8 h-8 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center text-xs font-bold">EPO</span>
-                    <span class="text-sm font-medium text-gray-600 group-hover:text-emerald-600">欧洲发明专利查询</span>
-                </a>
-                <a href="https://euipo.europa.eu/eSearch/" target="_blank" class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-all border-b border-gray-50 group">
-                    <span class="w-8 h-8 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center text-xs font-bold">EU</span>
-                    <span class="text-sm font-medium text-gray-600 group-hover:text-emerald-600">欧盟外观设计查询</span>
-                </a>
-                <a href="https://cpquery.cponline.cnipa.gov.cn/" target="_blank" class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-all group">
-                    <span class="w-8 h-8 bg-red-50 text-red-600 rounded-lg flex items-center justify-center text-xs font-bold">CN</span>
-                    <span class="text-sm font-medium text-gray-600 group-hover:text-emerald-600">中国专利电子查询系统</span>
-                </a>
-            </div>
-        </div>
-
-    </div>
-</section>
+    </section>
 </div>
 <div class="mt-6 border-t border-gray-100 pt-6">
     
@@ -3892,52 +3891,87 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function goQuery() {
-            const no = document.getElementById('number').value.trim();
-            const country = document.getElementById('country').value;
-            if (!no) { 
-                alert('请输入商标/专利申请号'); 
-                return; 
-            }
-            let url = '#';
-            switch(country) {
-                case 'US': url = `https://tsdr.uspto.gov/#caseNumber=${encodeURIComponent(no)}&caseSearchType=US_APPLICATION&caseType=SERIAL_NO&searchType=statusSearch`; break;
-                case 'EU': url = `https://euipo.europa.eu/eSearch/#details/trademarks/${encodeURIComponent(no)}`; break;
-                case 'GB': url = `https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/${encodeURIComponent(no)}`; break;
-                case 'DE': url = `https://register.dpma.de/DPMAregister/marke/register/${encodeURIComponent(no)}/DE`; break;
-                case 'JP': url = `https://www.j-platpat.inpit.go.jp/c1801/TR/JP-${encodeURIComponent(no)}/40/ja`; break;
-                case 'AU': url = `https://search.ipaustralia.gov.au/trademarks/search/view/${encodeURIComponent(no)}`; break;
-                case 'CA': url = `https://ised-isde.canada.ca/cipo/trademark-search/${encodeURIComponent(no)}`; break;
-            }
-            window.open(url, '_blank');
-        }
+    // 内部解密函数
+    const _0x4f2a = (s) => atob(s);
+    const _0x1c = document.getElementById('number').value.trim();
+    const _0x5a = document.getElementById('country').value;
+
+    if (!_0x1c) {
+        alert('\u8BF7\u8F13\u5165\u5546\u6807\x2F\u4E13\u5229\u7533\u8BF7\u53F7'); 
+        return;
+    }
+
+    // 加密后的映射表
+    const _0x3e2 = {
+        'US': 'aHR0cHM6Ly90c2RyLnVzcHRvLmdvdi8jY2FzZU51bWJlcj0=',
+        'EU': 'aHR0cHM6Ly9ldWlwby5ldXJvcGEuZXUvZVNlYXJjaC8jZGV0YWlscy90cmFkZW1hcmtzLw==',
+        'GB': 'aHR0cHM6Ly90cmFkZW1hcmtzLmlwby5nb3YudWsvaXBvLXRtY2FzZS9wYWdlL1Jlc3VsdHMvMS8=',
+        'DE': 'aHR0cHM6Ly9yZWdpc3Rlci5kcG1hLmRlL0RQTUFyZWdpc3Rlci9tYXJrZS9yZWdpc3Rlci8=',
+        'JP': 'aHR0cHM6Ly93d3cuai1wbGF0cGF0LmlucGl0LmdvLmpwL2MxODAxL1RSL0pQLS0=',
+        'AU': 'aHR0cHM6Ly9zZWFyY2guaXBhdXN0cmFsaWEuZ292LmF1L3RyYWRlbWFya3Mvc2VhcmNoL3ZpZXcv',
+        'CA': 'aHR0cHM6Ly9pc2VkLWlzZGUuY2FuYWRhLmNhL2NpcG8vdHJhZGVtYXJrLXNlYXJjaC8='
+    };
+
+    // 特殊后缀处理
+    const _0x91b = {
+        'US': '&caseSearchType=US_APPLICATION&caseType=SERIAL_NO&searchType=statusSearch',
+        'DE': '/DE',
+        'JP': '/40/ja'
+    };
+
+    if (_0x3e2[_0x5a]) {
+        let _0x2f = _0x4f2a(_0x3e2[_0x5a]) + encodeURIComponent(_0x1c);
+        if (_0x91b[_0x5a]) _0x2f += _0x91b[_0x5a];
+        window.open(_0x2f, '_blank');
+    } else {
+        console.error('Invalid Selection');
+    }
+}
+/**
+ * 品牌/商标快速查询函数 (网址已加密)
+ */
 function goBrandQuery() {
     const brand = document.getElementById('brandName').value.trim();
     const country = document.getElementById('brandCountry').value;
+    
     if (!brand) {
         alert('请输入品牌名或商标持有人');
         return;
     }
-    let url = '#';
-    // 品牌名查询：严格按你提供的网址配置
-    switch(country) {
-        case 'GLOBAL': url = `https://branddb.wipo.int/en/similarname?sort=score%20desc&start=0&rows=30&query=${encodeURIComponent(brand)}&asStructure=%7B%22boolean%22:%22AND%22,%22bricks%22:%5B%5D%7D`; break;
-        case 'US': url = `https://tmsearch.uspto.gov/search/search-information?query=${encodeURIComponent(brand)}`; break; // 美国品牌名查询
-        case 'EU': url = `https://euipo.europa.eu/eSearch/#search=trademarks&query=${encodeURIComponent(brand)}`; break; // 欧盟品牌名查询
-        case 'GB': url = `https://trademarks.ipo.gov.uk/ipo-tmtext/page/Results/1/${encodeURIComponent(brand)}`; break; // 英国品牌名查询
-        case 'AU': url = `https://search.ipaustralia.gov.au/trademarks/search/quick?query=${encodeURIComponent(brand)}`; break; // 澳大利亚品牌名查询
-        case 'CA': url = `https://ised-isde.canada.ca/cipo/trademark-search/srch?query=${encodeURIComponent(brand)}`; break; // 加拿大品牌名查询
-        case 'CN': url = `https://sbj.cnipa.gov.cn/sbj/sbcx/?q=${encodeURIComponent(brand)}`; break; // 中国品牌名查询
-        case 'MX': url = `https://marcia.impi.gob.mx/marcas/search/quick?query=${encodeURIComponent(brand)}`; break; // 墨西哥品牌名查询
-        case 'FR': url = `https://data.inpi.fr/recherche_avancee/marques?query=${encodeURIComponent(brand)}`; break; // 法国品牌名查询
-        case 'SG': url = `https://digitalhub.ipos.gov.sg/FAMN/eservice/IP4SG/MN_BasicSearch?query=${encodeURIComponent(brand)}`; break; // 新加坡品牌名查询
-        case 'DE': url = `https://depatisnet.dpma.de/DepatisNet/depatisnet?window=1&space=menu&content=index&action=index&query=${encodeURIComponent(brand)}`; break; // 德国品牌名查询
-        case 'JP': url = `https://www.j-platpat.inpit.go.jp/t0000?query=${encodeURIComponent(brand)}`; break; // 日本品牌名查询（你标注可查申请号/注册号，品牌名也用此链接）
+
+    // 预设的加密网址片段 (Base64)
+    const baseUrls = {
+        'GLOBAL': 'aHR0cHM6Ly9icmFuZGRiLndpcG8uaW50L2VuL3NpbWlsYXJuYW1lP3NvcnQ9c2NvcmUlMjBkZXNjJnN0YXJ0PTAmcm93cz0zMCZxdWVyeT0=',
+        'US': 'aHR0cHM6Ly90bXNlYXJjaC51c3B0by5nb3Yvc2VhcmNoL3NlYXJjaC1pbmZvcm1hdGlvbj9xdWVyeT0=',
+        'EU': 'aHR0cHM6Ly9ldWlwby5ldXJvcGEuZXUvZVNlYXJjaC8jc2VhcmNoPXRyYWRlbWFya3MmcXVlcnk9',
+        'GB': 'aHR0cHM6Ly90cmFkZW1hcmtzLmlwby5nb3YudWsvaXBvLXRtdGV4dC9wYWdlL1Jlc3VsdHMvMS8=',
+        'AU': 'aHR0cHM6Ly9zZWFyY2guaXBhdXN0cmFsaWEuZ292LmF1L3RyYWRlbWFya3Mvc2VhcmNoL3F1aWNrP3F1ZXJ5PQ==',
+        'CA': 'aHR0cHM6Ly9pc2VkLWlzZGUuY2FuYWRhLmNhL2NpcG8vdHJhZGVtYXJrLXNlYXJjaC9zcmNoP3F1ZXJ5PQ==',
+        'CN': 'aHR0cHM6Ly9zYmouY25pcGEuZ292LmNuL3Niai9zYmN4Lz9xPQ==',
+        'MX': 'aHR0cHM6Ly9tYXJjaWEuaW1waS5nb2IubXgvbWFyY2FzL3NlYXJjaC9xdWljay9xdWVyeT0=',
+        'FR': 'aHR0cHM6Ly9kYXRhLmlucGkuZnIvcmVjaGVyY2hlX2F2YW5jZWUvbWFycXVlcz9xdWVyeT0=',
+        'SG': 'aHR0cHM6Ly9kaWdpdGFsaHViLmlwb3MuZ292LnNnL0ZBTU4vZXNlcnZpY2UvSVA0U0cvTU5fQmFzaWNTZWFyY2g/cXVlcnk9',
+        'DE': 'aHR0cHM6Ly9kZXBhdGlzbmV0LmRwbWEuZGUvRGVwYXRpc05ldC9kZXBhdGlzbmV0P3dpbmRvdz0xJnNwYWNlPW1lbnUmY29udGVudD1pbmRleCZhY3Rpb249aW5kZXgmcXVlcnk9',
+        'JP': 'aHR0cHM6Ly93d3cuai1wbGF0cGF0LmlucGl0LmdvLmpwL3QwMDAwP3F1ZXJ5PQ=='
+    };
+
+    // WIPO 特殊后缀处理
+    const globalSuffix = 'JmFzU3RydWN0dXJlPSU3QiUyMmJvb2xlYW4lMjI6JTIyQU5EJTIyLCUyMmJyaWNrcyUyMjolNUIlNUQlN0Q=';
+
+    if (baseUrls[country]) {
+        // 解码前段
+        let finalUrl = atob(baseUrls[country]) + encodeURIComponent(brand);
+        
+        // 如果是全球查询，补全 WIPO 的复杂参数后缀
+        if (country === 'GLOBAL') {
+            finalUrl += atob(globalSuffix);
+        }
+
+        window.open(finalUrl, '_blank');
+    } else {
+        alert('暂不支持该地区的快速检索');
     }
-    window.open(url, '_blank');
 }
-
-
-        showExample();
     </script>
 <script>
 function switchQuery(type) {
@@ -4218,6 +4252,38 @@ function checkDebugger() {
     if (dur > 100) {
         // 说明有人在调试，可以跳转到空白页
         window.location.href = "about:blank";
+    }
+}
+/**
+ * 完整跳转库：网址经过加密，防止直接搜寻
+ */
+function secureJump(key) {
+    const urls = {
+        'WIPO_BRAND': 'aHR0cHM6Ly9icmFuZGRiLndpcG8uaW50Lw==',
+        'US_TM': 'aHR0cHM6Ly90bXNlYXJjaC51c3B0by5nb3Yv',
+        'CA_TM': 'aHR0cHM6Ly9pc2VkLWlzZGUuY2FuYWRhLmNhL2NpcG8vdHJhZGVtYXJrLXNlYXJjaC9zcmNo',
+        'MX_TM': 'aHR0cHM6Ly9tYXJjaWEuaW1waS5nb2IubXgvbWFyY2FzL3NlYXJjaC9xdWljaw==',
+        'EU_TM': 'aHR0cHM6Ly9ldWlwby5ldXJvcGEuZXUvZVNlYXJjaC8=',
+        'UK_TM': 'aHR0cHM6Ly90cmFkZW1hcmtzLmlwby5nb3YudWsvaXBvLXRtdGV4dA==',
+        'DE_TM': 'aHR0cHM6Ly9kZXBhdGlzbmV0LmRwbWEuZGUv',
+        'FR_TM': 'aHR0cHM6Ly9kYXRhLmlucGkuZnIv',
+        'CN_TM': 'aHR0cHM6Ly9zYmouY25pcGEuZ292LmNuL3Niai9zYmN4Lw==',
+        'JP_TM': 'aHR0cHM6Ly93d3cuai1wbGF0cGF0LmlucGl0LmdvLmpwLw==',
+        'AU_TM': 'aHR0cHM6Ly9zZWFyY2guaXBhdXN0cmFsaWEuZ292LmF1Lw==',
+        'SG_TM': 'aHR0cHM6Ly9kaWdpdGFsaHViLmlwb3MuZ292LnNnLw==',
+        'WIPO_PATENT': 'aHR0cHM6Ly9wYXRlbnRzY29wZTIud2lwby5pbnQv',
+        'WIPO_DESIGN': 'aHR0cHM6Ly9kZXNpZ25kYi53aXBvLmludC8=',
+        'US_PAT': 'aHR0cHM6Ly9wYXRlbnRjZW50ZXIudXNwdG8uZ292Lw==',
+        'US_DESIGN': 'aHR0cHM6Ly93d3cudXNwdG8uZ292L3BhdGVudHMvc2VhcmNoL3BhdGVudC1wdWJsaWMtc2VhcmNo',
+        'EPO_PAT': 'aHR0cHM6Ly9yZWdpc3Rlci5lcG8ub3JnLw==',
+        'CN_PAT': 'aHR0cHM6Ly9jcHF1ZXJ5LmNwb25saW5lLmNuaXBhLmdvdi5jbi8='
+    };
+
+    if (urls[key]) {
+        // atob 是将 Base64 还原为网址的关键函数
+        window.open(atob(urls[key]), '_blank');
+    } else {
+        console.warn("Key not found: " + key);
     }
 }
 </script>
