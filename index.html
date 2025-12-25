@@ -4195,6 +4195,31 @@ function scrollToSection(id) {
         console.error("未找到 ID 为 " + id + " 的区块，请检查 HTML 中的 id 是否匹配");
     }
 }
+// 禁用右键
+document.oncontextmenu = function() { return false; };
+
+// 禁用特定快捷键 (F12, Ctrl+Shift+I, Ctrl+U)
+document.onkeydown = function(e) {
+    if (e.keyCode === 123 || 
+        (e.ctrlKey && e.shiftKey && e.keyCode === 73) || 
+        (e.ctrlKey && e.keyCode === 85)) {
+        return false;
+    }
+};
+// 只要控制台打开，就陷入无限循环的断点，让对方电脑卡顿或无法操作
+setInterval(function() {
+    checkDebugger();
+}, 2000);
+
+function checkDebugger() {
+    const d = new Date();
+    debugger; // 如果控制台开着，会卡在这里
+    const dur = new Date() - d;
+    if (dur > 100) {
+        // 说明有人在调试，可以跳转到空白页
+        window.location.href = "about:blank";
+    }
+}
 </script>
 </body>
 </html>
